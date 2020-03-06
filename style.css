@@ -1,0 +1,72 @@
+@import url('fonts.googleapis.com/css2?family=Arial&display=swap');
+
+h1 { 
+    font-family: 'Arial', sans-serif; 
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px; 
+    } 
+
+h2 { 
+    font-family: 'Arial', sans-serif;
+    font-size: 20px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 20.4px; 
+    } 
+
+h3 { 
+    font-family: 'Arial', sans-serif;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 15.4px; 
+    } 
+    
+p { 
+    font-family: 'Arial', sans-serif;
+    font-size: 20px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+    } 
+
+.definition { 
+    font-family: 'Arial', sans-serif;
+    color: #566BB3;
+    font-size: 25px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 30px; 
+    padding: 15px;
+    }
+
+.grammar { 
+    font-family: 'Arial', sans-serif;
+    color: rgb(250, 79, 0);
+    font-size: 21px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+    padding:5px;
+    }
+
+.button {
+    color: #ffffff;
+    background-color: #007BFF;
+    border: 1px solid #007BFF;
+    padding: 5px 10px 5px;
+    margin-left: 5px;
+    }
+
+.button:hover {
+    background-color: #e85019;
+    border: 1px solid #e85019;
+    }
