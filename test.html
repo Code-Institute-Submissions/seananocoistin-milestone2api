@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Croidhe Cainnte Chiarraighe - caighdeánaithe</title>
+</head>
+
+<body>
+<h1>Croidhe Cainnte Chiarraighe - caighdeánaithe</h1>
+
+<button type="button" onclick="loadDoc()">Caighdeánaigh é</button>
+
+<p id="demo"></p>
+
+<p onclick="test(this)">acfuinn</p>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("teacs=acfuinn&foinse=ga");
+}
+</script>
+
+</body>
+</html>
