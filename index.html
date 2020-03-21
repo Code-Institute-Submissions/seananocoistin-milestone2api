@@ -2,7 +2,7 @@
 <html lang="ga-IE">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">
@@ -10,156 +10,203 @@
 </head>
 
 <body>
-<div id="word"></div>
 <script>
 function myFunction(word) { 
     var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById(word).innerHTML = this.responseText;
+      document.getElementById(word).innerHTML = JSON.parse(this.responseText.toUpperCase())[0][1];
     }
   };
 xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhttp.send("teacs="+word+"&foinse=ga");
+xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhttp.setRequestHeader("Accept","application/json");
+xhttp.send("teacs="+encodeURIComponent(word)+"&foinse=ga");
 }
 
 </script>
 <div class="container p-3 my-3 bg-primary text-white">
   <h2>Croidhe Cainnte Chiarraighe - Caighdeánaithe</h2>
-  <p>Seo samplaí ón bhfoclóir mór, <strong>Croidhe Cainnte Chiarraighe</strong>, chun iad a léiriú agus chun a leaganacha caighdeánaithe a chur ar fáil.</p>
-  <p><em>(These are some samples taken from the large dictionary, Croidhe Cainnte Chiarraighe, to display the entries and to provide their standardised forms).</em></p>
+  <p>Seo focail tógtha ón bhfoclóir mór, <strong>Croidhe Cainnte Chiarraighe</strong>, chun iad a léiriú agus chun iad a litriú de réir an chaighdeáin.</p>
+  <p><em>(These are words taken from the large dictionary, Croidhe Cainnte Chiarraighe, to display them and to provide their standardised orthography).</em></p>
 </div> 
 
+<div class="container">
+<h1>Brúigh na cnaipí chun a litriú caighdeánaithe a fheiceáil</h1>
+<h3><em>(Click the buttons to see the standardised spellings)</em></h3>
+</div>
+<br>
 
 <div class="container my-3">
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button id="&aacute;bhacht" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <span style="cursor" title="caitheamh aimsire, aoibhneas">ÁBHACHT</span>
+        <button id="acfuinn" class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('acfuinn')">
+            ACFUINN
         </button>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-      <div class="grammar">
-    b.3.
-        </div>
-            <div class="definition">
-                caitheamh aimsire, aoibhneas
-            </div>
-                <div>
-                    <ul>
-                        <li><p id="entry1">Chuirfeadh iarthar Chiarraighe ábhacht ar chroidhe aonne lé n-a bhreághthacht: <strong>aoibhneas agus éirighe croidhe.</strong></p></li>
-                        <li><p id="entry2">Ag ábhacht seadh bhí na buachaillidhe nuair goirtigheadh duine aca: <strong>ag déanamh seóidh.</strong></p></li>
-                        <li><p id="entry3">Bímíd bailighthe sa tigh seo gach oidhche ag ábhacht: <strong>ag déanamh cuideachtan, grinn a's seóidh.</strong></p></li>
-                        <li><p id="entry4">Scéal ró-stuama dho seadh é chun ábhachta do dhéanamh de .i. <strong>chun magaidh do dhéanamh de.</strong></p></li>
-                    </ul>
-                </div>
-        <button class="button" type="button" onclick="myFunction('ábhacht')">Taispeáin an leagan caighdeánaithe</button>
-
-
-
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button id="abair" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" title="deirim, cuirimís i gcás, admhaímis, bíodh agus go">
-        ABAIR
+</div>
+<div class="container my-3">
+        <button id="aithmhéalach" class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('aithmhéalach')">
+            AITHMHÉALACH
         </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-      <div class="grammar">
-            m.ó.
-         </div>   
-<div class="definition">
-deirim, cuirimís i gcás, admhuighimís, bíodh agus go
 </div>
-    <div>
-        <ul>
-            <li><p>Abair go mbeadh dhá mhíle púnt agat, an gceannófá gluaisteán?: <strong>cuir i gcás go mbeadh etc.</strong></p></li>
-            <li><p>Ná stad fós, abair leat: <strong>labhair a thuilleadh.</strong></p></li>
-            <li><p>Cad thug sé ar an gcoin? – ní fheadar, fiche púnt abair: <strong>b’fhéidir.</strong></p></li>
-            <li><p>“Is maith an fear tú, dar leat” – “abair é!”: <strong>bí lándeimhnightheach de.</strong></p></li>
-            <li><p>Nuair castar daoine ar a chéile deir duine dhíobh – abair, nó abraidh, a fheara, a mhná, a gharsúna, a ghearrchailidhe: <strong>innis nó innsidh do (bhur) scéal.</strong></p></li>
-            <li><p>“Tá ár seanchara Tomás caillte” – “níl? ná habair é”: <strong>is deacair é do chreideamhaint.</strong> </p></li>
-            <li><p>B’fhearr liom lúidín coise Sheáin Mhistéal ’ná corp Dhómhnaill Uí Chonaill ar fad” – “déarfainn é”: <strong>d’aontóchainn leat go fonnmhar.</strong></p></li>
-            <li><p>“Ní abrann galar fada bréag”: <strong>tagann an bás dá dhruim.</strong></p></li>
-            <li><p>“Deirim go niomcharóchainn dathad cloch ar mo dhrom” – “deireann tusa rud”: <strong>ní mór an fhuaimeant led chuid cainnte.</strong></p></li>
-            <li><p>Abair Scéal Mhadra na n-Ocht gCos dúinn: <strong>innis é; aithris é.</strong></p></li>
-        </ul>
-    </div>
-    <button class="button" type="button" onclick="myFunction('abair')">Taispeáin an leagan caighdeánaithe</button>
-      </div>
-    </div>
-  </div>
- 
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-      <button id="acfuinn" class="btn btn-primary" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" title="maoin, cumhacht, ionnús, flúirse, neart, bua fulangachta, feisteas">
-        ACFUINN
+<div class="container my-3">
+        <button id="brúideamhlacht" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('brúideamhlacht')">
+            BRÚIDEAMHLACHT
         </button>
-      </h5>
-    </div>
-    
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-<div class="grammar">      
-b.2.
 </div>
-<div class="definition">
-maoin, cómhacht, ionmhas, flúirse, neart, buaidh fuilngtheachta, feisteas
+<div class="container my-3">
+        <button id="bréagnughadh" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('bréagnughadh')">
+            BRÉAGNUGHADH
+        </button>
 </div>
-    <div>
-        <ul>
-            <li><p>Is mó acfuinn capaill ’ná acfuinn asail: <strong>neart.</strong></p></li>
-            <li><p>As acfuinn a chéile do dhein muinntir an bhaile an bóthar san: <strong>lé cabhair a chéile.</strong></p></li>
-            <li><p>As m’acfuinn féin do rugas an bórd aníos an staighre: <strong>gan aonne bheith ag cabhrughadh liom.</strong></p></li> 
-            <li><p>Do thug gach aonne a shíntiús dréir a acfuinne: <strong>dréir mar bhí gustal nó neart aige air.</strong></p></li> 
-            <li><p>Ní raibh sé ar m’acfuinn pingin do thabhairt don mbochtán direóil: <strong>ní raibh sé agam lé tabhairt do.</strong></p></li> 
-            <li><p>Dá mb’acfuinn dom iasacht mo rothair do thabhairt duit do dhéanfainn sin: <strong>dá bhféadfainn é.</strong></p></li> 
-            <li><p>Níl aon acfuinn ar bháistigh aige, tá sé ró-leice: <strong>níl fulang aige uirthe.</strong></p></li>
-            <li><p>An bhfuil acfuinn fuachta ionat?: <strong>an féidir leat fuacht d’ fhulang?</strong></p></li>
-            <li><p>Láidir go maith as a ghéagaibh do bhí sé ach ní raibh aon acfuinn cabhlach ann: <strong>tímcheall a chuirp ní raibh neart dá réir ann.</strong></p></li> 
-            <li><p>Déarfainn go bhfuil acfuinn i leathar na mbróg san: <strong>buanas agus fulang.</strong></p></li> 
-            <li><p>“Is fada sheasaimh sé an bhreóidhteacht” – “ní h-iongadh san, cá ngeobhadh a acfuinn?”: <strong>a neart agus a chómhacht fuilngthe ná caithfidís iad féin do chur in iúil.</strong></p></li> 
-            <li><p>Dá bhfaighinn acfuinn ón Riaghaltas do dhéanfainn talamh mín den ngairbhthean san: <strong>dá bhfaighinn úirlisidhe oibre a’s airgead.</strong></p></li>
-            <li><p>Lé haois níl acfuinn ag fanacht ionam: <strong>neart, luadar a’s fulang.</strong></p></li> 
-            <li><p>Tháinig taom obann air nár fhág aon acfuinn n-a ghéagaibh: <strong>aon lúth ná luadar.</strong></p></li> 
-            <li><p>Ná bí ag cainnt ar acfuinn na dtonn, ná feicir gur scoilteadar an chloch dhubh: <strong>cómhacht, luighe.</strong></p></li> 
-            <li><p>Níor chaith an slabhradh ar feadh na mbliadhan lé n-a acfuinn: <strong>buanas.</strong></p></li> 
-            <li><p>Bíodh acfuinn id bhuille nó ní bhrisfir an charraig: <strong>fuinneamh agus cómhacht.</strong></p></li> 
-            <li><p>Speach go raibh acfuinn innte do chuir an chaid leathchéad slat: <strong>ceól a’s fuinneamh.</strong></p></li> 
-            <li><p>Connus leagadh na crainn seo go léir? lé hacfuinn ghaoithe: <strong>neart a’s cómhacht a’s fulaingtheacht.</strong></p></li> 
-            <li><p>Ná bíodh aon dochma ort teacht linn chun ólacháin; <strong>tá acfuinn airgid agamsa: tarang ar airgead.</strong></p></li> 
-            <li><p>Níl mórán acfuinne i bhfaobhar na scine sin: <strong>faobhar seadh é ná fuil aon tseasamh fada ann.</strong></p></li> 
-            <li><p>Bímis ag gluaiseacht chun iascaigh anois, tá an acfuinn ar fad againn: <strong>an feisteas, gach nidh atá ag teastáil uainn.</strong></p></li> 
-            <li><p>Níl faic is fearr ’ná acfuinn sláinte: <strong>sláinte mhaith.</strong></p></li> 
-            <li><p>Cuir ding leis an gcúilín sin agus déanfaidh sé breis acfuinne air: <strong>neartóchaidh sé é.</strong></p></li> 
-            <li><p>Ní haon acfuinn dom do chabhair: <strong>aon mhaitheas.</strong></p></li> 
-            <li><p>Biadh gan acfuinn do dhuine seadh tornapaidhe: <strong>gan scabhárd.</strong></p></li>
-            <li><p>Ní thabharfadh an talamh san cruithneacht níl an acfuinn ann: <strong>an saidhbhreas nó an mianach ceart.</strong></p></li> 
-            <li><p>Cuir acfuinn ionat féin: <strong>luathuigh, brostuigh.</strong></p></li>
-            <li><p>Acfuinn id iarracht!: <strong>neartuigh t’iarracht.</strong></p></li> 
-            <li><p>M’acfuinn thu!: <strong>taithnigheann do ghníomh liom.</strong></p></li>
-        </ul>
-    </div>
-    <button class="button" type="button" onclick="myFunction('acfuinn')">Taispeáin an leagan caighdeánaithe</button>
-      </div>
-    </div>
-    </div>
-  </div>
-  </div>
+<div class="container my-3">
+        <button id="cáilidheacht" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('cáilidheacht')">
+            CÁILIDHEACHT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="críochnamhail" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('críochnamhail')">
+            CRÍOCHNAMHAIL
+        </button>
+</div>
+<div class="container my-3">
+        <button id="dearbhughadh" class="btn btn-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('dearbhughadh')">
+            DEARBHUGHADH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="deóraidheacht" class="btn btn-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('deóraidheacht')">
+            DEÓRAIDHEACHT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="éaluightheach" class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('éaluightheach')">
+            ÉALUIGHTHEACH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="éirighthe" class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('éirighthe')">
+            ÉIRIGHTHE
+        </button>
+</div>
+<div class="container my-3">
+        <button id="fáiltiughadh" class="btn btn-danger" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('fáiltiughadh')">
+            FÁILTIUGHADH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="fearamhlacht" class="btn btn-danger" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('fearamhlacht')">
+            FEARAMHLACHT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="geineamhaint" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('geineamhaint')">
+            GEINEAMHAINT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="giollaidheacht" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('giollaidheacht')">
+            GIOLLAIDHEACHT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="inneamhail" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('inneamhail')">
+            INNEAMHAIL
+        </button>
+</div>
+<div class="container my-3">
+        <button id="imthighthe" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('imthighthe')">
+            IMTHIGHTHE
+        </button>
+</div>
+<div class="container my-3">
+        <button id="lagughadh" class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('lagughadh')">
+            LAGUGHADH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="lúthgháireach" class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('lúthgháireach')">
+            LÚTHGHÁIREACH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="maoluighim" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('maoluighim')">
+            MAOLUIGHIM
+        </button>
+</div>
+<div class="container my-3">
+        <button id="marcaidheacht" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('marcaidheacht')">
+            MARCAIDHEACHT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="naomhtha" class="btn btn-danger" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('naomhtha')">
+            NAOMHTHA
+        </button>
+</div>
+<div class="container my-3">
+        <button id="nidh" class="btn btn-danger" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('nidh')">
+            NIDH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="oibridhe" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('oibridhe')">
+            OIBRIDHE
+        </button>
+</div>
+<div class="container my-3">
+        <button id="osnaighil" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('osnaighil')">
+            OSNAIGHIL
+        </button>
+</div>
+<div class="container my-3">
+        <button id="páirtidheacht" class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('páirtidheacht')">
+            PÁIRTIDHEACHT
+        </button>
+</div>
+<div class="container my-3">
+        <button id="puiblidheacht" class="btn btn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('puiblidheacht')">
+            PUIBLIDHEACHT
+        </button>
+</div><div class="container my-3">
+        <button id="riaghail" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('riaghail')">
+            RIAGHAIL
+        </button>
+</div>
+<div class="container my-3">
+        <button id="ríoghdha" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('ríoghdha')">
+            RÍOGHDHA
+        </button>
+</div>
+<div class="container my-3">
+        <button id="sáruightheach" class="btn btn-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('sáruightheach')">
+            SÁRUIGHTHEACH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="slighe" class="btn btn-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('slighe')">
+            SLIGHE
+        </button>
+</div>
+<div class="container my-3">
+        <button id="teangmhálaidhe" class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('teangmhálaidhe')">
+            TEANGMHÁLAIDHE
+        </button>
+</div>
+<div class="container my-3">
+        <button id="toiceamhail" class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('toiceamhail')">
+            TOICEAMHAIL
+        </button>
+</div>
+<div class="container my-3">
+        <button id="truailliughadh" class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('truailliughadh')">
+            TRUAILLIUGHADH
+        </button>
+</div>
+<div class="container my-3">
+        <button id="útamálaidhe" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" type="button" onclick="myFunction('útamálaidhe')">
+            ÚTAMÁLAIDHE
+        </button>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
