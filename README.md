@@ -7,3 +7,10 @@ In the first entry, Ábhacht, I inserted some Javascript code to allow me to con
 ## Testing
 
 I checked the formatting of the HTML and the CSS files on validators. This allowed me to improve and correct the code for both files.
+
+
+This is a real sample of a dictionary that was unfortunatley never published. It should have been but the useless civil servants in the Irish Department of Education and the Department of Finance never ordered its publication.
+
+All one has to do is click the button "Taispeáin an leagan caighdeánaithe" and the words get sent to the API and then they return to be displayed in their modern standardized spellings. It's like magic!
+
+This approach has great potential for people using old texts in any language. If texts can be sent to an API to whip them into shape with modern spelling, then old texts could be made easy to read for people familiar with modern spelling but who are not familiar with ancient or non-standardised spelling. The user only has to click a button and the work is done for them.

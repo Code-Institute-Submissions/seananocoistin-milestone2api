@@ -10,17 +10,34 @@
 </head>
 
 <body>
+<div id="word"></div>
+<script>
+function myFunction(word) { 
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById(word).innerHTML = this.responseText;
+    }
+  };
+xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("teacs="+word+"&foinse=ga");
+}
+
+</script>
 <div class="container p-3 my-3 bg-primary text-white">
   <h2>Croidhe Cainnte Chiarraighe - Caighdeánaithe</h2>
   <p>Seo samplaí ón bhfoclóir mór, <strong>Croidhe Cainnte Chiarraighe</strong>, chun iad a léiriú agus chun a leaganacha caighdeánaithe a chur ar fáil.</p>
   <p><em>(These are some samples taken from the large dictionary, Croidhe Cainnte Chiarraighe, to display the entries and to provide their standardised forms).</em></p>
 </div> 
+
+
 <div class="container my-3">
 <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button id="&aacute;bhacht" class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button id="&aacute;bhacht" class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <span style="cursor" title="caitheamh aimsire, aoibhneas">ÁBHACHT</span>
         </button>
       </h5>
@@ -42,32 +59,20 @@
                         <li><p id="entry4">Scéal ró-stuama dho seadh é chun ábhachta do dhéanamh de .i. <strong>chun magaidh do dhéanamh de.</strong></p></li>
                     </ul>
                 </div>
-        <button class="button" type="button" onclick="myFunction('&aacute;bhacht')">Taispeáin an leagan caighdeánaithe</button>
+        <button class="button" type="button" onclick="myFunction('ábhacht')">Taispeáin an leagan caighdeánaithe</button>
 
-<script>
-function myFunction(ceannfhocal) {
-    console.log(ceannfhocal);  
-    var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById(ceannfhocal).innerHTML = this.responseText;
-    }
-  };
-xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhttp.send("teacs="+ceannfhocal+"&foinse=ga"); 
-console.log("teacs="+ceannfhocal+"&foinse=ga"); 
-}
 
-</script>
+
       </div>
     </div>
   </div>
+
+  
   <div class="card">
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button id="abair" class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <span style="cursor" title="deirim, cuirimís i gcás, admhuighimís, bíodh agus go">ABAIR</span>
+        <button id="abair" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" title="deirim, cuirimís i gcás, admhaímis, bíodh agus go">
+        ABAIR
         </button>
       </h5>
     </div>
@@ -97,14 +102,16 @@ deirim, cuirimís i gcás, admhuighimís, bíodh agus go
       </div>
     </div>
   </div>
+ 
   <div class="card">
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button id="acfuinn" class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <span style="cursor" title="maoin, cumhacht, ionnús, flúirse, neart, bua fulangachta, feisteas">ACFUINN</span>
+      <button id="acfuinn" class="btn btn-primary" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" title="maoin, cumhacht, ionnús, flúirse, neart, bua fulangachta, feisteas">
+        ACFUINN
         </button>
       </h5>
     </div>
+    
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
 <div class="grammar">      

@@ -1,11 +1,12 @@
-xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhttp.send("teacs=iongantach&foinse=ga");
+var wordArray = [{"word":"hello","gender":"masculine", "defintion":"hello","example":"masculine"},{"word":"ábhacht","gender":"masculine", "defintion":"hello","example":"masculine"}, {"word":"acfuinn","gender":"feminine", "defintion":"hello","example":"masculine"}];
+var x;
 
-
-function test(param) {
-    console.log("shite");
-    document.getElementById("demo").innerHTML = "Paragraph changed!";
-}
-
-
+for (x of wordArray) {
+  document.write(x + "<br >");
+}; 
+var wordArray = {"word":"hello", "defintion":"hello","example":"masculine"};
+let htmlString = "";
+htmlString += "<accordion><h2>" + wordList[i].word + "</h2>";
+for (i = 0; i < wordArray.length; i++){
+document.write(sentence)}
+for (i = 0; i < wordArray.length; i++){document.write(wordArray[i])}
