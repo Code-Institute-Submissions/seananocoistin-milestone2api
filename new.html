@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ga-IE">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Croidhe Cainnte Chiarraighe - caighdeánaithe</title>
+</head>
+
+<body>
+
+<div class="container">
+<form id="IGform">
+  <textarea rows="10" cols="40" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+  <br/><br/>
+  <input type="submit" value="Cuir isteach é"></input>
+  <input type="reset" value="Glan é"></input>
+  <br/><br/>
+  <input type="radio" name="foinse" value="ga">Pre-Standard Irish</input><br/>
+</form>
+<hr/>
+<div id="output"></div>
+</div>
+
+
+<script>
+  window.addEventListener("load", function () {
+    var form = document.getElementById("IGform");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var XHR = new XMLHttpRequest();
+
+      XHR.onreadystatechange = function(event) {
+        if (XHR.readyState == XMLHttpRequest.DONE) {
+          if (XHR.status == 200) {
+            processPairs(JSON.parse(event.target.responseText));
+          }
+          else {
+            var div=document.getElementById("output");
+            div.innerHTML=XHR.status.toString()+': '+XHR.statusText;
+          }
+        }
+      };
+
+      XHR.open("POST", "https://cadhan.com/api/intergaelic/3.0");
+      XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      XHR.setRequestHeader('Accept','application/json');
+      var payload = '';
+      var radios = document.getElementsByName('foinse');
+      for (var i=0; i<radios.length; i++) {
+        if (radios[i].checked) {
+          payload = 'foinse='+radios[i].value+'&teacs=';
+          break;
+        }
+      }
+      payload += encodeURIComponent(document.getElementById('sourcetext').value);
+      XHR.send(payload);
+      var div=document.getElementById("output");
+      div.innerHTML='<em>Translating...</em>'
+    });
+  });
+
+  function processPairs(arr) {
+    var div=document.getElementById("output");
+    var suppress = true;
+    div.innerHTML='';
+    for(var i=0; i<arr.length; i++) {
+      t=arr[i][1];
+      if (t=="\\n") {
+        div.innerHTML+='<br/>';
+        suppress = true;
+      }
+      else {
+        if (suppress==false && !t.match(/^[.,\/;”:!?%})]$/)) {
+          div.innerHTML+=" ";
+        }
+        suppress = (t.match(/^[“\/$(\[#{]$/)!==null);
+        div.innerHTML+=t;
+      }
+    }
+  }
+</script>
+</body>
+</html>
