@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ga-IE">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Croidhe Cainnte Chiarraighe - caighdeánaithe</title>
+</head>
+
+<body>
+
+<div class="container">
+<form id="IGform">
+  <textarea rows="10" cols="150" id="sourcetext" name="teacs" wrap="virtual">Agus thubhairt e,
+"Iongantach!" an dèidh sin.</textarea>
+  <p>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Clear">
+  </p>
+  <p>
+    Source language:<br />
+    <label><input type="radio" name="foinse" value="gd" checked>Scottish Gaelic</label><br>
+    <label><input type="radio" name="foinse" value="gv">Manx Gaelic</label><br>
+    <label><input type="radio" name="foinse" value="ga">Pre-Standard Irish</label><br>
+  </p>
+</form>
+<hr>
+<div id="output"></div>
+</div>
+
+
+<script>
+function queryString(form) {
+  return Array.from(form.querySelectorAll('textarea, [checked]'))
+    .map(el => {
+      const name = el.getAttribute('name');
+      return name + "=" + encodeURIComponent(form[name].value);
+    })
+    .join('&');
+}
+
+document.getElementById('IGform').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('output').textContent = "Loading...";
+  fetch('https://cadhan.com/api/intergaelic/3.0', {
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: queryString(this)
+    })
+    .then(r => r.json())
+    .then(reply => {
+      //document.getElementById('output').textContent = JSON.stringify(reply);
+      console.log(reply);
+      processPairs(reply);
+    });
+});
+
+function processPairs(arr) {
+  var div = document.getElementById("output");
+  var suppress = true;
+  div.innerHTML = '';
+  for (var i = 0; i < arr.length; i++) {
+    t = arr[i][1];
+    if (t == "\\n") {
+      div.innerHTML += '<br/>';
+      suppress = true;
+    } else {
+      if (suppress == false && !t.match(/^[.,\/;”:!?%})]$/)) {
+        div.innerHTML += " ";
+      }
+      suppress = (t.match(/^[“\/$(\[#{]$/) !== null);
+      div.innerHTML += t;
+    }
+  }
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

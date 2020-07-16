@@ -6,10 +6,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/javascript/javascript.js"></script>
 <title>Croidhe Cainnte Chiarraighe - caighdeánaithe</title>
 </head>
 
 <body>
+
 <script>
 function myFunction(word) { 
     var xhttp = new XMLHttpRequest();
@@ -39,11 +41,11 @@ $(document).ready(function() {
     });
 
 });
-  </script>
+</script>
 
 </script>
 <div class="container p-3 my-3 bg-primary text-white">
-    </h2>Croidhe Cainnte Chiarraighe - Caighdeánaithe</h2>
+    <h2>Croidhe Cainnte Chiarraighe - Caighdeánaithe</h2>
     <p>Seo focail tógtha ón bhfoclóir mór, <strong>Croidhe Cainnte Chiarraighe</strong>, chun iad a léiriú agus chun iad a litriú de réir an chaighdeáin.</p>
     <p><em>(These are words taken from the large dictionary, Croidhe Cainnte Chiarraighe, to display them and to provide their standardised orthography).</em></p>
 </div> 
@@ -54,171 +56,188 @@ $(document).ready(function() {
 </div>
 <br>
 
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="croidhe" class="btn btn-success" type="button" onclick="myFunction('croidhe')">
-            Croidhe Cainnte
+            CROIDHE
         </button>
 </div>
-<div class="container my-3">
-        <button id="aithmhéalach" class="btn btn-success" type="button" onclick="myFunction('nodlaig')">
-            aithmhéalach
+<div class="container" style="text-align:center;margin:15px;">
+        <button id="aithmhéalach" class="btn btn-success" type="button" onclick="myFunction('aithmhéalach')">
+            AITHMHÉALACH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
+<form id="IGform">
+  <textarea rows="10" cols="50" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+  <br/><br/>
+  <input type="submit" value="Submit"></input>
+  <input type="reset" value="Clear"></input>
+  <br/><br/>
+  Source language:<br/>
+  <input type="radio" name="foinse" value="gd">Scottish Gaelic</input><br/>
+  <input type="radio" name="foinse" value="gv">Manx Gaelic</input><br/>
+  <input type="radio" name="foinse" value="ga" checked>Pre-Standard Irish</input><br/>
+</form>
+<hr/>
+<div id="output"></div>
+</div>
+
+<div class="container" style="text-align:center;margin:15px;">
         <button id="brúideamhlacht" class="btn btn-primary" type="button" onclick="myFunction('brúideamhlacht')">
             BRÚIDEAMHLACHT
         </button>
 </div>
-<div class="container my-3">
-        <button id="broid" class="btn btn-primary" type="button" onclick="myFunction('bréagnughadh')">
+<div class="container" style="text-align:center;margin:15px;">
+        <button id="bréagnughadh" class="btn btn-primary" type="button" onclick="myFunction('bréagnughadh')">
             BRÉAGNUGHADH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="dánaidheacht" class="btn btn-warning" type="button" onclick="myFunction('dánaidheacht')">
             DÁNAIDHEACHT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="críochnamhail" class="btn btn-warning" type="button" onclick="myFunction('críochnamhail')">
             CRÍOCHNAMHAIL
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="dearbhughadh" class="btn btn-dark" type="button" onclick="myFunction('dearbhughadh')">
             DEARBHUGHADH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="deóraidheacht" class="btn btn-dark" type="button" onclick="myFunction('deóraidheacht')">
             DEÓRAIDHEACHT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="éaluightheach" class="btn btn-info" type="button" onclick="myFunction('éaluightheach')">
             ÉALUIGHTHEACH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="éirighthe" class="btn btn-info" type="button" onclick="myFunction('éirighthe')">
             ÉIRIGHTHE
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="fáiltiughadh" class="btn btn-danger" type="button" onclick="myFunction('fáiltiughadh')">
             FÁILTIUGHADH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="fearamhlacht" class="btn btn-danger" type="button" onclick="myFunction('fearamhlacht')">
             FEARAMHLACHT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="geineamhaint" class="btn btn-secondary" type="button" onclick="myFunction('geineamhaint')">
             GEINEAMHAINT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="giollaidheacht" class="btn btn-secondary" type="button" onclick="myFunction('giollaidheacht')">
             GIOLLAIDHEACHT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="inneamhail" class="btn btn-primary" type="button" onclick="myFunction('inneamhail')">
             INNEAMHAIL
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="imthighthe" class="btn btn-primary" type="button" onclick="myFunction('imthighthe')">
             IMTHIGHTHE
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="lagughadh" class="btn btn-success" type="button" onclick="myFunction('lagughadh')">
             LAGUGHADH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="lúthgháireach" class="btn btn-success" type="button" onclick="myFunction('lúthgháireach')">
             LÚTHGHÁIREACH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="maoluighim" class="btn btn-warning" type="button" onclick="myFunction('maoluighim')">
             MAOLUIGHIM
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="marcaidheacht" class="btn btn-warning" type="button" onclick="myFunction('marcaidheacht')">
             MARCAIDHEACHT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="naomhtha" class="btn btn-danger" type="button" onclick="myFunction('naomhtha')">
             NAOMHTHA
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="nidh" class="btn btn-danger" type="button" onclick="myFunction('nidh')">
             NIDH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="oibridhe" class="btn btn-primary" type="button" onclick="myFunction('oibridhe')">
             OIBRIDHE
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="osnaighil" class="btn btn-primary" type="button" onclick="myFunction('osnaighil')">
             OSNAIGHIL
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="páirtidheacht" class="btn btn-success" type="button" onclick="myFunction('páirtidheacht')">
             PÁIRTIDHEACHT
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="puiblidheacht" class="btn btn-success" type="button" onclick="myFunction('puiblidheacht')">
             PUIBLIDHEACHT
         </button>
-</div><div class="container my-3">
+</div>
+<div class="container" style="text-align:center;margin:15px;">
         <button id="riaghail" class="btn btn-warning" type="button" onclick="myFunction('riaghail')">
             RIAGHAIL
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="ríoghdha" class="btn btn-warning" type="button" onclick="myFunction('ríoghdha')">
             RÍOGHDHA
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="sáruightheach" class="btn btn-dark" type="button" onclick="myFunction('sáruightheach')">
             SÁRUIGHTHEACH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="slighe" class="btn btn-dark" type="button" onclick="myFunction('slighe')">
             SLIGHE
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="teangmhálaidhe" class="btn btn-info" type="button" onclick="myFunction('teangmhálaidhe')">
             TEANGMHÁLAIDHE
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="toiceamhail" class="btn btn-info" type="button" onclick="myFunction('toiceamhail')">
             TOICEAMHAIL
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="truailliughadh" class="btn btn-info" type="button" onclick="myFunction('truailliughadh')">
             TRUAILLIUGHADH
         </button>
 </div>
-<div class="container my-3">
+<div class="container" style="text-align:center;margin:15px;">
         <button id="útamálaidhe" class="btn btn-primary" type="button" onclick="myFunction('útamálaidhe')">
             ÚTAMÁLAIDHE
         </button>
