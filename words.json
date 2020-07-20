@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "focal": "John",
+        "míniú": "Doe",
+        "seoladh": "Port Láirge"
+    },
+    {
+        "id": "2",
+        "focal": "Mary",
+        "míniú": "Peterson",
+        "seoladh": "Cill Dara"
+    },
+    {
+        "id": "3",
+        "focal": "George",
+        "míniú": "Hansen",
+        "seoladh": "Cill Mhantáin"
+    }
+]
