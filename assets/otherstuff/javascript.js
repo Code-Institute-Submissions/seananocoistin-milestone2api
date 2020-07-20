@@ -6,6 +6,15 @@ $(".athraigh").on("click", function() { // jQuery click event for the class 'ath
 
 // document.querySelector(".athraigh").addEventListener("click", myFunction);
 
+console.log("wordArray");
+
+var entries = ["word", "grammar", "definition", "examples"];
+var text = "";
+var i;
+for (i = 0; i < entries.length; i++) {
+  text += entries[i] + "<br>";
+}
+document.getElementById("words").innerHTML = text;
 
 //old code for buttons
 function myFunction(word) { 

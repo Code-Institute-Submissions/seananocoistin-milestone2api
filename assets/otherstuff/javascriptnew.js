@@ -43,3 +43,16 @@ function processPairs(arr) {
     }
   }
 }
+
+htmlString += "<div>";
+htmlString += "<h2 onclick=\"test(this)\">"; 
+htmlString += wordList[i].word;
+htmlString += "</h2>";
+htmlString += "<p>";
+htmlString += wordList[i].gender;
+htmlString += "</p>";
+htmlString += "<p>";
+htmlString += wordList[i].definition;
+htmlString += "</p>";
+// write the code for .examples here
+htmlString += "</div>";
