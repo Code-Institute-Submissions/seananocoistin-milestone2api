@@ -21,15 +21,12 @@ console.log("wordArray[i].grammar");
 console.log("wordArray[i].definition");
 console.log("wordArray[i].examples");
 
-function myFunction() {
-  document.getElementById("words").htmlString = "Paragraph changed!";
-}
 
 function myFunction(word) { 
     var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById(word).innerHTML = JSON.parse(this.responseText.toUpperCase())[0][1];
+      document.getElementById(word).innerHTML = JSON.parse(this.responseText)[0][1];
     }
   };
 xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
@@ -67,18 +64,18 @@ $(document).ready(function() {
 </div>
 <br>
 
-<button onclick="myFunction()">FOCAL</button>
+<button id="flaitheamhail" onclick="myFunction('flaitheamhail')">flaith</button>
 
 <div class="container" style="text-align:center;margin:15px;">
-        <button id="croidhe" class="btn btn-success" type="button" onclick="myFunction('croidhe')">
-            CROIDHE
-        </button>
+        <p id="athdheinim" onclick="myFunction('athdheinim')">athdheinim</p>
 </div>
+
 <div class="container" style="text-align:center;margin:15px;">
         <button id="aithmhéalach" class="btn btn-success" type="button" onclick="myFunction('aithmhéalach')">
             AITHMHÉALACH
         </button>
 </div>
+
 <div class="container" style="text-align:center;margin:15px;">
 <form id="IGform">
   <textarea rows="10" cols="50" id="sourcetext" name="teacs" wrap="virtual"></textarea>
