@@ -51,6 +51,15 @@ $(document).ready(function() {
 
 });
 </script>
+        <form id="IGform">
+            <textarea rows="10" cols="100" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+                <br/><br/>
+            <input type="submit" value="Tiontaigh an téacs"></input>
+            <input type="reset" value="Glan"></input>
+        </form>
+    <hr/>
+        <div id="output"></div>
+    </div>
 
 <div class="container p-3 my-3 bg-primary text-white">
     <h2>Croidhe Cainnte Chiarraighe - Caighdeánaithe</h2>
@@ -64,10 +73,8 @@ $(document).ready(function() {
 </div>
 <br>
 
-<button id="flaitheamhail" onclick="myFunction('flaitheamhail')">flaith</button>
-
 <div class="container" style="text-align:center;margin:15px;">
-        <p id="athdheinim" onclick="myFunction('athdheinim')">athdheinim</p>
+        <button id="uathbhás" onclick="myFunction('uathbhás')">uathbhás</button>
 </div>
 
 <div class="container" style="text-align:center;margin:15px;">
@@ -78,7 +85,7 @@ $(document).ready(function() {
 
 <div class="container" style="text-align:center;margin:15px;">
 <form id="IGform">
-  <textarea rows="10" cols="50" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+  <textarea rows="10" cols="100" id="sourcetext" name="teacs" wrap="virtual"></textarea>
   <br/><br/>
   <input type="submit" value="Submit"></input>
   <input type="reset" value="Clear"></input>

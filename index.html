@@ -1,74 +1,96 @@
 <!DOCTYPE html>
-<html lang="ga">
+<html lang="ga-IE">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/ico" href="./assets/images/favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="/assets/css/style.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Croidhe Cainnte Chiarraighe - caighdeánaithe</title>
+<style>
+
+</style>
 </head>
 
-<!--- body -->
 <body>
-<!-- Back to the top button function -->
-<button onclick="topFunction()" id="myBtn" title="Téigh chuig an mbarr">Barr</button>
 
-<!-- The accordian feature -->
+<div class="container p-3 my-3 bg-primary" style="color:white;text-align:center">
+    <h3>Croidhe Cainnte Chiarraighe - Caighdeánaithe</h3>
+    <p>Seo focail maille lena n-abairtí samplacha tógtha ón bhfoclóir mór, <strong>Croidhe Cainnte Chiarraighe</strong>, chun iad a léiriú agus chun iad a litriú de réir an chaighdeáin.</p>
+    <p><em>(These are entries taken from the large dictionary, Croidhe Cainnte Chiarraighe, to display them and to provide their standardised orthography).</em></p>
+</div> 
+
 <div class="container">
-    <h1>Focail ar féidir iad athrú ach cnaipe a brúigh</h1>
-    <p>Brúigh na cnaipí thíos chun iad a oscailt agus iad a dhúnadh.</p>
+    <h2>Brúigh na cnaipí chun a litriú caighdeánaithe a fheiceáil</h2>
+    <p><em>(Click the buttons to see the standardised spellings)</em></p>
 
-<div class="container" style="margin:30px;">
-<div id="words"></div>
+    <div class="container" style="text-align:center;margin:15px;">
+    <p>Cuir isteach téacs le sean-litriú anseo sa bhosca thíos agus nuair a bheidh sé sin déanta agat, brúigh an cnaipe "Tiontaigh an téacs".</p>
+    <div class="" style="text-align:auto;margin:15px;">
+<form id="IGform">
+  <textarea rows="10" cols="80" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+  <br/><br/>
+        <input type="submit" class="btn btn-success" value="Tiontaigh an téacs"</input>
+        <input type="reset" class="btn btn-light" value="Glan"></input>
+  <br/><br/>
+</form>
+<hr/>
+<div id="output"></div>
 </div>
 
-htmlString += "<h2 onclick=\"test(this)\">"; 
-htmlString += wordArray[i].word;
-htmlString += "</h2>";
-
-
-
-<script src="./assets/javascript/words.js"></script>
-<!--- JavaScript code to make the accordian feature function -->
 <script>
+  window.addEventListener("load", function () {
+    var form = document.getElementById("IGform");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var XHR = new XMLHttpRequest();
 
-function clickedMe('var') { 
-    var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById(var).innerHTML = JSON.parse(this.responseText.)[0][1];
+      XHR.onreadystatechange = function(event) {
+        if (XHR.readyState == XMLHttpRequest.DONE) {
+          if (XHR.status == 200) {
+            processPairs(JSON.parse(event.target.responseText));
+          }
+          else {
+            var div=document.getElementById("output");
+            div.innerHTML=XHR.status.toString()+': '+XHR.statusText;
+          }
+        }
+      };
+
+      XHR.open("POST", "https://cadhan.com/api/intergaelic/3.0");
+      XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      XHR.setRequestHeader('Accept','application/json');
+      var payload = 'foinse=ga&teacs=';
+      payload += encodeURIComponent(document.getElementById('sourcetext').value);
+      XHR.send(payload);
+      var div=document.getElementById("output");
+      div.innerHTML='<em>Tá an téacs á thiontú...</em>'
+    });
+  });
+
+  function processPairs(arr) {
+    var div=document.getElementById("output");
+    var suppress = true;
+    div.innerHTML='';
+    for(var i=0; i<arr.length; i++) {
+      t=arr[i][1];
+      if (t=="\\n") {
+        div.innerHTML+='<br/>';
+        suppress = true;
+      }
+      else {
+        if (suppress==false && !t.match(/^[.,\/;”:!?%})]$/)) {
+          div.innerHTML+=" ";
+        }
+        suppress = (t.match(/^[“\/$(\[#{]$/)!==null);
+        div.innerHTML+=t;
+      }
     }
-  };
-xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
-xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhttp.setRequestHeader("Accept","application/json");
-xhttp.send("teacs="+encodeURIComponent(var)+"&foinse=ga");
-}
-
-$(document).ready(function() {
-
-    $("label").hover(function() {
-        $("label[class='" + $(this).attr("class") + "']").each(function(){
-            $(this).addClass("highlight");
-        });
-    });
-    
-    $("label").mouseleave(function() {
-        $("label[class='" + $(this).attr("class") + "']").each(function(){
-            $(this).removeClass("highlight");
-        });
-    });
-
-});
-
+  }
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://use.fontawesome.com/releases/v5.3.0/js/all.js"></script>
-
-
+<script src='./assets/javascript/script.js'></script>
+<script>
+document.getElementsByTagName("p").style.color = "blue";
+</script>
 </body>
 </html>

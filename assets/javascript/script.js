@@ -1,3 +1,4 @@
+let wordArray = [
     {
         word: "ainbheart",
         grammar: "baininscneach - tríú díchlaonadh",
@@ -24,3 +25,42 @@
         definition: "aithris, cur iarraidh ar, aithris cainnte duine d’fhonn bheith deimhnightheach di; aithris fhonmhóideach",
         examples: ["Ní dóigh liom gur chualais i gceart cad dubhairt sé, déin an chainnt d’athnasc air d’fhéachaint ar thugais leat i gceart í: aithris na focail do tuigeadh duit adubhairt sé.", "Cómhairle! ní théidheann lag orm ach ag athnasc air breis chéille do bheith aige: ag impidhe ’sag iarraidh go láidir.", "Go mbínn cortha bhínn ghá athnasc ar mo chlainn fanacht ó dhrochchuideachtain nó gur thinn dóibh: ghá athchuinghe ortha óm chroidhe.", "Comá ná tiocfadh olc ar an nduine bocht tutbhéalach nuair chonnaic sé ag athnasc air tu: ag aithris go fonmhóideach."]
     },
+];
+
+let htmlString = "";
+for (var i = 0; i < wordArray.length; i++) {
+    htmlString += "<h1 id='h1tag' onclick='clickedMe()'>" + wordArray[i].word + "</h1>";
+    for (var e = 0; e < wordArray.grammar; e++);
+        htmlString += "<p>" + wordArray[i].grammar + "</p>"; {
+    }
+    for (var e = 0; e < wordArray.definition; e++);
+        htmlString += "<h4>" + wordArray[i].definition + "</h4>"; {
+    }
+    for (var e = 0; e < wordArray.examples; e++);
+        htmlString += "<p>" + wordArray[i].examples + "</p>"; {
+    }
+	document.body.innerHTML += htmlString;
+}
+
+let p = document.querySelectorAll("p")
+
+p.forEach(i=>
+                i.onclick = function(){
+                        let value = this.innerText
+                        let cur = this
+                        console.log(value)
+                        var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function(
+                        if (this.readyState == 4 && this.status == 200) {
+
+                                let res = JSON.parse(this.responseText);
+                                let innerText = res.reduce((text,i)=>text+=" "+i[1],"")
+                                cur.innerText = innerText
+                                console.log(innerText)
+                        }
+                };
+        xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.setRequestHeader("Accept","application/json");
+        xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
+        }

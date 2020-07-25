@@ -88,3 +88,4 @@ xhttp.send("teacs="+encodeURIComponent(word)+"&foinse=ga");
       }
     }
   }
+  
