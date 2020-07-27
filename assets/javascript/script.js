@@ -78,3 +78,38 @@ elements.forEach(i=>
         xhttp.setRequestHeader("Accept","application/json");
         xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
         })
+
+let li = document.querySelectorAll('li')
+
+function makeLiClickable(li){
+	li.forEach(i=>
+			i.onclick = function(){
+				let value = this.innerText
+				let cur = this
+				console.log(value)
+				var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+
+					let res = JSON.parse(this.responseText);
+					let signs = [':',',','.','!','?']
+					let innerText = res.reduce((text,i)=>{
+						if(signs.includes(i[1])){
+							text += i[1]+' '
+						}else{
+							text += ' '+i[1]
+						}
+						return text
+					},'')
+                    cur.innerText = innerText
+					cur.style.color = 'green'
+				}
+			};
+		xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("Accept","application/json");
+		xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
+		}
+	)
+}
+makeLiClickable(li)
