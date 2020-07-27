@@ -1,4 +1,48 @@
-@import url('fonts.googleapis.com/css2?family=Arial&display=swap');
+@import url('fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+a {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+}
+
+a:hover {     
+  background: orange;
+}
+
+p {
+    font-size: 110%;
+}
+
+li {
+    font-size: 110%;
+}
+
+.navbar {
+    padding: .8rem;
+    background-color: tomato;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.navbar-nav.navbar-center {
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+}
+
+/* nav .navbar-dark.navbar-nav.navbar-link li a {
+    color: white !important; 
+    } */
+
+.navbar.navbar-expand-md.navbar-dark.sticky-top ul li a{    
+    color: white !important;
+    font-family: 'Oswald', sans-serif;
+}
 
 div.box {
   margin: auto; !important
