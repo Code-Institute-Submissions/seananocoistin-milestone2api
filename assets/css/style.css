@@ -162,3 +162,10 @@ button.accordion {
 button.accordion.active, button.accordion:hover {
     background-color: #c3d5ffa6; 
 }
+div.containerone {
+  border: none;
+  justify-content: center;
+  background-color: rgb(209, 232, 255);    
+  text-align: center;
+  margin: auto;
+}
