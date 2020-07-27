@@ -37,7 +37,7 @@ body, html {
 
 .hero-image {
   background-image: url("/assets/images/ceann_sibeal.jpg");
-  height: 60%;
+  height: 30%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -51,6 +51,19 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+.transbox {
+  margin: 7px;
+  background-color: rgba(85, 79, 79, 0.63);
+  border: 1px solid rgba(211, 208, 208, 0.103);
+  opacity: 0.9;
+}
+
+.transbox h1 {
+  margin: 10% 7% 10% 7%;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 h2 {
