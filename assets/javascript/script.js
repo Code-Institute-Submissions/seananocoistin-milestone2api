@@ -44,12 +44,13 @@ wordArray.forEach((item,mainKey)=>{
 			li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
 		}
 	})
-	htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
+    htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
+    htmlString+= `<button id='btn_${mainKey}'>Fill ar an litriú bunaidh</button>`
 	htmlString = '<div>'+htmlString+'</div>'
 	document.body.innerHTML += htmlString;
 })
 
-let elements = document.querySelectorAll("h1,h4,p")
+let elements = document.querySelectorAll("h1,h4")
 
 elements.forEach(i=>
     i.onclick = function() {
