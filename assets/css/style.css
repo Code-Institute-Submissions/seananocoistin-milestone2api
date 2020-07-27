@@ -174,3 +174,32 @@ h1,h4{
     cursor: pointer;
     color: black;
 }
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+li{
+	display: flex;
+	border:1px solid rgb(150,150,150);
+	border-radius: 5px;
+	width:fit-content;
+	margin: 5px;
+  background-color: #FFF;
+}
+span{
+	display: block;
+	width: calc(50vw - 50px);
+	max-width: 200px;
+	padding:10px;
+	box-sizing: content-box;
+	word-wrap: break-word;
+}

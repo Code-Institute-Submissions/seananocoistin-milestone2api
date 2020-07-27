@@ -45,9 +45,37 @@ wordArray.forEach((item,mainKey)=>{
 		}
 	})
     htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
-    htmlString+= `<button id='btn_${mainKey}'>Fill ar an litriú bunaidh</button>`
+    htmlString+= `<button class="button" id='btn_${mainKey}'>Fill ar an litriú bunaidh</button>`
 	htmlString = '<div>'+htmlString+'</div>'
 	document.body.innerHTML += htmlString;
+})
+
+document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
+	btn.onclick = function(){
+		let id = this.id.split('_')[1]
+		let word = document.querySelector('#word'+id)
+		word.innerHTML = wordArray[id].word
+		word.style.color= 'black';
+		let definition = document.querySelector('#definition'+id)
+		definition.innerHTML = wordArray[id].definition
+		definition.style.color= 'black';
+		let li=''
+		wordArray[id].examples.forEach(example=>{
+			if(example.split(':').length<2){
+				let [sample,explanation] = example.split('?')
+				sample+='? '
+				li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+			}else{
+				let [sample,explanation] = example.split(':')
+				sample+=': '
+				li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+			}
+			
+		})
+		document.querySelector('#ul'+id).innerHTML = li
+		let lis = document.querySelectorAll('li')
+		makeLiClickable(lis)
+	}
 })
 
 let elements = document.querySelectorAll("h1,h4")
@@ -101,8 +129,17 @@ function makeLiClickable(li){
 							text += ' '+i[1]
 						}
 						return text
-					},'')
-                    cur.innerText = innerText
+                    },'')
+                    if(innerText.split(':').length<2){
+						let [sample,explanation] = innerText.split('?')
+						sample+='? ';
+						cur.innerHTML='<span>'+sample+'</span><i><span>'+explanation.replace('\\n','')+'</span>'
+					}else{
+						let [sample,explanation] = innerText.split(':')
+						sample+=': '
+						cur.innerHTML='<span>'+sample+'</span><i><span>'+explanation.replace('\\n','')+'</span>'
+						console.log(explanation)
+					}
 					cur.style.color = 'green'
 				}
 			};
