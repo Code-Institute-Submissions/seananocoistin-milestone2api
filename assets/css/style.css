@@ -193,7 +193,7 @@ li{
 	border-radius: 5px;
 	width:fit-content;
 	margin: 5px;
-  background-color: #FFF;
+    background-color: #FFF;
 }
 span{
 	display: block;
@@ -203,3 +203,8 @@ span{
 	box-sizing: content-box;
 	word-wrap: break-word;
 }
+/* li>span:first-child{
+	width:450px;
+} */
+li:hover{
+	box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
