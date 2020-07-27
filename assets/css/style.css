@@ -169,3 +169,8 @@ div.containerone {
   text-align: center;
   margin: auto;
 }
+
+h1,h4,p{
+    cursor: pointer;
+    color: black;
+}

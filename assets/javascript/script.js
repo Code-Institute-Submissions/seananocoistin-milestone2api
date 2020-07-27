@@ -29,7 +29,7 @@ let wordArray = [
 
 let htmlString = "";
 for (var i = 0; i < wordArray.length; i++) {
-    htmlString += "<h1 id='h1tag' onclick='clickedMe()'>" + wordArray[i].word + "</h1>";
+    htmlString += "<h1>" + wordArray[i].word + "</h1>";
     for (var e = 0; e < wordArray.grammar; e++);
         htmlString += "<p>" + wordArray[i].grammar + "</p>"; {
     }
@@ -41,3 +41,25 @@ for (var i = 0; i < wordArray.length; i++) {
     }
 	document.body.innerHTML += htmlString;
 }
+
+let p = document.querySelectorAll("p")
+
+p.forEach(i=>
+    i.onclick = function() {
+            let value = this.innerText
+            let cur = this
+            console.log(value)
+            var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                let res = JSON.parse(this.responseText);
+                let innerText = res.reduce((text,i)=>text+=" "+i[1],"")
+                cur.innerText = innerText
+                console.log(innerText)
+                }
+                };
+        xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.setRequestHeader("Accept","application/json");
+        xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
+        })
