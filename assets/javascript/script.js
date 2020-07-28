@@ -37,11 +37,11 @@ wordArray.forEach((item,mainKey)=>{
 		if(example.split(':').length<2){
 			let [sample,explanation] = example.split('?')
 			sample+='? '
-			li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+			li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
 		}else{
 			let [sample,explanation] = example.split(':')
 			sample+=': '
-			li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+			li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
 		}
 	})
     htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
@@ -64,11 +64,11 @@ document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
 			if(example.split(':').length<2){
 				let [sample,explanation] = example.split('?')
 				sample+='? '
-				li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+				li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
 			}else{
 				let [sample,explanation] = example.split(':')
 				sample+=': '
-				li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+				li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
 			}
 			
 		})
@@ -133,11 +133,11 @@ function makeLiClickable(li){
                     if(innerText.split(':').length<2){
 						let [sample,explanation] = innerText.split('?')
 						sample+='? ';
-						cur.innerHTML='<span>'+sample+'</span><i><span>'+explanation.replace('\\n','')+'</span>'
+						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
 					}else{
 						let [sample,explanation] = innerText.split(':')
 						sample+=': '
-						cur.innerHTML='<span>'+sample+'</span><i><span>'+explanation.replace('\\n','')+'</span>'
+						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
 						console.log(explanation)
 					}
 					cur.style.color = 'green'
