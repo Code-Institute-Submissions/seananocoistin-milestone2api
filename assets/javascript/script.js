@@ -25,6 +25,36 @@ let wordArray = [
         definition: "aithris, cur iarraidh ar, aithris cainnte duine d’fhonn bheith deimhnightheach di; aithris fhonmhóideach",
         examples: ["Ní dóigh liom gur chualais i gceart cad dubhairt sé, déin an chainnt d’athnasc air d’fhéachaint ar thugais leat i gceart í: aithris na focail do tuigeadh duit adubhairt sé.", "Cómhairle! ní théidheann lag orm ach ag athnasc air breis chéille do bheith aige: ag impidhe ’sag iarraidh go láidir.", "Go mbínn cortha bhínn ghá athnasc ar mo chlainn fanacht ó dhrochchuideachtain nó gur thinn dóibh: ghá athchuinghe ortha óm chroidhe.", "Comá ná tiocfadh olc ar an nduine bocht tutbhéalach nuair chonnaic sé ag athnasc air tu: ag aithris go fonmhóideach."]
     },
+    {
+        word: "bruachán",
+        grammar: "firinscneach - an chéad díchlaonadh",
+        definition: "teallaire, duine droichbhéasach; duine ná tugann aire dá ghnóth féin",
+        examples: ["Scaoil thart an bruachán san – ná cuir aon eadh n-a dhrochchainnt: duine atá ag cainnt thar ceart lé neamhbhéas.", "Dá mbeinn im bhruachán mar thusa, déarfainn leis seasamh dúinn: duine neamhbhéasach.", "Tá sé ag imtheacht n-a bhruachán ar fuaid na tíre, lá aige ar thaobh Fianna Fáil, lá ar thaobh na nGaedheal, agus lá eile ar thaobh Fine Gaedheal: gan fuaimeant, ag itheadh a’s ag gearradh ar gach aonne."]
+    },
+    {
+        word: "buaile",
+        grammar: "firinscneach - ceathrú díchlaonadh",
+        definition: "log bó nó crúidhte; an clós n-a mbíonn aoileach; cródh nó gabhan",
+        examples: ["Téidhidh amach ar an mbuaile lé chéile, tugaid náire dhóibh féin os chómhair na gcomharsan: bíd ag troid ’sag achrann lé chéile go poiblidhe: ar an mbán lé chéile.", "Is dána é coileach ar a bhuaile féin: cois baile is dána duine.", "Caitheadh ’on bhuaile me!: nuair ná raibh aon ghnóth ná aon mheas orm is beag cneastacht fuaireas ó lucht an tighe.", "Tá an fheóil sin lobhtha, gan aon mhaith, caith ’on bhuaile í: caith uait í."]
+    },
+    {
+        word: "camchos",
+        grammar: "firinscneach - ceathrú díchlaonadh",
+        definition: "cos agus cor innte",
+        examples: ["Tairng chughat as mo shlighe do chamachosa: cosa (nách mbeadh cam) bheadh ag teacht treasna agat ar dhuine eile.", "“Léan id chamachosa!”: deirtear lé duine a shatlóchadh ort, a shiubhalóchadh ar rud shoibhriste nó mar sin."]
+    },
+    {
+        word: "cnádánaidhe",
+        grammar: "firinscneach - ceathrú díchlaonadh",
+        definition: "duine a bhíos ag gearán, cúis nó gan chúis, a bhíos míoshásta, is cuma cad é an aiste do bheadh air",
+        examples: ["Léan air, an rud sprionnlaithe, an cnádánaidhe, má chaith sé coróin ar a cháirde, nách air atá an tinneas ’n-a thaobh: an duine beagchroidheach, crádhinntineach."]
+    },
+    {
+        word: "deimhnightheach",
+        grammar: "aidiacht",
+        definition: "cinnte, dearbhtha",
+        examples: ["Dá me thu ní bheinn chómh deimhnightheach díom féin agus go n-éirigheadh liom i gcomhnaidhe: suidhte im aigne: daingean: “talamh slán” do dhéanamh.", "Níl neach deimhnightheach de rud ar bith sa tsaoghal so: níl sé i gcumas a réamhinnsint cad thárlóchaidh i ndeireadh dála.", "“Gheobhair ullmhughadh breágh, slachtmhar”, ars an mháthair leis an leanbh crosta, “agus bí deimhnightheach de”: ná bíodh aon amhras n-a thaobh ort.", "Budh mhór é ár ndíombáidh nuair fuaireamair an toileán gan biadh ná uisce, mar níor dheimhnighthighe sinn ar éirghe gréine ’ná go mbeadh san i bhflúirse ann: níor lugha amhras sinn: suidhte, meáidhte ’n-ár gceann go mbeidís ann.", "Táimid deimhnightheach d’aon nidh amháin ar an saoghal so, an bás: fírinne nách féidir do chur ar neamhnidh.", "Cuireadh teachtaire deimhnightheach chun scéala cruinn do bhreith go ceann spric: teachtaire iontaobha: teachtaire gur b’fhéidir muinghin do bheith as.", "Bain glór as an airgead san, ní dóigh liom gur réal deimhnightheach é: ceann déanta den mhianach cheart.", "Seachain an roth san, níl sí ró-dheimhnightheach: roth seadh í ná beidhfeá sásta it aigne ná go gclisfeadh sí ort.", "Cómhartha deimhnightheach talmhan seadh uisce (sáile) éadoimhin: cómhartha gur féidir seasamh air."]
+    },
 ];
 
 function cardClick(){
