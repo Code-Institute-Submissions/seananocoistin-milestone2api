@@ -1,4 +1,47 @@
-@import url('fonts.googleapis.com/css2?family=Roboto&display=swap');
+h1 { 
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; 
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+}
+
+h3 { 
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; 
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 15.4px; 
+}
+
+p { 
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; 
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+} 
+    
+blockquote { 
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; 
+    font-size: 21px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 30px;
+ } 
+ 
+ pre { 
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-size: 13px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 18.5714px;
+}
 
 a {
   outline: none;
@@ -11,28 +54,22 @@ a:hover {
   background: orange;
 }
 
-p {
-    font-size: 110%;
-}
-
-li {
-    font-size: 110%;
-}
-
 .navbar {
     padding: .8rem;
     background-color: tomato;
 }
 
-.navbar-nav li {
-    padding-right: 20px;
+.navbar-nav.navbar-center {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 
-.navbar-nav.navbar-center {
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
+.navbar-nav li nav-item {
+	display: flex;
+	width:fit-content;
+	margin: 5px;
 }
 
 /* nav .navbar-dark.navbar-nav.navbar-link li a {
@@ -41,7 +78,7 @@ right: 0;
 
 .navbar.navbar-expand-md.navbar-dark.sticky-top ul li a{    
     color: white !important;
-    font-family: 'Oswald', sans-serif;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
 }
 
 div.box {
@@ -98,7 +135,7 @@ body, html {
 }
 
 .transbox {
-  margin: 7px;
+  margin: 60px;
   background-color: rgba(85, 79, 79, 0.63);
   border: 1px solid rgba(211, 208, 208, 0.103);
   opacity: 0.9;
@@ -162,15 +199,8 @@ button.accordion {
 button.accordion.active, button.accordion:hover {
     background-color: #c3d5ffa6; 
 }
-div.containerone {
-  border: none;
-  justify-content: center;
-  background-color: rgb(209, 232, 255);    
-  text-align: center;
-  margin: auto;
-}
 
-h1,h4{
+h1,h4,li {
     cursor: pointer;
     color: black;
 }
@@ -187,15 +217,13 @@ h1,h4{
   margin: 4px 2px;
   cursor: pointer;
 }
-li{
+
+li {
 	display: flex;
-	border:1px solid rgb(150,150,150);
-	border-radius: 5px;
-	width:fit-content;
-	margin: 5px;
-    background-color: #FFF;
+	width: fit-content;
 }
-span{
+
+span {
 	display: block;
 	width: calc(50vw - 50px);
 	max-width: 200px;
@@ -203,8 +231,10 @@ span{
 	box-sizing: content-box;
 	word-wrap: break-word;
 }
+
 /* li>span:first-child{
 	width:450px;
 } */
+
 li:hover{
 	box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
