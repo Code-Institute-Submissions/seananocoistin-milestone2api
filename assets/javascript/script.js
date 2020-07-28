@@ -82,7 +82,7 @@ function wordGenerator(array){
 		let lih=''
 		let liArray = item.definition.split(';')
 		liArray.forEach(i=>{
-			lih+=`<p>- ${i}</p>`
+			lih+=`<h3>- ${i}</h3>`
 		})
 		htmlString += `<h3 id='definition${mainKey}'>` + lih + "</h3>";
 		let li=''
@@ -126,7 +126,7 @@ function restoreBtns(arr){
 			let lih=''
 			let liArray = arr[id].definition.split(';')
 			liArray.forEach(i=>{
-				lih+=`<p>- ${i}</p>`
+				lih+=`<h3>- ${i}</h3>`
 			})
 			definition.innerHTML = `<h3 id='definition${id}'>` + lih + "</h3>";
 			definition.style.color= 'black';
