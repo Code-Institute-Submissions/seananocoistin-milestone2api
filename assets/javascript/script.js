@@ -26,96 +26,116 @@ let wordArray = [
         examples: ["Ní dóigh liom gur chualais i gceart cad dubhairt sé, déin an chainnt d’athnasc air d’fhéachaint ar thugais leat i gceart í: aithris na focail do tuigeadh duit adubhairt sé.", "Cómhairle! ní théidheann lag orm ach ag athnasc air breis chéille do bheith aige: ag impidhe ’sag iarraidh go láidir.", "Go mbínn cortha bhínn ghá athnasc ar mo chlainn fanacht ó dhrochchuideachtain nó gur thinn dóibh: ghá athchuinghe ortha óm chroidhe.", "Comá ná tiocfadh olc ar an nduine bocht tutbhéalach nuair chonnaic sé ag athnasc air tu: ag aithris go fonmhóideach."]
     },
 ];
-
-wordArray.forEach((item,mainKey)=>{
-	let htmlString = "";
-	htmlString += `<h1 id='word${mainKey}'>` + item.word + "</h1>";
-	htmlString += "<p>" + item.grammar + "</p>"; 
-	htmlString += `<h4 id='definition${mainKey}'>` + item.definition + "</h4>";
-	let li=''
-	item.examples.forEach(example=>{
-		if(example.split(':').length<2){
-			let [sample,explanation] = example.split('?')
-			sample+='? '
-			li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-		}else{
-			let [sample,explanation] = example.split(':')
-			sample+=': '
-			li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-		}
-	})
-    htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
-    htmlString+= `<button class="button" id='btn_${mainKey}'>Fill ar an litriú bunaidh</button>`
-	htmlString = '<div>'+htmlString+'</div>'
-	document.body.innerHTML += htmlString;
-})
-
-document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
-	btn.onclick = function(){
-		let id = this.id.split('_')[1]
-		let word = document.querySelector('#word'+id)
-		word.innerHTML = wordArray[id].word
-		word.style.color= 'black';
-		let definition = document.querySelector('#definition'+id)
-		definition.innerHTML = wordArray[id].definition
-		definition.style.color= 'black';
+function wordGenerator(array){
+	let container = document.querySelector('#wordContainer')
+	container.innerHTML = '';
+	array.forEach((item,mainKey)=>{
+		let htmlString = "";
+		htmlString += `<h1 id='word${mainKey}'>` + item.word + "</h1>";
+		htmlString += "<p>" + item.grammar + "</p>";
+		let lih=''
+		let liArray = item.definition.split(';')
+		liArray.forEach(i=>{
+			lih+=`<p>- ${i}</p>`
+		})
+		htmlString += `<h4 id='definition${mainKey}'>` + lih + "</h4>";
 		let li=''
-		wordArray[id].examples.forEach(example=>{
+		item.examples.forEach(example=>{
 			if(example.split(':').length<2){
 				let [sample,explanation] = example.split('?')
 				sample+='? '
-				li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
+				li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
 			}else{
 				let [sample,explanation] = example.split(':')
 				sample+=': '
-				li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
+				li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
 			}
-			
 		})
-		document.querySelector('#ul'+id).innerHTML = li
-		let lis = document.querySelectorAll('li')
-		makeLiClickable(lis)
-	}
-})
+		htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
+		htmlString+= `<button id='btn_${mainKey}'>return to original spelling</button>`
+		htmlString = '<div class="item">'+htmlString+'</div>'
+		container.innerHTML += htmlString;
+	})
+}
+wordGenerator(wordArray)
+function restoreBtns(arr){
+	document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
+		btn.onclick = function(){
+			let id = this.id.split('_')[1]
+			let word = document.querySelector('#word'+id)
+			word.innerHTML = arr[id].word
+			word.style.color= 'black';
+			let definition = document.querySelector('#definition'+id)
+			let lih=''
+			let liArray = arr[id].definition.split(';')
+			liArray.forEach(i=>{
+				lih+=`<p>- ${i}</p>`
+			})
+			definition.innerHTML = `<h4 id='definition${id}'>` + lih + "</h4>";
+			definition.style.color= 'black';
+			let li=''
+			arr[id].examples.forEach(example=>{
+				if(example.split(':').length<2){
+					let [sample,explanation] = example.split('?')
+					sample+='? '
+					li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+				}else{
+					let [sample,explanation] = example.split(':')
+					sample+=': '
+					li+=`<li><span>`+sample+'</span><i><span>'+explanation+'</span></i></li>'
+				}
+				
+			})
+			document.querySelector('#ul'+id).innerHTML = li
+			let lis = document.querySelectorAll('li')
+			makeLiClickable(lis)
+		}
+	})
+}
+restoreBtns(wordArray)
 
-let elements = document.querySelectorAll("h1,h4")
+let elements = document.querySelectorAll('h4,h1')
+function makeElemetsClickable(elem){
+	elem.forEach(i=>
+			i.onclick = function(){
+				let value = this.innerText
+				let cur = this
+				console.log(value)
+				var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
 
-elements.forEach(i=>
-    i.onclick = function() {
-            let value = this.innerText
-            let cur = this
-            console.log(value)
-            var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200) {
-                let res = JSON.parse(this.responseText);
-                let signs = [':',',','.','!','?']
-                let innerText = res.reduce((text,i)=>{
-                    if(signs.includes(i[1])){
-                        text += i[1]+' '
-                    }else{
-                        text += ' '+i[1]
-                    }
-                    return text
-                    },'')
-                cur.innerText = innerText
-                cur.style.color = 'green'
-                }
-        };
-        xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
-        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhttp.setRequestHeader("Accept","application/json");
-        xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
-        })
+					let res = JSON.parse(this.responseText);
+
+					let signs = [':',',','.','!','?']
+					let innerText = res.reduce((text,i)=>{
+						if(signs.includes(i[1])){
+							text += i[1]+' '
+						}else{
+							text += ' '+i[1]
+						}
+						return text
+					},'')
+					// innerText.replace('\\n','<br>')\
+					cur.innerHTML = innerText.replace(/\\n/g,'<br>')
+					cur.style.color = 'green'
+				}
+			};
+		xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("Accept","application/json");
+		xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
+		}
+	)
+}
+makeElemetsClickable(elements)
 
 let li = document.querySelectorAll('li')
-
 function makeLiClickable(li){
 	li.forEach(i=>
 			i.onclick = function(){
 				let value = this.innerText
 				let cur = this
-				console.log(value)
 				var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -129,17 +149,18 @@ function makeLiClickable(li){
 							text += ' '+i[1]
 						}
 						return text
-                    },'')
-                    if(innerText.split(':').length<2){
+					},'')
+					if(innerText.split(':').length<2){
 						let [sample,explanation] = innerText.split('?')
 						sample+='? ';
-						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+						cur.innerHTML='<span>'+sample+'</span><i><span>'+explanation.replace('\\n','')+'</span>'
 					}else{
 						let [sample,explanation] = innerText.split(':')
 						sample+=': '
-						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+						cur.innerHTML='<span>'+sample+'</span><i><span>'+explanation.replace('\\n','')+'</span>'
 						console.log(explanation)
 					}
+
 					cur.style.color = 'green'
 				}
 			};

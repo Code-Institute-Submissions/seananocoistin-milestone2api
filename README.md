@@ -109,6 +109,8 @@ It is available to use for free. It is an API that require words to be sent to i
 
 [Bootstrap](https://getbootstrap.com/) was also used in order to provide some styling to the webpage.
 
+https://hashtagcolor.com/ff7f50
+
 
 ## Sample Code
 Here is an example of the code used in the website:
