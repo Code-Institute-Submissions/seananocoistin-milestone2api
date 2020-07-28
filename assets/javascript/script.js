@@ -236,3 +236,26 @@ function makeLiClickable(li){
 	)
 }
 makeLiClickable(li)
+
+let abc = Array.from(
+	new Set(
+		wordArray.map(i=>
+			i.word[0].toUpperCase()
+		)
+	)
+)
+let filter = document.querySelector('#filter')
+abc.forEach(i=>{
+	let button = document.createElement('button')
+	button.innerText = i;
+	button.onclick = function(){
+		let filtered = wordArray.filter(item=>item.word[0].toUpperCase()===i)
+		wordGenerator(filtered)
+		let li = document.querySelectorAll('#wordContainer li')
+		makeLiClickable(li)
+		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+		makeElemetsClickable(elements)
+		restoreBtns(filtered)
+	}
+	filter.appendChild(button)
+})

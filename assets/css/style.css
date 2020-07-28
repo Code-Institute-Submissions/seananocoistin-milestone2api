@@ -204,6 +204,22 @@ ul{
 	outline: none
 }
 
+#filter{
+	display:flex;
+	flex-wrap: wrap;
+    justify-content: center;
+}
+
+#filter button{
+	background-color:#FF7F50;
+	border: 1px solid #FF7FBB;
+	margin: 5px;
+	padding: 5px 15px;
+	border-radius: 3px;
+	font-size: 25px;
+    font-weight: bold;
+}
+
 .alaphabetcontainer{
   border: none;
   justify-content: center;
