@@ -119,12 +119,11 @@ li {
 	display: flex;
 	width: fit-content;
     margin: 5px;
+    background-color: white;
 }
 
 span {
 	display: block;
-    width: calc(50vw - 50px);
-	max-width: 200px;
 	width: 200px;
 	padding: 10px;
 	box-sizing: content-box;
@@ -152,7 +151,7 @@ li:hover{
 	padding: 5px 5px 20px 20px;
 	background-color: #F0F8FF;
 	height: 60px;
-	width: 300px;
+	width: 400px;
 	overflow: hidden;
     position: relative;
 }
@@ -220,7 +219,7 @@ ul{
     font-weight: bold;
 }
 
-.alaphabetcontainer{
+.alphabetcontainer{
   border: none;
   justify-content: center;
   background-color: rgb(32, 113, 194);    

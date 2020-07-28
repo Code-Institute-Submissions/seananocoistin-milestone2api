@@ -91,7 +91,7 @@ function wordGenerator(array){
 		liArray.forEach(i=>{
 			lih+=`<p>- ${i}</p>`
 		})
-		htmlString += `<h3 id='definition${mainKey}'>` + lih + "</h3>";
+		htmlString += `<h4 id='definition${mainKey}'>` + lih + "</h4>";
 		let li=''
 		item.examples.forEach(example=>{
 			if(example.split(':').length<2){
@@ -135,7 +135,7 @@ function restoreBtns(arr){
 			liArray.forEach(i=>{
 				lih+=`<p>- ${i}</p>`
 			})
-			definition.innerHTML = `<h3 id='definition${id}'>` + lih + "</h3>";
+			definition.innerHTML = `<h4 id='definition${id}'>` + lih + "</h4>";
 			definition.style.color= 'black';
 			let li=''
 			arr[id].examples.forEach(example=>{
@@ -158,7 +158,7 @@ function restoreBtns(arr){
 }
 restoreBtns(wordArray)
 
-let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+let elements = document.querySelectorAll('#wordContainer h4,#wordContainer h1')
 function makeElemetsClickable(elem){
 	elem.forEach(i=>
 		i.addEventListener('click',function(){
@@ -253,7 +253,7 @@ abc.forEach(i=>{
 		wordGenerator(filtered)
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
-		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+		let elements = document.querySelectorAll('#wordContainer h4,#wordContainer h1')
 		makeElemetsClickable(elements)
 		restoreBtns(filtered)
 	}
