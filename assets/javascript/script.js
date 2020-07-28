@@ -55,6 +55,13 @@ let wordArray = [
         definition: "cinnte, dearbhtha",
         examples: ["Dá me thu ní bheinn chómh deimhnightheach díom féin agus go n-éirigheadh liom i gcomhnaidhe: suidhte im aigne: daingean: “talamh slán” do dhéanamh.", "Níl neach deimhnightheach de rud ar bith sa tsaoghal so: níl sé i gcumas a réamhinnsint cad thárlóchaidh i ndeireadh dála.", "“Gheobhair ullmhughadh breágh, slachtmhar”, ars an mháthair leis an leanbh crosta, “agus bí deimhnightheach de”: ná bíodh aon amhras n-a thaobh ort.", "Budh mhór é ár ndíombáidh nuair fuaireamair an toileán gan biadh ná uisce, mar níor dheimhnighthighe sinn ar éirghe gréine ’ná go mbeadh san i bhflúirse ann: níor lugha amhras sinn: suidhte, meáidhte ’n-ár gceann go mbeidís ann.", "Táimid deimhnightheach d’aon nidh amháin ar an saoghal so, an bás: fírinne nách féidir do chur ar neamhnidh.", "Cuireadh teachtaire deimhnightheach chun scéala cruinn do bhreith go ceann spric: teachtaire iontaobha: teachtaire gur b’fhéidir muinghin do bheith as.", "Bain glór as an airgead san, ní dóigh liom gur réal deimhnightheach é: ceann déanta den mhianach cheart.", "Seachain an roth san, níl sí ró-dheimhnightheach: roth seadh í ná beidhfeá sásta it aigne ná go gclisfeadh sí ort.", "Cómhartha deimhnightheach talmhan seadh uisce (sáile) éadoimhin: cómhartha gur féidir seasamh air."]
     },
+    {
+        word: "dóighteán",
+        grammar: "firinscneach - an chéad díchlaonadh",
+        definition: "teine mhór dhíoghbhálach; an chuid den lóchrann go mbíonn an buaiceas ann",
+        examples: ["“Murchadh an dóighteáin”: an Murchadh nár choigil an teine ar áitreamh na ndaoine.", "Dóighteán seadh an cnoc ar fad: tá sé trí theine.", "Deineadh nead dhóighteáin de Bhársá: cuireadh teine a’s loscadh innte ar fad.", "Tabharfaidh sé dóighteán don dtigh ’e cheal té: an oiread san buile air.", "Ar a mbeidh ólta anocht ges na diabhalaibh úd beidh dóighteán aca: beidh gleódh a’s achrann a’s bruidhean."]
+    },
+
 ];
 
 function cardClick(){
@@ -82,7 +89,7 @@ function wordGenerator(array){
 		let lih=''
 		let liArray = item.definition.split(';')
 		liArray.forEach(i=>{
-			lih+=`<h3>- ${i}</h3>`
+			lih+=`<p>- ${i}</p>`
 		})
 		htmlString += `<h3 id='definition${mainKey}'>` + lih + "</h3>";
 		let li=''
@@ -126,7 +133,7 @@ function restoreBtns(arr){
 			let lih=''
 			let liArray = arr[id].definition.split(';')
 			liArray.forEach(i=>{
-				lih+=`<h3>- ${i}</h3>`
+				lih+=`<p>- ${i}</p>`
 			})
 			definition.innerHTML = `<h3 id='definition${id}'>` + lih + "</h3>";
 			definition.style.color= 'black';
