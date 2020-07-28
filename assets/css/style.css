@@ -149,6 +149,8 @@ li {
 
 span {
 	display: block;
+    width: calc(50vw - 50px);
+	max-width: 200px;
 	width: 200px;
 	padding: 10px;
 	box-sizing: content-box;
@@ -162,6 +164,12 @@ span {
 li:hover{
 	box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
 }
+@media only screen and (min-width: 1000px) {
+  span{
+		width:450px;
+
+	}
+}
 
 .item{
 	border: 1px solid rgb(0, 0, 0);
@@ -170,9 +178,56 @@ li:hover{
 	padding: 5px 5px 20px 20px;
 	background-color: #F0F8FF;
 	height: 60px;
-	width: 400px;
+	width: 300px;
 	overflow: hidden;
-    position: relative;
+  position: relative;
+}
+.item_hover{
+	text-align: left;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 10px;
+	margin: 5px;
+	padding: 20px;
+	background-color: #F0F8FF;
+	height: initial;
+	width: auto;
+	position: relative
+}
+ul{
+	padding: 0
+}
+#wordContainer{
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+	.item_hover{
+		text-align: left;
+		border: 1px solid rgb(0, 0, 0);
+		border-radius: 10px;
+		margin: 5px;
+		padding: 20px;
+		background-color: #F0F8FF;
+		height: initial;
+		width: calc(100% - 50px);
+		position: relative;
+	}
+}
+.show{
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: rgba(255,127,80,0.7);
+	border: none;
+	border-radius: 10px;
+	padding: 0px 8px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.show:focus{
+	outline: none
 }
 
 .alaphabetcontainer{
