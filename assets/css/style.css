@@ -194,7 +194,7 @@ ul{
 	right: 0;
 	background-color: rgba(255,127,80,0.7);
 	border: none;
-	border-radius: 10px;
+	border-radius: 8px;
 	padding: 0px 8px;
 	font-size: 30px;
 	font-weight: bold;
@@ -222,7 +222,7 @@ ul{
 .alphabetcontainer{
   border: none;
   justify-content: center;
-  background-color: rgb(32, 113, 194);    
+  background-color: #f0ead6;  
   text-align: center;
   margin: auto;
 }
