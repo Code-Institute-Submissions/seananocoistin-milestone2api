@@ -322,7 +322,7 @@ let wordArray = [
         definition: "an cubhar a thagas ar bhainne, uisce (go mbeadh feóil ag beirbhiughadh ann), ar leann dubh, etc.",
         examples: ["Is sia théigheann (is buaine) an t-únán ná an t-anbhruithe: is tairbhighe an bhó ina beathaidh is ag tabhairt bhainne ’ná í do mharbhadh is a cuid anbhruithe d’ól den uair sin", 
         "Bainne fé n-a chuid únáin: ",
-        "“Ól siar an piúnt san tá scabhárd ann, féach an túnán atá air!: an barra geal-bhuidhe lé mianach is suiméar, agus go bhfuilid na daoine móra tréan ortha” (Matha XX. 25): ceannas iomlán, tighearnas", 
+        "“Ól siar an piúnt san tá scabhárd ann, féach an t-únán atá air!: an barra geal-bhuidhe lé mianach is suiméar", 
         "Bhinn-se ag obair ghá thuilleamh go cruaidh faid bhíodh daoine eile ag cur únáin ar chodladh!: ag sranntarnaigh"]
     },
 ];
