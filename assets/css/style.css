@@ -123,7 +123,8 @@ li {
 
 span {
 	display: block;
-	width: 200px;
+    width: calc(50vw - 60px);
+	max-width: 200px;
 	padding: 10px;
 	box-sizing: content-box;
 	word-wrap: break-word;
@@ -139,7 +140,7 @@ li:hover{
 @media only screen and (min-width: 1000px) {
   span{
 		width:450px;
-
+        max-width: initial;
 	}
 }
 
@@ -193,7 +194,7 @@ ul{
 	right: 0;
 	background-color: rgba(255,127,80,0.7);
 	border: none;
-	border-radius: 8px;
+	border-radius: 10px;
 	padding: 0px 8px;
 	font-size: 30px;
 	font-weight: bold;

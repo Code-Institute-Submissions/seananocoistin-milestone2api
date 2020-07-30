@@ -452,7 +452,6 @@ function makeElemetsClickable(elem){
 						}
 						return text
 					},'')
-					// innerText.replace('\\n','<br>')\
 					cur.innerHTML = innerText.replace(/\\n/g,'<br>')
 					cur.style.color = 'green'
 				}
@@ -476,16 +475,28 @@ function makeLiClickable(li){
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 
-					let res = JSON.parse(this.responseText);
-					let signs = [':',',','.','!','?']
-					let innerText = res.reduce((text,i)=>{
+                    let res = JSON.parse(this.responseText);
+                    // fixes error with space before and after quotation marks
+                    let signs = [':','.',',','!','?',')']// characters that get a space added after them
+                    let quotes = ['"','“','”',] // characters after which a space is deleted
+					let innerText = res.reduce((text,i)=>{ // if these signs are present, the rules for a space applies to them
 						if(signs.includes(i[1])){
-							text += i[1]+' '
-						}else{
-							text += ' '+i[1]
-						}
+                            text += i[1]+' '
+                        }else if(quotes.includes(i[1])){
+                            if(quotes.includes(text[text.length-1])){ // if quotes are present, the following rules apply to them
+                                text += ` ${i[1]}` // if present, space is added
+                            }else{
+                                text += `${i[1]}` // if not present, no space is added
+                            }
+                        }else{
+                            if(quotes.includes(text[text.length-1])){
+                                text += i[1]
+                            }else{
+                                text += ' '+i[1]
+                            }
+                        }
 						return text
-					},'')
+                    },'')
 					if(innerText.split(':').length<2){
 						let [sample,explanation] = innerText.split('?')
 						sample+='? ';
@@ -494,7 +505,6 @@ function makeLiClickable(li){
 						let [sample,explanation] = innerText.split(':')
 						sample+=': '
 						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
-						console.log(explanation)
 					}
 
 					cur.style.color = 'green'
