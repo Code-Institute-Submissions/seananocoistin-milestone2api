@@ -220,11 +220,9 @@ ul{
 }
 
 .alphabetcontainer{
-  border: none;
   justify-content: center;
   background-color: #f0ead6;  
   text-align: center;
-  margin: auto;
 }
 
 @media only screen and (max-width: 1000px){
@@ -240,7 +238,7 @@ hr {
     height: 10px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
-    width: 65%;
+    width: 55%;
 }
 
 .backtotop {
