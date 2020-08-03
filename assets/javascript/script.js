@@ -695,3 +695,26 @@ abc.forEach(i=>{
 	}
 	filter.appendChild(button)
 })
+
+let gram = Array.from(
+	new Set(
+		wordArray.map(i=>
+			i.grammar[0].toUpperCase()
+		)
+	)
+)
+let gramfilter = document.querySelector('#gramfilter')
+gram.forEach(i=>{
+	let button = document.createElement('button')
+	button.innerText = i;
+	button.onclick = function(){
+		let filtered = wordArray.gramfilter(item=>item.grammar[0])
+		wordGenerator(filtered)
+		let li = document.querySelectorAll('#wordContainer p')
+		makeLiClickable(li)
+		let elements = document.querySelectorAll('#wordContainer p')
+		makeElemetsClickable(elements)
+		restoreBtns(filtered)
+	}
+	gramfilter.appendChild(button)
+})
