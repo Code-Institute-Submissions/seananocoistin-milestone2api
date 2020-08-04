@@ -1,7 +1,7 @@
 let wordArray = [
     {
         word: "ábhacht",
-        grammar: "bainiscneach - an tríú díchlaonadh",
+        grammar: "baininscneach - an tríú díchlaonadh",
         definition: "meidhir, caitheamh aimsire, aoibhneas",
         examples: ["Chuirfeadh iarthar Chiarraighe ábhacht ar chroidhe aonne lé n-a bhreághthacht: aoibhneas agus éirighe croidhe", 
         "Ag ábhacht seadh bhí na buachaillidhe nuair goirtigheadh duine aca: ag déanamh seóidh",
@@ -696,6 +696,16 @@ abc.forEach(i=>{
 	filter.appendChild(button)
 })
 
+document.querySelector('#reset').onclick = function(){
+    wordGenerator(wordArray)
+    let li = document.querySelectorAll('#wordContainer li')
+    makeLiClickable
+    let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+    makeElementsClickable(elements)
+    restoreBtns(wordArray)
+}
+
+
 let gram = Array.from(
 	new Set(
 		wordArray.map(i=>
@@ -725,7 +735,9 @@ let scagadh = document.querySelector('#scagadh')
 scagadh.onclick = function(){
     if(gramFilter.style.display == 'block'){
         gramFilter.style.display = 'none'
-        scagadh.innerText = 'Scag na bhfocal'
+        scagadh.innerText = 'Scag na focail'
+        scagadh.style.backgroundColor='green'
+        scagadh.style.color='white'
     }else{
         gramFilter.style.display = 'block'
         scagadh.innerText = 'Folaigh na cnaipí seo'

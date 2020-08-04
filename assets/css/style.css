@@ -301,3 +301,19 @@ hr {
 #myUL li a:hover:not(.header) {
   background-color: cornsilk;
 }
+
+#gramFilter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#gramFilter button{
+    color: white;
+    background-color: red;
+    border: 1px solid black;
+    opacity: 0.4;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-size: 15px;
+}
