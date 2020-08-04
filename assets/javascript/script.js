@@ -585,7 +585,7 @@ function restoreBtns(arr){
 restoreBtns(wordArray)
 
 let elements = document.querySelectorAll('#wordContainer h4,#wordContainer h1')
-function makeElemetsClickable(elem){
+function makeElementsClickable(elem){
 	elem.forEach(i=>
 		i.addEventListener('click',function(){
 			let value = this.innerText
@@ -617,7 +617,7 @@ function makeElemetsClickable(elem){
 		})
 	)
 }
-makeElemetsClickable(elements)
+makeElementsClickable(elements)
 
 let li = document.querySelectorAll('#wordContainer li')
 function makeLiClickable(li){
@@ -690,7 +690,7 @@ abc.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h4,#wordContainer h1')
-		makeElemetsClickable(elements)
+		makeElementsClickable(elements)
 		restoreBtns(filtered)
 	}
 	filter.appendChild(button)
@@ -699,22 +699,35 @@ abc.forEach(i=>{
 let gram = Array.from(
 	new Set(
 		wordArray.map(i=>
-			i.grammar[0].toUpperCase()
+			i.grammar.split(' ')[0].replace(',','')
 		)
 	)
 )
-let gramfilter = document.querySelector('#gramfilter')
+let gramFilter = document.querySelector('#gramFilter')
+gramFilter.style.display = 'none'
 gram.forEach(i=>{
 	let button = document.createElement('button')
 	button.innerText = i;
 	button.onclick = function(){
-		let filtered = wordArray.gramfilter(item=>item.grammar[0])
+		let filtered = wordArray.filter(item=>item.grammar.includes(i))
 		wordGenerator(filtered)
-		let li = document.querySelectorAll('#wordContainer p')
+		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
-		let elements = document.querySelectorAll('#wordContainer p')
-		makeElemetsClickable(elements)
+		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+		makeElementsClickable(elements)
 		restoreBtns(filtered)
 	}
-	gramfilter.appendChild(button)
+	gramFilter.appendChild(button)
 })
+
+let scagadh = document.querySelector('#scagadh')
+
+scagadh.onclick = function(){
+    if(gramFilter.style.display == 'block'){
+        gramFilter.style.display = 'none'
+        scagadh.innerText = 'Scag na bhfocal'
+    }else{
+        gramFilter.style.display = 'block'
+        scagadh.innerText = 'Folaigh na cnaipí seo'
+    }
+}
