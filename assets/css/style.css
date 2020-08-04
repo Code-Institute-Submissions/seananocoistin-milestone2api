@@ -103,7 +103,7 @@ h1,h3,li {
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: forestgreen;
   border: none;
   color: white;
   padding: 5px 10px;
@@ -270,36 +270,24 @@ hr {
   box-sizing: border-box;
 }
 
-#myInput {
+#cuardach {
   background-image: url('/assets/images/cuardach.png');
   background-position: 10px 12px;
   background-repeat: no-repeat;
-  width: 35%;
+  width: 90%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
-  margin: 12px;
+  margin: 20px;
 }
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: cornsilk;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: cornsilk;
+.bosca{
+  margin: auto;
+  width: 40%;
+  background-color: #ddd;
+  border: 3px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
+  margin-bottom: 25px;
 }
 
 #gramFilter{
@@ -309,9 +297,9 @@ hr {
 }
 #gramFilter button{
     color: white;
-    background-color: red;
+    background-color: forestgreen;
     border: 1px solid black;
-    opacity: 0.4;
+    opacity: 0.5;
     margin: 5px;
     padding: 10px 15px;
     border-radius: 3px;

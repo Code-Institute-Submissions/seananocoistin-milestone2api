@@ -53,13 +53,20 @@
 
 
 <div class="alphabetcontainer">
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cuardaigh focal..." title="Clóscríobh focal sa bhosca">
-<br>
-    <h4>Roghnaigh focal thíos. Is féidir na focail a scagadh de réir na haibítre ach an litir chuí a bhrúigh.</h4>
-    <div id='filter'></div>
-    <div><button id='reset'>Taispeáin gach focal</button></div>
-    <button id="scagadh">Scag na focail</button>
-    <div id='gramFilter'></div>
+    <div class="bosca">
+        <div class="cuardach">
+            <input type="text" id="cuardach" placeholder="Cuardaigh focal..." title="Clóscríobh focal sa bhosca">
+        </div>
+    </div>
+    <h6>Scag na focail de réir na haibítre.</h6>
+    <div id="filter" style="padding-bottom:15px"></div>
+    <hr/>
+    <h6>Brúigh an cnaipe thíos chun aicmí focail a roghnú.</h6>
+    <div style="margin:10px;"><button id="scagadh">Scag na focail</button></div>
+    <div id="gramFilter" style="padding-bottom:15px;"></div>
+    <hr/>
+    <h6>Brúigh an cnaipe seo chun gach focal a fheiceáil arís.</h6>
+    <div><button id="reset" style="margin:10px;background-color:forestgreen;color:white;">Taispeáin gach focal</button></div>
     <br>
     <div id='wordContainer'></div>
     <script src='assets/javascript/script.js'></script>

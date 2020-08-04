@@ -517,7 +517,7 @@ function wordGenerator(array){
 		liArray.forEach(i=>{
 			lih+=`<p>- ${i}</p>`
 		})
-		htmlString += `<h4 id='definition${mainKey}'>` + lih + "</h4>";
+		htmlString += `<h3 id='definition${mainKey}'>` + lih + "</h3>";
 		let li=''
 		item.examples.forEach(example=>{
 			if(example.split(':').length<2){
@@ -561,7 +561,7 @@ function restoreBtns(arr){
 			liArray.forEach(i=>{
 				lih+=`<p>- ${i}</p>`
 			})
-			definition.innerHTML = `<h4 id='definition${id}'>` + lih + "</h4>";
+			definition.innerHTML = `<h3 id='definition${id}'>` + lih + "</h3>";
 			definition.style.color= 'black';
 			let li=''
 			arr[id].examples.forEach(example=>{
@@ -584,7 +584,7 @@ function restoreBtns(arr){
 }
 restoreBtns(wordArray)
 
-let elements = document.querySelectorAll('#wordContainer h4,#wordContainer h1')
+let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
 function makeElementsClickable(elem){
 	elem.forEach(i=>
 		i.addEventListener('click',function(){
@@ -689,7 +689,7 @@ abc.forEach(i=>{
 		wordGenerator(filtered)
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
-		let elements = document.querySelectorAll('#wordContainer h4,#wordContainer h1')
+		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
 		makeElementsClickable(elements)
 		restoreBtns(filtered)
 	}
@@ -705,6 +705,16 @@ document.querySelector('#reset').onclick = function(){
     restoreBtns(wordArray)
 }
 
+document.querySelector('#cuardach').oninput = function(){
+	let value = this.value
+	let filtered = wordArray.filter(item=>item.word.toUpperCase().includes(value.toUpperCase()))
+	wordGenerator(filtered)
+	let li = document.querySelectorAll('#wordContainer li')
+	makeLiClickable(li)
+	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+	makeElemetsClickable(elements)
+	restoreBtns(filtered)
+}
 
 let gram = Array.from(
 	new Set(
@@ -736,10 +746,12 @@ scagadh.onclick = function(){
     if(gramFilter.style.display == 'block'){
         gramFilter.style.display = 'none'
         scagadh.innerText = 'Scag na focail'
-        scagadh.style.backgroundColor='green'
+        scagadh.style.backgroundColor='forestgreen'
         scagadh.style.color='white'
     }else{
         gramFilter.style.display = 'block'
         scagadh.innerText = 'Folaigh na cnaipí seo'
+        scagadh.style.backgroundColor='forestgreen'
+        scagadh.style.color='white'
     }
 }
