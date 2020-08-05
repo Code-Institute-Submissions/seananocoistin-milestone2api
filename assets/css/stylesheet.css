@@ -37,23 +37,16 @@ nav ul li a{
 }
 
 #cuardach {
-  background-image: url('/assets/images/cuardach.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width:
-  font-size: 18px;
-  padding: 12px 10px 12px 35px;
-  border: 1px solid #ddd;
+    background-image: url('/assets/images/cuardach.png');
+    background-position: 20px 12px;
+    background-repeat: no-repeat;
+    width: 35%;
+    font-size: 18px;
+    padding: 10px 40px;
+    border: 1px solid #ddd;
+    margin-left: 35%;
 }
-.bosca{
-  width: 40%;
-  background-color: lightyellow;
-  border: 3px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
-  margin: auto;
-  margin-top: 50px;
-}
+
 
 #gramFilter{
     display: flex;
@@ -218,7 +211,9 @@ hr {
     height: 10px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
-    width: 55%;
+    width: 50%;
+    text-align:left;
+    margin-left:10
 }
 
 .backtotop {
@@ -238,7 +233,8 @@ hr {
   background-color: #FF7F50;
   color: white;
   cursor: pointer;
-  padding: 10px;
+    height: 30px;
+    width: 30px;
   border-radius: 4px;
 }
 
