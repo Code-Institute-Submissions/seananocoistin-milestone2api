@@ -10,7 +10,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  /*position: relative;*/
 }
 nav{
   width: 100%;
@@ -36,17 +36,51 @@ nav ul li a{
   padding: 30px;
 }
 
-#cuardach {
-    background-image: url('/assets/images/cuardach.png');
-    background-position: 20px 12px;
-    background-repeat: no-repeat;
-    width: 35%;
-    font-size: 18px;
-    padding: 10px 40px;
-    border: 1px solid #ddd;
-    margin-left: 35%;
+.bosca {
+    height: 100px;
+    position: relative;
 }
 
+#cuardach {
+    min-width: 250px;
+    width: 30%;
+    margin: 0;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    background-color: rgb(247, 245, 245);
+    border: 2px solid #999999;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    outline: none;
+    border-radius: 5px;
+    padding: 3px 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-image: url('/assets/images/cuardach.png');
+    background-position: 5px 5px;
+    background-repeat: no-repeat;    
+    -webkit-transition: background-color .2s ease-in,
+                    box-shadow .3s ease-in;
+ 
+    -moz-transition: background-color .2s ease-in,
+                 box-shadow .3s ease-in;
+ 
+    -o-transition: background-color .2s ease-in,
+               box-shadow .3s ease-in;
+ 
+    -ms-transition: background-color .2s ease-in,
+                box-shadow .3s ease-in;
+ 
+    transition: background-color .2s ease-in,
+            box-shadow .3s ease-in;
+}
+
+#cuardach:focus {
+    background-color: rgb(238, 236, 236);
+    border-color: #333333;
+    box-shadow: 0px 0px 25px -2px #333;
+}
 
 #gramFilter{
     display: flex;
@@ -117,7 +151,6 @@ li:hover{
 
 .item{
 	border: 1px solid rgb(0, 0, 0);
-	/*border-radius: 10px;*/
 	margin: 5px;
 	padding: 5px 5px 20px 20px;
 	background-color: white;
@@ -128,8 +161,6 @@ li:hover{
 }
 .item_hover{
 	text-align: left;
-	/*border: 1px solid rgb(0, 0, 0);*/
-	/*border-radius: 10px;*/
 	margin: 5px;
 	padding: 20px;
 	background-color: white;
@@ -154,7 +185,7 @@ ul{
 		border-radius: 10px;
 		margin: 5px;
 		padding: 20px;
-		background-color: #F0F8FF;
+		background-color: #fff;
 		height: initial;
 		width: calc(100% - 50px);
 		position: relative;
@@ -166,8 +197,6 @@ ul{
 	right: 0;
 	background-color: rgba(255,127,80,0.7);
 	border: none;
-	/*border-radius: 10px;*/
-	/*padding: 0px 3px;*/
     height: 30px;
     width: 30px;
 	font-size: 20px;
