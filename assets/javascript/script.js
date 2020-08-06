@@ -561,7 +561,7 @@ function restoreBtns(arr){
 			liArray.forEach(i=>{
 				lih+=`<p>- ${i}</p>`
 			})
-			definition.innerHTML = `<h3 id='definition${id}'>` + lih + "</h3>";
+			definition.innerHTML = lih;
 			definition.style.color= 'black';
 			let li=''
 			arr[id].examples.forEach(example=>{
@@ -712,7 +712,7 @@ document.querySelector('#cuardach').oninput = function(){
 	let li = document.querySelectorAll('#wordContainer li')
 	makeLiClickable(li)
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElemetsClickable(elements)
+	makeElementsClickable(elements)
 	restoreBtns(filtered)
 }
 
@@ -748,10 +748,12 @@ scagadh.onclick = function(){
         scagadh.innerText = 'Scag na focail'
         scagadh.style.backgroundColor='forestgreen'
         scagadh.style.color='white'
+        coverage.style.padding='5px'
     }else{
         gramFilter.style.display = 'block'
         scagadh.innerText = 'Folaigh na cnaipí seo'
         scagadh.style.backgroundColor='forestgreen'
         scagadh.style.color='white'
+        coverage.style.padding='5px'
     }
 }
