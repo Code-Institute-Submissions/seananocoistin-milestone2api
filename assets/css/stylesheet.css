@@ -269,6 +269,18 @@ hr {
     background-color: forestgreen;
 }
 
-/** {
+* {
     box-sizing: border-box;
-}*/
+}
+
+openedbtn{
+    background-color: forestgreen;
+    padding: 5px;
+    color: white;
+}
+
+closedbtn{
+    background-color: forestgreen;
+    padding: 5px;
+    color: white;
+}

@@ -741,19 +741,18 @@ gram.forEach(i=>{
 })
 
 let scagadh = document.querySelector('#scagadh')
+scagadh.classList.add('closedbtn')
 
 scagadh.onclick = function(){
     if(gramFilter.style.display == 'block'){
         gramFilter.style.display = 'none'
         scagadh.innerText = 'Scag na focail'
-        scagadh.style.backgroundColor='forestgreen'
-        scagadh.style.color='white'
-        coverage.style.padding='5px'
+        scagadh.classList.toggle('closedbtn')
+        scagadh.classList.toggle('openedbtn')
     }else{
         gramFilter.style.display = 'block'
         scagadh.innerText = 'Folaigh na cnaipí seo'
-        scagadh.style.backgroundColor='forestgreen'
-        scagadh.style.color='white'
-        coverage.style.padding='5px'
+        scagadh.classList.toggle('openedbtn')
+        scagadh.classList.toggle('closedbtn')
     }
 }
