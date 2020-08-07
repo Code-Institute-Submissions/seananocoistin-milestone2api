@@ -385,7 +385,7 @@ let wordArray = [
     {   word: "ógánach",
         grammar: "firinscneach - an chéad díchlaonadh", 
         definition: "buachaill óg, aosánach, fear óg aontumha", 
-        examples: ["Is iomdha ógánach súil-ghlas ag tnúth lé n-a pósadh, etc.”: fear óg ionphósta",
+        examples: ["Is iomdha ógánach súil-ghlas ag tnúth lé n-a pósadh, etc.: fear óg ionphósta",
         "Ní haon ógánach anois tu ná go mbeadh ciall agat: ní duine thu ná fuil tagtha go bliadhantaibh na tuigseana", 
         "Cogar i leith chugham, a ógánaigh, cad iad na geámaidhe crosta iad so fút?: a bharránaigh",
         "Beidh ógánaigh an cheanntair go léir ar barr ithreach an lá úd d’fhéachaint cé go mbeidh an buaidh aige: aosánaigh: buachaillidhe óga", 
@@ -654,18 +654,18 @@ function restoreBtns(arr){
 		btn.onclick = function(){
 			let id = this.id.split('_')[1]
 			let word = document.querySelector('#word'+id)
-			word.innerHTML = arr[id].word
+			word.innerHTML = id
 			word.style.color= 'black';
 			let definition = document.querySelector('#definition'+id)
 			let lih=''
-			let liArray = arr[id].definition.split(';')
+			let liArray = arr.find(item=>item.word == id).definition.split(';')
 			liArray.forEach(i=>{
 				lih+=`<p>- ${i}</p>`
 			})
 			definition.innerHTML = lih;
 			definition.style.color= 'black';
 			let li=''
-			arr[id].examples.forEach(example=>{
+			arr.find(item=>item.word == id).examples.forEach(example=>{
 				if(example.split(':').length<2){
 					let [sample,explanation] = example.split('?')
 					sample+='? '
