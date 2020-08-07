@@ -35,31 +35,63 @@ let wordArray = [
         word: "aithne",
         grammar: "baininscneach 4ú díchlaonadh",
         definition: "coidreamh, fios nó eólas pearsanta",
-        examples: ["Níl aon aithne agam ar an gcailín sin: níl a fhios agam cé h-í: ní fhéadfainn innsint duit cad is ainm di ná aon rud mar gheall uirthe", "Chuireas aithne ar Thomás Ó Cléirigh n-a shiopa féin i Sráid an Pheárnéalaigh: choidrigheas é, cuireadh i bhfios dom cér bhé féin, a ainm agus mar sin de.", "Ní bhfaighinn ar m’aithne fear chómh galánta: ar líon na ndaoine go léir gur fios dom cé h-iad.", "Is maith an aithne, ní fuláir, atá agat in Áth Cliath tréis na mbliadhanta go léir atá caithte agat ann: a fhios agat cé h-iad mórán daoine, agus fios nó eólas cár cheart duit gabháil innte.", "Tréis na cinneamhna chaith sé an oidhche san ósbuidéal gan aithne: dall ar cad a bhí n-a aigne féin agus ar an uile rud n-a thímcheall.", "Trí lá thug sé gan aithne gan úrlabhra: gan bheith in inmhe aon rud do thabhairt fé ndeara ná focal cainnte do chur as.", "Tháinig sé isteach an doras mar bheadh an nimh ar an aithne agus sinn ag cainnt air: ar an uain go raibh sé in ár smaointibh.", "Mar bheadh an nimh ar an aithne rith sé im aigne dul fé n-a bhrághaid aguscad bheadh ná é marbh rómham ar an mbóthar: cómhacht éigin draoidheachta ag suathadh m’aigne.", "Aithne na féile agus na carthanachta a bhí agamsa air: sin mar chonnac é, fial, carthanach.", "Dob fhada fairsing aithne air: bhí a fhios ges na sluaightibh air i gcómhgar ’si gcéin.", "Dá mb’í aithne an bhitheamhnaigh do bheadh air ní fhéadfá gan cion do bheith agat air: teist, cáil bitheamhnaigh.", "Ná bíodh muinghin agat as dhuine gan aithne: duine nách mbeadh eólas agat cad é an saghas é.", "“An bhfuil aithne agam air?” “Tá, aithne thar na seacht n-aitheanntaibh”: aithne shármhaith agus le fada.", "Cuireadh ó aithne na h-áite me: coisceadh orm teacht ann.", "D’imthigh an oiread aimsire agus gur imthigheamair as aithne a chéile: gur dhearmhadamair aon rud ag baint linn a bhéarfadh chun ár gcuimhnte a chéile.", "D’ól sé an oiread san ná raibh aithne a bheart aige ag dul amugha a’s ag tabhairt dhá thaobh an bhóthair isteach: ní raibh aon mhotháilt aigne aige ar aon nidh a bhí dhá dhéanamh aige.", "Dá mbeadh aithne agat air leigfeá dho: dá mbeadh a fhios agat cad é an saghas (olc) atá ann.", "Cuir in aithne dá chéile me féin agus an cailín áluinn sin, led thoil: innis dom cé h-í agus innis di cé mé.", "Shaoileas go raibh seanaithne agam air, ach bhí dearmhad orm, ní chuirfinn ó m’aithne air, n-a leith go ndiúltóchadh sé aonne ar shuarachas: aithne an-mhaith.", "Dá mbeadh t’aithne agam thabharfainn mo rún duit: dá mbeadh oiread feasa agam id thaobh a’s go dtuigfí dhom go rabhais iontaobha.", "Duine cúthail nárbh fhuraiste aithne do chur air dob eadh Árt Ó Gríobhtha: a choidreamh do dhéanamh, a mheón do nochtadh.", "“Sagart gan sainnt, ní bhfaighinn ar m’aithne”: ameasc sagart mo choidrimh.", "Aithne gan choidreamh atá agat orm: is eól duit m’ainm ach ní h-eól duit mo mheón ná mo shlighte.", "Lé faid m’aimsire as an bparóiste téidheann sibh dem aithne: ní fheadar cé sibh féin."]
+        examples: ["Níl aon aithne agam ar an gcailín sin: níl a fhios agam cé h-í: ní fhéadfainn innsint duit cad is ainm di ná aon rud mar gheall uirthe", 
+        "Chuireas aithne ar Thomás Ó Cléirigh n-a shiopa féin i Sráid an Pheárnéalaigh: choidrigheas é, cuireadh i bhfios dom cér bhé féin, a ainm agus mar sin de", 
+        "Ní bhfaighinn ar m’aithne fear chómh galánta: ar líon na ndaoine go léir gur fios dom cé h-iad", 
+        "Is maith an aithne, ní fuláir, atá agat in Áth Cliath tréis na mbliadhanta go léir atá caithte agat ann: a fhios agat cé h-iad mórán daoine, agus fios nó eólas cár cheart duit gabháil innte", 
+        "Tréis na cinneamhna chaith sé an oidhche san ósbuidéal gan aithne: dall ar cad a bhí n-a aigne féin agus ar an uile rud n-a thímcheall", 
+        "Trí lá thug sé gan aithne gan úrlabhra: gan bheith in inmhe aon rud do thabhairt fé ndeara ná focal cainnte do chur as",
+        "Tháinig sé isteach an doras mar bheadh an nimh ar an aithne agus sinn ag cainnt air: ar an uain go raibh sé in ár smaointibh", 
+        "Mar bheadh an nimh ar an aithne rith sé im aigne dul fé n-a bhrághaid aguscad bheadh ná é marbh rómham ar an mbóthar: cómhacht éigin draoidheachta ag suathadh m’aigne", 
+        "Aithne na féile agus na carthanachta a bhí agamsa air: sin mar chonnac é, fial, carthanach", 
+        "Dob fhada fairsing aithne air: bhí a fhios ges na sluaightibh air i gcómhgar ’si gcéin", 
+        "Dá mb’í aithne an bhitheamhnaigh do bheadh air ní fhéadfá gan cion do bheith agat air: teist, cáil bitheamhnaigh", 
+        "Ná bíodh muinghin agat as dhuine gan aithne: duine nách mbeadh eólas agat cad é an saghas é", 
+        "“An bhfuil aithne agam air?” “Tá, aithne thar na seacht n-aitheanntaibh”: aithne shármhaith agus le fada", 
+        "Cuireadh ó aithne na h-áite me: coisceadh orm teacht ann", 
+        "D’imthigh an oiread aimsire agus gur imthigheamair as aithne a chéile: gur dhearmhadamair aon rud ag baint linn a bhéarfadh chun ár gcuimhnte a chéile", 
+        "D’ól sé an oiread san ná raibh aithne a bheart aige ag dul amugha a’s ag tabhairt dhá thaobh an bhóthair isteach: ní raibh aon mhotháilt aigne aige ar aon nidh a bhí dhá dhéanamh aige", 
+        "Dá mbeadh aithne agat air leigfeá dho: dá mbeadh a fhios agat cad é an saghas (olc) atá ann", 
+        "Cuir in aithne dá chéile me féin agus an cailín áluinn sin, led thoil: innis dom cé h-í agus innis di cé mé", 
+        "Shaoileas go raibh seanaithne agam air, ach bhí dearmhad orm, ní chuirfinn ó m’aithne air, n-a leith go ndiúltóchadh sé aonne ar shuarachas: aithne an-mhaith", 
+        "Dá mbeadh t’aithne agam thabharfainn mo rún duit: dá mbeadh oiread feasa agam id thaobh a’s go dtuigfí dhom go rabhais iontaobha", 
+        "Duine cúthail nárbh fhuraiste aithne do chur air dob eadh Árt Ó Gríobhtha: a choidreamh do dhéanamh, a mheón do nochtadh", 
+        "“Sagart gan sainnt, ní bhfaighinn ar m’aithne”: ameasc sagart mo choidrimh", 
+        "Aithne gan choidreamh atá agat orm: is eól duit m’ainm ach ní h-eól duit mo mheón ná mo shlighte", 
+        "Lé faid m’aimsire as an bparóiste téidheann sibh dem aithne: ní fheadar cé sibh féin"]
     },
     {
         word: "athnasc",
         grammar: "firinscneach, an chéad díchlaonadh",
         definition: "aithris, cur iarraidh ar, aithris cainnte duine d’fhonn bheith deimhnightheach di; aithris fhonmhóideach",
-        examples: ["Ní dóigh liom gur chualais i gceart cad dubhairt sé, déin an chainnt d’athnasc air d’fhéachaint ar thugais leat i gceart í: aithris na focail do tuigeadh duit adubhairt sé.", "Cómhairle! ní théidheann lag orm ach ag athnasc air breis chéille do bheith aige: ag impidhe ’sag iarraidh go láidir.", "Go mbínn cortha bhínn ghá athnasc ar mo chlainn fanacht ó dhrochchuideachtain nó gur thinn dóibh: ghá athchuinghe ortha óm chroidhe.", "Comá ná tiocfadh olc ar an nduine bocht tutbhéalach nuair chonnaic sé ag athnasc air tu: ag aithris go fonmhóideach."]
+        examples: ["Ní dóigh liom gur chualais i gceart cad dubhairt sé, déin an chainnt d’athnasc air d’fhéachaint ar thugais leat i gceart í: aithris na focail do tuigeadh duit adubhairt sé", 
+        "Cómhairle! ní théidheann lag orm ach ag athnasc air breis chéille do bheith aige: ag impidhe ’sag iarraidh go láidir", 
+        "Go mbínn cortha bhínn ghá athnasc ar mo chlainn fanacht ó dhrochchuideachtain nó gur thinn dóibh: ghá athchuinghe ortha óm chroidhe", 
+        "Comá ná tiocfadh olc ar an nduine bocht tutbhéalach nuair chonnaic sé ag athnasc air tu: ag aithris go fonmhóideach"]
     },
     {
         word: "bruachán",
         grammar: "firinscneach - an chéad díchlaonadh",
         definition: "teallaire, duine droichbhéasach; duine ná tugann aire dá ghnóth féin",
-        examples: ["Scaoil thart an bruachán san – ná cuir aon eadh n-a dhrochchainnt: duine atá ag cainnt thar ceart lé neamhbhéas.", "Dá mbeinn im bhruachán mar thusa, déarfainn leis seasamh dúinn: duine neamhbhéasach.", "Tá sé ag imtheacht n-a bhruachán ar fuaid na tíre, lá aige ar thaobh Fianna Fáil, lá ar thaobh na nGaedheal, agus lá eile ar thaobh Fine Gaedheal: gan fuaimeant, ag itheadh a’s ag gearradh ar gach aonne."]
+        examples: ["Scaoil thart an bruachán san – ná cuir aon eadh n-a dhrochchainnt: duine atá ag cainnt thar ceart lé neamhbhéas", 
+        "Dá mbeinn im bhruachán mar thusa, déarfainn leis seasamh dúinn: duine neamhbhéasach", 
+        "Tá sé ag imtheacht n-a bhruachán ar fuaid na tíre, lá aige ar thaobh Fianna Fáil, lá ar thaobh na nGaedheal, agus lá eile ar thaobh Fine Gaedheal: gan fuaimeant, ag itheadh a’s ag gearradh ar gach aonne"]
     },
     {
         word: "buaile",
         grammar: "firinscneach - ceathrú díchlaonadh",
         definition: "log bó nó crúidhte; an clós n-a mbíonn aoileach; cródh nó gabhan",
-        examples: ["Téidhidh amach ar an mbuaile lé chéile, tugaid náire dhóibh féin os chómhair na gcomharsan: bíd ag troid ’sag achrann lé chéile go poiblidhe: ar an mbán lé chéile.", "Is dána é coileach ar a bhuaile féin: cois baile is dána duine.", "Caitheadh ’on bhuaile me!: nuair ná raibh aon ghnóth ná aon mheas orm is beag cneastacht fuaireas ó lucht an tighe.", "Tá an fheóil sin lobhtha, gan aon mhaith, caith ’on bhuaile í: caith uait í."]
+        examples: ["Téidhidh amach ar an mbuaile lé chéile, tugaid náire dhóibh féin os chómhair na gcomharsan: bíd ag troid ’sag achrann lé chéile go poiblidhe: ar an mbán lé chéile", 
+        "Is dána é coileach ar a bhuaile féin: cois baile is dána duine", 
+        "Caitheadh ’on bhuaile me!: nuair ná raibh aon ghnóth ná aon mheas orm is beag cneastacht fuaireas ó lucht an tighe", 
+        "Tá an fheóil sin lobhtha, gan aon mhaith, caith ’on bhuaile í: caith uait í"]
     },
     {
         word: "camchos",
         grammar: "firinscneach - ceathrú díchlaonadh",
         definition: "cos agus cor innte",
-        examples: ["Tairng chughat as mo shlighe do chamachosa: cosa (nách mbeadh cam) bheadh ag teacht treasna agat ar dhuine eile.", "“Léan id chamachosa!”: deirtear lé duine a shatlóchadh ort, a shiubhalóchadh ar rud shoibhriste nó mar sin."]
+        examples: ["Tairng chughat as mo shlighe do chamachosa: cosa (nách mbeadh cam) bheadh ag teacht treasna agat ar dhuine eile", 
+        "“Léan id chamachosa!”: deirtear lé duine a shatlóchadh ort, a shiubhalóchadh ar rud shoibhriste nó mar sin"]
     },
     {
         word: "céimeamhail",
@@ -79,25 +111,58 @@ let wordArray = [
         word: "deimhnightheach",
         grammar: "aidiacht",
         definition: "cinnte, dearbhtha",
-        examples: ["Dá me thu ní bheinn chómh deimhnightheach díom féin agus go n-éirigheadh liom i gcomhnaidhe: suidhte im aigne: daingean: “talamh slán” do dhéanamh", "Níl neach deimhnightheach de rud ar bith sa tsaoghal so: níl sé i gcumas a réamhinnsint cad thárlóchaidh i ndeireadh dála", "“Gheobhair ullmhughadh breágh, slachtmhar”, ars an mháthair leis an leanbh crosta, “agus bí deimhnightheach de”: ná bíodh aon amhras n-a thaobh ort", "Budh mhór é ár ndíombáidh nuair fuaireamair an toileán gan biadh ná uisce, mar níor dheimhnighthighe sinn ar éirghe gréine ’ná go mbeadh san i bhflúirse ann: níor lugha amhras sinn: suidhte, meáidhte ’n-ár gceann go mbeidís ann", "Táimid deimhnightheach d’aon nidh amháin ar an saoghal so, an bás: fírinne nách féidir do chur ar neamhnidh", "Cuireadh teachtaire deimhnightheach chun scéala cruinn do bhreith go ceann spric: teachtaire iontaobha: teachtaire gur b’fhéidir muinghin do bheith as", "Bain glór as an airgead san, ní dóigh liom gur réal deimhnightheach é: ceann déanta den mhianach cheart", "Seachain an roth san, níl sí ró-dheimhnightheach: roth seadh í ná beidhfeá sásta it aigne ná go gclisfeadh sí ort", "Cómhartha deimhnightheach talmhan seadh uisce (sáile) éadoimhin: cómhartha gur féidir seasamh air"]
+        examples: ["Dá me thu ní bheinn chómh deimhnightheach díom féin agus go n-éirigheadh liom i gcomhnaidhe: suidhte im aigne: daingean: “talamh slán” do dhéanamh", 
+        "Níl neach deimhnightheach de rud ar bith sa tsaoghal so: níl sé i gcumas a réamhinnsint cad thárlóchaidh i ndeireadh dála", 
+        "“Gheobhair ullmhughadh breágh, slachtmhar”, ars an mháthair leis an leanbh crosta, “agus bí deimhnightheach de”: ná bíodh aon amhras n-a thaobh ort", 
+        "Budh mhór é ár ndíombáidh nuair fuaireamair an toileán gan biadh ná uisce, mar níor dheimhnighthighe sinn ar éirghe gréine ’ná go mbeadh san i bhflúirse ann: níor lugha amhras sinn: suidhte, meáidhte ’n-ár gceann go mbeidís ann", 
+        "Táimid deimhnightheach d’aon nidh amháin ar an saoghal so, an bás: fírinne nách féidir do chur ar neamhnidh", 
+        "Cuireadh teachtaire deimhnightheach chun scéala cruinn do bhreith go ceann spric: teachtaire iontaobha: teachtaire gur b’fhéidir muinghin do bheith as", 
+        "Bain glór as an airgead san, ní dóigh liom gur réal deimhnightheach é: ceann déanta den mhianach cheart", 
+        "Seachain an roth san, níl sí ró-dheimhnightheach: roth seadh í ná beidhfeá sásta it aigne ná go gclisfeadh sí ort", 
+        "Cómhartha deimhnightheach talmhan seadh uisce (sáile) éadoimhin: cómhartha gur féidir seasamh air"]
     },
     {
         word: "dóighteán",
         grammar: "firinscneach - an chéad díchlaonadh",
         definition: "teine mhór dhíoghbhálach; an chuid den lóchrann go mbíonn an buaiceas ann",
-        examples: ["“Murchadh an dóighteáin”: an Murchadh nár choigil an teine ar áitreamh na ndaoine", "Dóighteán seadh an cnoc ar fad: tá sé trí theine", "Deineadh nead dhóighteáin de Bhársá: cuireadh teine a’s loscadh innte ar fad", "Tabharfaidh sé dóighteán don dtigh ’e cheal té: an oiread san buile air", "Ar a mbeidh ólta anocht ges na diabhalaibh úd beidh dóighteán aca: beidh gleódh a’s achrann a’s bruidhean"]
+        examples: ["“Murchadh an dóighteáin”: an Murchadh nár choigil an teine ar áitreamh na ndaoine", 
+        "Dóighteán seadh an cnoc ar fad: tá sé trí theine", 
+        "Deineadh nead dhóighteáin de Bhársá: cuireadh teine a’s loscadh innte ar fad", 
+        "Tabharfaidh sé dóighteán don dtigh ’e cheal té: an oiread san buile air", 
+        "Ar a mbeidh ólta anocht ges na diabhalaibh úd beidh dóighteán aca: beidh gleódh a’s achrann a’s bruidhean"]
     },
     {
         word: "éagsamhlacht",
         grammar: "baininscneach - an tríú díchlaonadh",
         definition: "coimeascadh rud lé chéile; deifridheacht, claochlódh; ceal cosamhlachta, líon rud nách d’aon saghas; iongtacht, neamhchoitchinne",
-        examples: ["Téighimís isteach ’on tsiopa so b’fhéidir go bhfaghaimís an rud atá uainn, tá éagsamhlacht rud dhá dhíol ann: iliomad rud nách den gcineál gcéadna", "Éagsamhlacht éigin ag baint leis lé déidheannaighe ní bhfaghaim é mar gheibheann bliadhanta ó shoin cainnteach, soilbhir: neamhchoitchinne: neamhghnáthacht ag baint leis", "Ní fuláir nó is mór a bhfuil de chulaitheannaibh éadaigh agat, bíonn éagsamhlacht gléasta ort an uile lá bhuailir liom: malairt ghabhtha", "B’é éagsamhlacht an duine seo nár bh’fheas d’aonne cér bh’é ná cár bh’as é: rud ait nár bh’fhéidir le aonne d’fhagháil amach", "Cé gur b’é do dhreatháir é, tá éagsamhlacht agat leis: níl aon deallramh i gclódh ná i meón"]
+        examples: ["Téighimís isteach ’on tsiopa so b’fhéidir go bhfaghaimís an rud atá uainn, tá éagsamhlacht rud dhá dhíol ann: iliomad rud nách den gcineál gcéadna", 
+        "Éagsamhlacht éigin ag baint leis lé déidheannaighe ní bhfaghaim é mar gheibheann bliadhanta ó shoin cainnteach, soilbhir: neamhchoitchinne: neamhghnáthacht ag baint leis", 
+        "Ní fuláir nó is mór a bhfuil de chulaitheannaibh éadaigh agat, bíonn éagsamhlacht gléasta ort an uile lá bhuailir liom: malairt ghabhtha", 
+        "B’é éagsamhlacht an duine seo nár bh’fheas d’aonne cér bh’é ná cár bh’as é: rud ait nár bh’fhéidir le aonne d’fhagháil amach", 
+        "Cé gur b’é do dhreatháir é, tá éagsamhlacht agat leis: níl aon deallramh i gclódh ná i meón"]
     },
     {
         word: "éan",
         grammar: "firinscneach - an chéad díchlaonadh",
         definition: "(iol. éanlaithe, éin) ainmhidhe dá-chosach, cleiteach, sciathánach; ainm chineálach don aicme (ealtain) sciathánach",
-        examples: ["Léim sé ar nós an éin: chómh seólta, éadtrom", "“Ní h-éan mé”: deir duine a bhíos ag fagháil leithscéil i dtaobh a mhoille gluaiseachta", "Is breágh an fás atá fén aosánach san, “borradh an éin ghé”: ag fás chómh tapaidh le goislín (gé)", "Gheóbhfá a lán uaidh, bí ag brath air, duine atá “chómh fial leis an éan fionn” (seanfhocal): chómh fial leis an gcromán: gan féile ar bith ann: thógfadh gach aon rud go sprionnlaithe a’s ní scarfadh le frighid", "Éan róin: an rón óg", "An t-éan dearg: éan mara: “pearóid” na mara", "Éan aille (faille) ach ní héan mara an “préachán coisdearg”: lonnuigheann i bhfaillteachaibh ach ní theangmhálann leis an uisce", "“An t-éan beannuighthe”: a ainm toisc an tsíor-fheacadh cinn a’s earbaill", "“Éirigh leis an éan agus luigh leis an uan”: .i. mochóirghe agus dul a chodladh luath", "Ghaibh duine de Shliocht Chobhthaigh (saghas giofóg nó tuinncéiridhe) tímcheall indiugh, shaoileas nár mhair aon éan aca: neach díobh: duine éigin aca a choimeádfadh cothughadh ar rátaidhibh a sean", "“Cár chualaís an scéal iongtaiseach so go rabhas-sa ag dul thar lear?” – “ó éan éigin”: duine siubhaltach ná hainmeóchaid", "“Chómh neamhmairgeach leis an éan ar an gcraoibh”: .i. gan faic ag déanamh toirmisc beathaidh dho", "Á, is mór an aire gheibheann an leanbh san ó n-a mháthair agus an pheataidheacht, tá ’n-a éan cuaiche aice: .i. tugann sí aire agus nidhthe dho ná fuil de dhualgas máthar uirthe", "“Éan maith aca seadh é”: deirtear lé duine nách beag aige éalódh ar rud chun a bheith aige nó chuireas slighthe neamhdhlistinneacha roimis chun rud do ghnóthughadh", "“Má leanann na daoine ar bheith ag fágaint an cheanntair a’s gan an óige do bheith ag fásadh is geairrid beidh aonne ann” – “beidh éan éigin i gcómhnaidhe san áit”: fothdhuine", "Is deas baileach d’fhágais t’iothla, budh chuma leat is dóigh liom dá n-imtheóchadh sí ag éanlaithibh an aoir: béal anáirde: gan fasc ná críochnughadh", "Tá sé ag imtheacht ag éanlaithibh an aoir: is féidir le haonne sáthadh chuige; níl a bhac ar aonne cuid de d’árdach leis", "Chómh módhmharach le héan i gcois ar chraoibh (sceich): i ngreim a liodán", "Siubhal nimhe fén mbád seóil, í ag teacht orm mar bheadh éan: chómh luath, seólta", "“Dhá éan do marbhadh leis an aon chloich (urchar)” (seanfhocal): .i. dhá ghnóth do dhéanamh d’aon iarracht"]
+        examples: ["Léim sé ar nós an éin: chómh seólta, éadtrom", "“Ní h-éan mé”: deir duine a bhíos ag fagháil leithscéil i dtaobh a mhoille gluaiseachta", 
+        "Is breágh an fás atá fén aosánach san, “borradh an éin ghé”: ag fás chómh tapaidh le goislín (gé)", 
+        "Gheóbhfá a lán uaidh, bí ag brath air, duine atá “chómh fial leis an éan fionn” (seanfhocal): chómh fial leis an gcromán: gan féile ar bith ann: thógfadh gach aon rud go sprionnlaithe a’s ní scarfadh le frighid", 
+        "Éan róin: an rón óg", "An t-éan dearg: éan mara: “pearóid” na mara", 
+        "Éan aille (faille) ach ní héan mara an “préachán coisdearg”: lonnuigheann i bhfaillteachaibh ach ní theangmhálann leis an uisce", 
+        "“An t-éan beannuighthe”: a ainm toisc an tsíor-fheacadh cinn a’s earbaill", 
+        "“Éirigh leis an éan agus luigh leis an uan”: .i. mochóirghe agus dul a chodladh luath", 
+        "Ghaibh duine de Shliocht Chobhthaigh (saghas giofóg nó tuinncéiridhe) tímcheall indiugh, shaoileas nár mhair aon éan aca: neach díobh: duine éigin aca a choimeádfadh cothughadh ar rátaidhibh a sean", 
+        "“Cár chualaís an scéal iongtaiseach so go rabhas-sa ag dul thar lear?” – “ó éan éigin”: duine siubhaltach ná hainmeóchaid", 
+        "“Chómh neamhmairgeach leis an éan ar an gcraoibh”: .i. gan faic ag déanamh toirmisc beathaidh dho", 
+        "Á, is mór an aire gheibheann an leanbh san ó n-a mháthair agus an pheataidheacht, tá ’n-a éan cuaiche aice: .i. tugann sí aire agus nidhthe dho ná fuil de dhualgas máthar uirthe", 
+        "“Éan maith aca seadh é”: deirtear lé duine nách beag aige éalódh ar rud chun a bheith aige nó chuireas slighthe neamhdhlistinneacha roimis chun rud do ghnóthughadh", 
+        "“Má leanann na daoine ar bheith ag fágaint an cheanntair a’s gan an óige do bheith ag fásadh is geairrid beidh aonne ann” – “beidh éan éigin i gcómhnaidhe san áit”: fothdhuine", 
+        "Is deas baileach d’fhágais t’iothla, budh chuma leat is dóigh liom dá n-imtheóchadh sí ag éanlaithibh an aoir: béal anáirde: gan fasc ná críochnughadh", 
+        "Tá sé ag imtheacht ag éanlaithibh an aoir: is féidir le haonne sáthadh chuige; níl a bhac ar aonne cuid de d’árdach leis", 
+        "Chómh módhmharach le héan i gcois ar chraoibh (sceich): i ngreim a liodán", 
+        "Siubhal nimhe fén mbád seóil, í ag teacht orm mar bheadh éan: chómh luath, seólta", 
+        "“Dhá éan do marbhadh leis an aon chloich (urchar)” (seanfhocal): .i. dhá ghnóth do dhéanamh d’aon iarracht"]
     },        
     {
         word: "éirightheach",
@@ -141,7 +206,8 @@ let wordArray = [
         word: "geanncas",
         grammar: "firinscneach - an chéad díchlaonadh",
         definition: "búisteamhlacht, droichmhianach",
-        examples: ["Amuigh ’si mbaile ní bhfaghfá uaidh ach geanncas, aon rud go dtagrófá dho ní bheadh ’n-a bhéal a’s ’n-a bhrághaid ach snap: droichmhianach, grodacht, gruamdhacht", "Geanncas an mhadra lé n-a chnámh a gheóbhfá uaidh: scaimh a’s giorraisc a thúisce do chuirfeá cómhrádh air"]
+        examples: ["Amuigh ’si mbaile ní bhfaghfá uaidh ach geanncas, aon rud go dtagrófá dho ní bheadh ’n-a bhéal a’s ’n-a bhrághaid ach snap: droichmhianach, grodacht, gruamdhacht", 
+        "Geanncas an mhadra lé n-a chnámh a gheóbhfá uaidh: scaimh a’s giorraisc a thúisce do chuirfeá cómhrádh air"]
     },
     {
         word: "glugarsach",
@@ -159,13 +225,34 @@ let wordArray = [
         word: "hólam tró",
         grammar: "firinscneach - n-dh.",
         definition: "trí chéile, achrann; tranglam; duadh",
-        examples: ["Beireann hólam tró ar an nduine sin ón saoghal: duadh a’s iomard", "Nuair bhí na daoine go léir bailighthe isteach sa halla chumhang ráinig hólam tró ann d’iarraidh suidheachán do bhaint amach: achrann", "Hólam tró ar bith ní theastuigheann uaim sa tigh seo mara mbíonn ciúnas agaibh amach libh!: tranglam: míoshuaimhneas", "Leanann hólam tró feirmeóireacht i ndrochaimsir: claoidheachtaint mhór lé hobair"]
+        examples: ["Beireann hólam tró ar an nduine sin ón saoghal: duadh a’s iomard", 
+        "Nuair bhí na daoine go léir bailighthe isteach sa halla chumhang ráinig hólam tró ann d’iarraidh suidheachán do bhaint amach: achrann", 
+        "Hólam tró ar bith ní theastuigheann uaim sa tigh seo mara mbíonn ciúnas agaibh amach libh!: tranglam: míoshuaimhneas", 
+        "Leanann hólam tró feirmeóireacht i ndrochaimsir: claoidheachtaint mhór lé hobair"]
     },
     {
         word: "iadhaim",
         grammar: "b.a. 7 n-a.",
         definition: "dúnaim, fáiscim, ceanglaim, fálaim, locaim, líonaim",
-        examples: ["Ná hiadhadh súil leat i rith na hoidhche ar do chluais: ná tuiteadh aon chodladh ort","Is iomdha rud a chonnaic sé dhá dhéanamh go mícheart gur iaidh sé a shúile air: nár thóg sé aon cheann de","Ní fhéadfainn teacht amach tá iadhta orm: táim fé dhaingniughadh, fé ghlas n-a thaobh ort", "Iaidh do bhéal go fóill, tá cuid mhór ráidhte agat, leig do dhuine eile labhairt: stad de chainnt", "Iadhadh an doras ortha, ní leigfí isteach iad: dúnadh", "Iadhfar an roilig: .i. ní leigfear a thuilleadh d’adhlacadh innte", "D’iaidh na bainnc a’s ní bhfuair na daoine a gcuid airgid: stad sé de thrácht", "Iaidh na puill sin sa bhád: cuir rud éigin ionta a líonfas iad", "Tá gach aon áit iadhta anois toisc na deireannaighe: trácht ’n-a stad", "“Ní bhfaghann lámh iadhta ach dorn dúnta”: .i. fé mar tugtar seadh gheibhtear", "Ní raibh neach ann a iadhfadh a shúil: .i. i láthair a bháis", "Nách iadhta atá an spéir: múchta: trom-scamallach", "Ghaibh sé an doras iadhta amach!: an cúldoras: an doras is gnáth bheith dúnta", "Ní bheadh do shúil iadhta agat faid bheadh sé ag teacht ort leis an bhfuinneamh a bhíonn fé: an fhaid do thógfadh sé duilleóga na súl do luighe ar a chéile", "An rud do bhíos a innsint duit iaidh do bhéal air: coimeád ’n-a rún é",	"An bhfuil sé in am iadhta?: tráth dóirse do dhúnadh a’s gan a thuilleadh díolta do dhéanamh", "D’iadhfainn-se a shúile dho: d’atfainn iad tímcheall ortha lé buille, i slighe a’s ná beadh sé i ndán feicsint leo", "Ní iadhfadh an doras bhí a chos i gcoinnibh na cómhlan aige: níor bh’féidir é do dhúnadh", "Ní iadhfadh an mála, bhí an oiread san ann: ní thiocfadh a bhéal lé chéile", "Iadhta le feóil: an-bheathuighthe"]
+        examples: ["Ná hiadhadh súil leat i rith na hoidhche ar do chluais: ná tuiteadh aon chodladh ort",
+        "Is iomdha rud a chonnaic sé dhá dhéanamh go mícheart gur iaidh sé a shúile air: nár thóg sé aon cheann de",
+        "Ní fhéadfainn teacht amach tá iadhta orm: táim fé dhaingniughadh, fé ghlas n-a thaobh ort", 
+        "Iaidh do bhéal go fóill, tá cuid mhór ráidhte agat, leig do dhuine eile labhairt: stad de chainnt", 
+        "Iadhadh an doras ortha, ní leigfí isteach iad: dúnadh", 
+        "Iadhfar an roilig: .i. ní leigfear a thuilleadh d’adhlacadh innte", 
+        "D’iaidh na bainnc a’s ní bhfuair na daoine a gcuid airgid: stad sé de thrácht", 
+        "Iaidh na puill sin sa bhád: cuir rud éigin ionta a líonfas iad", "Tá gach aon áit iadhta anois toisc na deireannaighe: trácht ’n-a stad", 
+        "“Ní bhfaghann lámh iadhta ach dorn dúnta”: .i. fé mar tugtar seadh gheibhtear", 
+        "Ní raibh neach ann a iadhfadh a shúil: .i. i láthair a bháis", 
+        "Nách iadhta atá an spéir: múchta: trom-scamallach", 
+        "Ghaibh sé an doras iadhta amach!: an cúldoras: an doras is gnáth bheith dúnta", 
+        "Ní bheadh do shúil iadhta agat faid bheadh sé ag teacht ort leis an bhfuinneamh a bhíonn fé: an fhaid do thógfadh sé duilleóga na súl do luighe ar a chéile", 
+        "An rud do bhíos a innsint duit iaidh do bhéal air: coimeád ’n-a rún é", 
+        "An bhfuil sé in am iadhta?: tráth dóirse do dhúnadh a’s gan a thuilleadh díolta do dhéanamh", 
+        "D’iadhfainn-se a shúile dho: d’atfainn iad tímcheall ortha lé buille, i slighe a’s ná beadh sé i ndán feicsint leo", 
+        "Ní iadhfadh an doras bhí a chos i gcoinnibh na cómhlan aige: níor bh’féidir é do dhúnadh", 
+        "Ní iadhfadh an mála, bhí an oiread san ann: ní thiocfadh a bhéal lé chéile", 
+        "Iadhta le feóil: an-bheathuighthe"]
     },
     {
         word: "inneall: (ineall, inneal)",
@@ -212,19 +299,26 @@ let wordArray = [
 	    word: "leóithne",
 	    grammar: "firinscneach - ceathrú díchlaonadh",
 	    definition: "gaoth bhog, mhín, shocair, puth",
-	    examples: ["“Má thagann aon leóithne anuas leis”: deirtear lé rud ná bíonn aduighthe nó ’n-a sheasamh go daingean", "Níl aon leóithne ann: .i. tá sé meirbh, brothallach", "Oscail an fhuinneóg a’s scaoil isteach an leóithne: an t-aer", "Níl fulang ar aon leóithne aige: .i. tá sé leóchaileach."]
+        examples: ["“Má thagann aon leóithne anuas leis”: deirtear lé rud ná bíonn aduighthe nó ’n-a sheasamh go daingean", 
+        "Níl aon leóithne ann: .i. tá sé meirbh, brothallach", 
+        "Oscail an fhuinneóg a’s scaoil isteach an leóithne: an t-aer", 
+        "Níl fulang ar aon leóithne aige: .i. tá sé leóchaileach"]
     },
     {
         word: "liath-shúil",
         grammar: "baininscneach",
         definition: "amharc fiar, féachaint gan séimhe",
-        examples: ["Tabhair liath-shúil ar ár nduine go bhfeicir an fuadar atá fé, ná feiceadh sé thu: amharc na súl i leathtaoibh gan cor do chur as an gceann", "Ní fhágfadh sé faic sa tsiopa gan fuadach mara mbeadh liath-shúil do choimeád air: é d’amharc i nganfhios do", "Is iomdha liath-shúil ’n-a diaidh aige, dá mb’aon mhaitheas do é: .i. bíonn d’iarraidh bheith ghá thabhairt fé ndeara i nganfhios don sluagh lé héileamh uirthe", "Thug sé liath-shúil orm chómh luath a’s chuireas mo chos thar doras mar is fada roimis sin ó chonnaic ’n-a shiopa me: amharc mear, míshéimh mar bheadh iongadh air", "Caith liath-shúil ar an alt san: amharc tapaidh, scrúduightheach"]
+        examples: ["Tabhair liath-shúil ar ár nduine go bhfeicir an fuadar atá fé, ná feiceadh sé thu: amharc na súl i leathtaoibh gan cor do chur as an gceann", 
+        "Ní fhágfadh sé faic sa tsiopa gan fuadach mara mbeadh liath-shúil do choimeád air: é d’amharc i nganfhios do", 
+        "Is iomdha liath-shúil ’n-a diaidh aige, dá mb’aon mhaitheas do é: .i. bíonn d’iarraidh bheith ghá thabhairt fé ndeara i nganfhios don sluagh lé héileamh uirthe", 
+        "Thug sé liath-shúil orm chómh luath a’s chuireas mo chos thar doras mar is fada roimis sin ó chonnaic ’n-a shiopa me: amharc mear, míshéimh mar bheadh iongadh air", 
+        "Caith liath-shúil ar an alt san: amharc tapaidh, scrúduightheach"]
     },
     {
         word: "machaire",
         grammar: "firinscneach - an ceathrú díchlaonadh",
         definition: "talamh réidh, íseal, fairsing, páirc shúgraidh, cúrsa ráis, páirc chatha",
-        examples: ["Téighimís ar mhachaire an bhuailte lé chéile a’s ná bíodh aon siar ná aniar air: ar an mbán ag troid lé chéile", "Feóra Fhinn Trágha an machaire ráis a bhíodh annso im óige-se: an cúrsa ráis", "“Ón gcnoc a chídhtear an machaire”: ón árdán a bhíonn radharc ar an gcoimheascar: .i. an té a bhíos i gceann is aige is fearr fios ar na nidhthibh fé n-a chúram", "Ní sheasuigheann sé ar mhachaire an lae seo fear ná go bhfuil sé chómh flaitheamhail leis: ní mhaireann in aon bhall", "Na Machairidhe: líomatáiste fhairsing íseal cois farraige in aice Chaisleáin an Ghreaghaire", "Imirtheoir chómh maith agus sheasaimh ar mhachaire riamh: cródh nó páirc imeartha."]
+        examples: ["Téighimís ar mhachaire an bhuailte lé chéile a’s ná bíodh aon siar ná aniar air: ar an mbán ag troid lé chéile", "Feóra Fhinn Trágha an machaire ráis a bhíodh annso im óige-se: an cúrsa ráis", "“Ón gcnoc a chídhtear an machaire”: ón árdán a bhíonn radharc ar an gcoimheascar: .i. an té a bhíos i gceann is aige is fearr fios ar na nidhthibh fé n-a chúram", "Ní sheasuigheann sé ar mhachaire an lae seo fear ná go bhfuil sé chómh flaitheamhail leis: ní mhaireann in aon bhall", "Na Machairidhe: líomatáiste fhairsing íseal cois farraige in aice Chaisleáin an Ghreaghaire", "Imirtheoir chómh maith agus sheasaimh ar mhachaire riamh: cródh nó páirc imeartha"]
     },
     {   
         word: "milis-ghob",
@@ -237,7 +331,14 @@ let wordArray = [
         word: "mionuighthe",
         grammar: "a.r.",
         definition: "brúighte, briste, luigheaduighthe ar nós na gainimhe nó an phúdair, athruighthe (airgead)",
-        examples: ["An t-airgead mionuighthe go maith nuair tá sé go léir ’n-a phingnidhibh: athruighthe ’n-a lia bonn beag", "Táimid chómh mionuighthe anois agat is nách fiú trácht orainn: an chuid is mó agus is fearr againn deighilte linn", "An tobac so chómh mionuighthe ó bheith sa mhealbhóig nách fiú é do chur ’on phíp: ’n-a ghránlach: chómh mín lé min", "Mo thuairm go dtuigfeadh an té is daille annso do scéal, tá sé mionuighthe ar an gcuma san agat: mínighthe, réidhtighthe, léirighthe", "Na garbhóga móra cloch a bhí annsan nách iad atá go mionuighthe níl ionta ach púróga: luigheaduighthe", "Talamh ró-mhionuighthe seadh ár mbaile-ne chun aon tslighe bheathaidh dob fhiú d’áireamh do bheith ag duine ann: roinnte ’n-a chodaibh ró-bheag: gabháltas suarach ag gach tríontaidhe", "Tá an smut (adhmaid) mionuighthe ró-mhór agat chun dola do dhéanamh de: sciotuighthe, snoighte", "Ar an léirscáil tá na bailte is gach aon áit a theastóchadh mionuighthe go han-mhaith: léirighthe"]
+        examples: ["An t-airgead mionuighthe go maith nuair tá sé go léir ’n-a phingnidhibh: athruighthe ’n-a lia bonn beag", 
+        "Táimid chómh mionuighthe anois agat is nách fiú trácht orainn: an chuid is mó agus is fearr againn deighilte linn", 
+        "An tobac so chómh mionuighthe ó bheith sa mhealbhóig nách fiú é do chur ’on phíp: ’n-a ghránlach: chómh mín lé min", 
+        "Mo thuairm go dtuigfeadh an té is daille annso do scéal, tá sé mionuighthe ar an gcuma san agat: mínighthe, réidhtighthe, léirighthe", 
+        "Na garbhóga móra cloch a bhí annsan nách iad atá go mionuighthe níl ionta ach púróga: luigheaduighthe", 
+        "Talamh ró-mhionuighthe seadh ár mbaile-ne chun aon tslighe bheathaidh dob fhiú d’áireamh do bheith ag duine ann: roinnte ’n-a chodaibh ró-bheag: gabháltas suarach ag gach tríontaidhe", 
+        "Tá an smut (adhmaid) mionuighthe ró-mhór agat chun dola do dhéanamh de: sciotuighthe, snoighte", 
+        "Ar an léirscáil tá na bailte is gach aon áit a theastóchadh mionuighthe go han-mhaith: léirighthe"]
     },
     {
         word: "neamhspleádhachas",
@@ -284,7 +385,7 @@ let wordArray = [
     {   word: "ógánach",
         grammar: "firinscneach - an chéad díchlaonadh", 
         definition: "buachaill óg, aosánach, fear óg aontumha", 
-        examples: ["Is iomdha ógánach súil-ghlas ag tnúth lé n-a pósadh, etc.”: fear óg ionphósta", 
+        examples: ["Is iomdha ógánach súil-ghlas ag tnúth lé n-a pósadh, etc.”: fear óg ionphósta",
         "Ní haon ógánach anois tu ná go mbeadh ciall agat: ní duine thu ná fuil tagtha go bliadhantaibh na tuigseana", 
         "Cogar i leith chugham, a ógánaigh, cad iad na geámaidhe crosta iad so fút?: a bharránaigh",
         "Beidh ógánaigh an cheanntair go léir ar barr ithreach an lá úd d’fhéachaint cé go mbeidh an buaidh aige: aosánaigh: buachaillidhe óga", 
@@ -328,7 +429,7 @@ let wordArray = [
         "Is cuma leat cá ngaibhir ach bheith ag réabadh rómhat: ag imtheacht gan fiadhain gan áird agat ar faic", 
         "Is mór an réabadh ar airgead é dhá mhíle do chaitheamh in aon bhliadhain: stracadh: caitheamh gan féachaint do phingin de",
         "Déin réabadh annsan, is ann is dóichighe do cuireadh an t-ór i bhfolach: tóch is taighdeadh", 
-        "Sibh do réabadh idir cheirt chroiceann as an ndúthaigh budh chóra do dhéanamh: do dhíthshealbhadh is do ruagadh aiste."]
+        "Sibh do réabadh idir cheirt chroiceann as an ndúthaigh budh chóra do dhéanamh: do dhíthshealbhadh is do ruagadh aiste"]
     },
         {
         word: "rothar",
@@ -622,47 +723,64 @@ makeElementsClickable(elements)
 let li = document.querySelectorAll('#wordContainer li')
 function makeLiClickable(li){
 	li.forEach(i=>
-			i.onclick = function(){
-				let value = this.innerText
-				let cur = this
-				var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
+			        i.onclick = function(){
+				            let value = this.innerText
+				            let cur = this
+				            var xhttp = new XMLHttpRequest();
+			        xhttp.onreadystatechange = function() {
+				            if (this.readyState == 4 && this.status == 200) {
+                                    let res = JSON.parse(this.responseText);
+                                    // fixes error with space before and after quotation marks
+                                    let signs = [':','.',',','!','?',')']// characters that get a space added after them
+                                    let quotes = ['"','“','”',] // characters after which a space is deleted
+                                    let brackets = ['('];
+					                let innerText = res.reduce((text,i)=>{
+                                            if(signs.includes(i[1])){// if these signs are present, the rules for a space applies to them
+                                                    console.log('this works')
+                                                    if(text[text.length-4] == '.'){
+                                                            let newText = text.split('')
+                                                            let lastLetter = newText.pop()
+                                                            newText.pop()
+                                                            newText.pop()
+                                                            text = newText.join('')
+                                                            text+=lastLetter
+                                                            // text += `${i[1]}`
+                                                    }
+                                                    text += i[1]+' '
+                                            }else if(quotes.includes(i[1])){
+                                                    if(quotes.includes(text[text.length-1])){// if quotes are present, the following rules apply to them}
+                                                            text += `${i[1]}`// if yes, a space is added
+                                                    }else if(signs.includes(text[text.length-2])){
+                                                            let newText = text.split('')
+                                                            newText.pop()
+                                                            text = newText.join('')
+                                                            text +- `${i[1]}`
+                                                    }else{
+                                                            text += `${i[1]}` // if not, no space is added
+                                                    }
+                                            }else if(brackets.includes(i[1])){
+                                                    text += `${i[1]}`
+                                            }else{
+                                                    if([...quotes,...brackets].includes(text[text.length-1])){ // if the last character is a quote, no space is added before the character
+                                                            text += i[1]
+                                                    }else{
+                                                            text += ' '+i[1] // a space is added
+                                                    }
+                                            }
+						                    return text
+                                    },'')
+					                if(innerText.split(':').length<2){
+						                    let [sample,explanation] = innerText.split('?')
+						                    sample+='? ';
+						                    cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+					                }else{
+						                    let [sample,explanation] = innerText.split(':')
+						                    sample+=': '
+						                    cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+					                }
 
-                    let res = JSON.parse(this.responseText);
-                    // fixes error with space before and after quotation marks
-                    let signs = [':','.',',','!','?',')']// characters that get a space added after them
-                    let quotes = ['"','“','”',] // characters after which a space is deleted
-					let innerText = res.reduce((text,i)=>{ // if these signs are present, the rules for a space applies to them
-						if(signs.includes(i[1])){
-                            text += i[1]+' '
-                        }else if(quotes.includes(i[1])){
-                            if(quotes.includes(text[text.length-1])){ // if quotes are present, the following rules apply to them
-                                text += ` ${i[1]}` // if present, space is added
-                            }else{
-                                text += `${i[1]}` // if not present, no space is added
-                            }
-                        }else{
-                            if(quotes.includes(text[text.length-1])){
-                                text += i[1]
-                            }else{
-                                text += ' '+i[1]
-                            }
-                        }
-						return text
-                    },'')
-					if(innerText.split(':').length<2){
-						let [sample,explanation] = innerText.split('?')
-						sample+='? ';
-						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
-					}else{
-						let [sample,explanation] = innerText.split(':')
-						sample+=': '
-						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
-					}
-
-					cur.style.color = 'green'
-				}
+					                cur.style.color = 'green'
+				    }
 			};
 		xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -696,15 +814,6 @@ abc.forEach(i=>{
 	filter.appendChild(button)
 })
 
-document.querySelector('#reset').onclick = function(){
-    wordGenerator(wordArray)
-    let li = document.querySelectorAll('#wordContainer li')
-    makeLiClickable
-    let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-    makeElementsClickable(elements)
-    restoreBtns(wordArray)
-}
-
 document.querySelector('#cuardach').oninput = function(){
 	let value = this.value
 	let filtered = wordArray.filter(item=>item.word.toUpperCase().includes(value.toUpperCase()))
@@ -714,6 +823,15 @@ document.querySelector('#cuardach').oninput = function(){
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
 	makeElementsClickable(elements)
 	restoreBtns(filtered)
+}
+
+document.querySelector('#reset').onclick = function(){
+    wordGenerator(wordArray)
+    let li = document.querySelectorAll('#wordContainer li')
+    makeLiClickable
+    let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+    makeElementsClickable(elements)
+    restoreBtns(wordArray)
 }
 
 let gram = Array.from(
@@ -745,14 +863,14 @@ scagadh.classList.add('closedbtn')
 
 scagadh.onclick = function(){
     if(gramFilter.style.display == 'block'){
-        gramFilter.style.display = 'none'
-        scagadh.innerText = 'Scag na focail'
-        scagadh.classList.toggle('closedbtn')
-        scagadh.classList.toggle('openedbtn')
+            gramFilter.style.display = 'none'
+            scagadh.innerText = 'Scag na focail'
+            scagadh.classList.toggle('closedbtn')
+            scagadh.classList.toggle('openedbtn')
     }else{
-        gramFilter.style.display = 'block'
-        scagadh.innerText = 'Folaigh na cnaipí seo'
-        scagadh.classList.toggle('openedbtn')
-        scagadh.classList.toggle('closedbtn')
+            gramFilter.style.display = 'block'
+            scagadh.innerText = 'Folaigh na cnaipí seo'
+            scagadh.classList.toggle('openedbtn')
+            scagadh.classList.toggle('closedbtn')
     }
 }
