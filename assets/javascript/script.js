@@ -656,8 +656,7 @@ function wordGenerator(array, previous='',all=false){
 	let showmore = document.querySelector('#showmore')
 	let showAll = document.querySelector('#showAll')
 	if(array.length){
-		showmore.style.display = 'inline'
-		// showAll.style.display = 'inline'
+        showmore.style.display = 'inline'
 		showmore.onclick = function(){
 			wordGenerator(rest,container.innerHTML)
 			let li = document.querySelectorAll('#wordContainer li')
@@ -666,14 +665,6 @@ function wordGenerator(array, previous='',all=false){
 			makeElemetsClickable(elements)
 			restoreBtns(wordArray)
 		}
-		// showAll.onclick = function(){
-		// 	wordGenerator(first5,'',true)
-		// 	let li = document.querySelectorAll('#wordContainer li')
-		// 	makeLiClickable(li)
-		// 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		// 	makeElemetsClickable(elements)
-		// 	restoreBtns(first5)
-		// }
 	}else{
 		showmore.style.display = 'none'
 		showAll.style.display = 'none'
@@ -908,19 +899,19 @@ gram.forEach(i=>{
 })
 
 
-let coverage = document.querySelector('#scagadh')
-scagadh.classList.add('closedbtn')
+let coverage = document.querySelector('#coverage')
+coverage.classList.add('closedbtn')
 
-scagadh.onclick = function(){
+coverage.onclick = function(){
 	if(gramFilter.style.display == 'block'){
 		gramFilter.style.display = 'none'
-		scagadh.innerText = 'Roghnaigh focail de réir aicme'
-		scagadh.classList.toggle('closedbtn')
-		scagadh.classList.toggle('openedbtn')
+		coverage.innerText = 'Select word types'
+		coverage.classList.toggle('closedbtn')
+		coverage.classList.toggle('openedbtn')
 	}else{
 		gramFilter.style.display = 'block'
-		scagadh.innerText = 'Folaigh na cnaipí seo'
-		scagadh.classList.toggle('openedbtn')
-		scagadh.classList.toggle('closedbtn')
+		coverage.innerText = 'Hide word types'
+		coverage.classList.toggle('openedbtn')
+		coverage.classList.toggle('closedbtn')
 	}
 }

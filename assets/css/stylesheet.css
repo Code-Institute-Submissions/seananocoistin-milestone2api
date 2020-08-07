@@ -12,7 +12,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /*position: relative;*/
 }
 nav{
   width: 100%;
@@ -85,6 +84,7 @@ nav ul li a{
     flex-wrap: wrap;
     justify-content: center;
 }
+
 #gramFilter button{
     color: white;
     background-color: forestgreen;
@@ -133,9 +133,9 @@ span {
 	word-wrap: break-word;
 }
 
-/* li>span:first-child{
+li>span:first-child{
 	width:450px;
-} */
+}
 
 li:hover{
 	box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
@@ -275,16 +275,4 @@ hr {
 
 * {
     box-sizing: border-box;
-}
-
-openedbtn{
-    background-color: forestgreen;
-    padding: 5px;
-    color: white;
-}
-
-closedbtn{
-    background-color: forestgreen;
-    padding: 5px;
-    color: white;
 }
