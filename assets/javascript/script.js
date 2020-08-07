@@ -604,12 +604,18 @@ function cardClick(){
 	})
 }
 
-function wordGenerator(array){
-	let container = document.querySelector('#wordContainer')
-	container.innerHTML = ''
-	array.forEach((item,mainKey)=>{
-		let htmlString = "";
 
+function wordGenerator(array, previous='',all=false){
+	let container = document.querySelector('#wordContainer')
+	container.innerHTML = previous;
+	let rest = [...array]
+	let first5 = rest.splice(0,5)
+	// if(all){
+	// 	first5 = array
+	// }
+	first5.forEach(item=>{
+		let htmlString = "";
+		let mainKey = item.word;
 		htmlString += `<h1 id='word${mainKey}'>` + item.word + "</h1>";
 		htmlString += `<button class='show'>+</button>`;
 		htmlString += "<p>" + item.grammar + "</p>";
@@ -647,6 +653,31 @@ function wordGenerator(array){
 			this.parentNode.classList.toggle('item_hover')
 		}
 	})
+	let showmore = document.querySelector('#showmore')
+	let showAll = document.querySelector('#showAll')
+	if(array.length){
+		showmore.style.display = 'inline'
+		// showAll.style.display = 'inline'
+		showmore.onclick = function(){
+			wordGenerator(rest,container.innerHTML)
+			let li = document.querySelectorAll('#wordContainer li')
+			makeLiClickable(li)
+			let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+			makeElemetsClickable(elements)
+			restoreBtns(wordArray)
+		}
+		// showAll.onclick = function(){
+		// 	wordGenerator(first5,'',true)
+		// 	let li = document.querySelectorAll('#wordContainer li')
+		// 	makeLiClickable(li)
+		// 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+		// 	makeElemetsClickable(elements)
+		// 	restoreBtns(first5)
+		// }
+	}else{
+		showmore.style.display = 'none'
+		showAll.style.display = 'none'
+	}
 }
 wordGenerator(wordArray)
 function restoreBtns(arr){
@@ -662,7 +693,9 @@ function restoreBtns(arr){
 			liArray.forEach(i=>{
 				lih+=`<p>- ${i}</p>`
 			})
-			definition.innerHTML = lih;
+			//take this variant instead
+				definition.innerHTML = lih;
+			//
 			definition.style.color= 'black';
 			let li=''
 			arr.find(item=>item.word == id).examples.forEach(example=>{
@@ -686,7 +719,7 @@ function restoreBtns(arr){
 restoreBtns(wordArray)
 
 let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-function makeElementsClickable(elem){
+function makeElemetsClickable(elem){
 	elem.forEach(i=>
 		i.addEventListener('click',function(){
 			let value = this.innerText
@@ -706,8 +739,19 @@ function makeElementsClickable(elem){
 							text += ' '+i[1]
 						}
 						return text
-					},'')
-					cur.innerHTML = innerText.replace(/\\n/g,'<br>')
+					},'').replace(/\\n/g,'')
+					if (cur.nodeName === 'H3'){
+						let newInnerText = ''
+						innerText.split('-').forEach(item=>{
+							if(item.length>2){
+								newInnerText+=`<p>- ${item}</p>`
+							}
+						})
+						cur.innerHTML = newInnerText
+					}else{
+						cur.innerHTML = innerText
+					}
+
 					cur.style.color = 'green'
 				}
 			};
@@ -718,69 +762,72 @@ function makeElementsClickable(elem){
 		})
 	)
 }
-makeElementsClickable(elements)
+makeElemetsClickable(elements)
 
 let li = document.querySelectorAll('#wordContainer li')
 function makeLiClickable(li){
 	li.forEach(i=>
-			        i.onclick = function(){
-				            let value = this.innerText
-				            let cur = this
-				            var xhttp = new XMLHttpRequest();
-			        xhttp.onreadystatechange = function() {
-				            if (this.readyState == 4 && this.status == 200) {
-                                    let res = JSON.parse(this.responseText);
-                                    // fixes error with space before and after quotation marks
-                                    let signs = [':','.',',','!','?',')']// characters that get a space added after them
-                                    let quotes = ['"','“','”',] // characters after which a space is deleted
-                                    let brackets = ['('];
-					                let innerText = res.reduce((text,i)=>{
-                                            if(signs.includes(i[1])){// if these signs are present, the rules for a space applies to them
-                                                    console.log('this works')
-                                                    if(text[text.length-4] == '.'){
-                                                            let newText = text.split('')
-                                                            let lastLetter = newText.pop()
-                                                            newText.pop()
-                                                            newText.pop()
-                                                            text = newText.join('')
-                                                            text+=lastLetter
-                                                            // text += `${i[1]}`
-                                                    }
-                                                    text += i[1]+' '
-                                            }else if(quotes.includes(i[1])){
-                                                    if(quotes.includes(text[text.length-1])){// if quotes are present, the following rules apply to them}
-                                                            text += `${i[1]}`// if yes, a space is added
-                                                    }else if(signs.includes(text[text.length-2])){
-                                                            let newText = text.split('')
-                                                            newText.pop()
-                                                            text = newText.join('')
-                                                            text +- `${i[1]}`
-                                                    }else{
-                                                            text += `${i[1]}` // if not, no space is added
-                                                    }
-                                            }else if(brackets.includes(i[1])){
-                                                    text += `${i[1]}`
-                                            }else{
-                                                    if([...quotes,...brackets].includes(text[text.length-1])){ // if the last character is a quote, no space is added before the character
-                                                            text += i[1]
-                                                    }else{
-                                                            text += ' '+i[1] // a space is added
-                                                    }
-                                            }
-						                    return text
-                                    },'')
-					                if(innerText.split(':').length<2){
-						                    let [sample,explanation] = innerText.split('?')
-						                    sample+='? ';
-						                    cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
-					                }else{
-						                    let [sample,explanation] = innerText.split(':')
-						                    sample+=': '
-						                    cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
-					                }
+			i.onclick = function(){
+				let value = this.innerText
+				let cur = this
+				var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
 
-					                cur.style.color = 'green'
-				    }
+					let res = JSON.parse(this.responseText);
+					let signs = [':',',','.','!','?',')']; // characters that add a space after them
+					let quotes = ['"','“','”']; // characters that delete a space after them
+          let brackets = ['('];
+					let innerText = res.reduce((text,i)=>{
+						if(signs.includes(i[1])){// if the signs are present, the rule for a space applies to them
+							console.log(text.length,i[1],text[text.length-4])
+							if(text[text.length-4] == '.'){
+								console.log('I work')
+								let newText = text.split('')
+								let lastLetter = newText.pop()
+								newText.pop()
+								newText.pop()
+								text = newText.join('')
+								text+=lastLetter
+								// text += `${i[1]}`
+							}
+							text += i[1]+' '
+							
+						}else if(quotes.includes(i[1])){
+							if(quotes.includes(text[text.length-1])){ // if quotes are present, the following rules apply to them
+								text += ` ${i[1]}`// if yes, space is added
+							}else if(signs.includes(text[text.length-2])){
+								let newText = text.split('')
+								newText.pop()
+								text = newText.join('')
+								text += `${i[1]}`
+							}else{
+								text += `${i[1]}` //if not, no space added
+							}
+						}else if(brackets.includes(i[1])){
+							text += ` ${i[1]}`
+						}else{
+							if([...quotes,...brackets].includes(text[text.length-1])){ // if last character is a quote, no space is added before the character
+								text += i[1]
+							}else{
+								text += ' '+i[1] // a space is added
+							}
+						}
+
+						return text
+					},'')
+					if(innerText.split(':').length<2){
+						let [sample,explanation] = innerText.split('?')
+						sample+='? ';
+						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+					}else{
+						let [sample,explanation] = innerText.split(':')
+						sample+=': '
+						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+					}
+
+					cur.style.color = 'green'
+				}
 			};
 		xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -790,6 +837,7 @@ function makeLiClickable(li){
 	)
 }
 makeLiClickable(li)
+
 
 let abc = Array.from(
 	new Set(
@@ -808,7 +856,7 @@ abc.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElementsClickable(elements)
+		makeElemetsClickable(elements)
 		restoreBtns(filtered)
 	}
 	filter.appendChild(button)
@@ -821,18 +869,19 @@ document.querySelector('#cuardach').oninput = function(){
 	let li = document.querySelectorAll('#wordContainer li')
 	makeLiClickable(li)
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElementsClickable(elements)
+	makeElemetsClickable(elements)
 	restoreBtns(filtered)
 }
 
 document.querySelector('#reset').onclick = function(){
-    wordGenerator(wordArray)
-    let li = document.querySelectorAll('#wordContainer li')
-    makeLiClickable
-    let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-    makeElementsClickable(elements)
-    restoreBtns(wordArray)
+	wordGenerator(wordArray)
+	let li = document.querySelectorAll('#wordContainer li')
+	makeLiClickable(li)
+	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+	makeElemetsClickable(elements)
+	restoreBtns(wordArray)
 }
+
 
 let gram = Array.from(
 	new Set(
@@ -852,25 +901,26 @@ gram.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElementsClickable(elements)
+		makeElemetsClickable(elements)
 		restoreBtns(filtered)
 	}
 	gramFilter.appendChild(button)
 })
 
-let scagadh = document.querySelector('#scagadh')
+
+let coverage = document.querySelector('#scagadh')
 scagadh.classList.add('closedbtn')
 
 scagadh.onclick = function(){
-    if(gramFilter.style.display == 'block'){
-            gramFilter.style.display = 'none'
-            scagadh.innerText = 'Scag na focail'
-            scagadh.classList.toggle('closedbtn')
-            scagadh.classList.toggle('openedbtn')
-    }else{
-            gramFilter.style.display = 'block'
-            scagadh.innerText = 'Folaigh na cnaipí seo'
-            scagadh.classList.toggle('openedbtn')
-            scagadh.classList.toggle('closedbtn')
-    }
+	if(gramFilter.style.display == 'block'){
+		gramFilter.style.display = 'none'
+		scagadh.innerText = 'Roghnaigh focail de réir aicme'
+		scagadh.classList.toggle('closedbtn')
+		scagadh.classList.toggle('openedbtn')
+	}else{
+		gramFilter.style.display = 'block'
+		scagadh.innerText = 'Folaigh na cnaipí seo'
+		scagadh.classList.toggle('openedbtn')
+		scagadh.classList.toggle('closedbtn')
+	}
 }
