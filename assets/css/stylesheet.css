@@ -38,7 +38,6 @@ nav ul li a{
   color: white;
   padding: 30px;
 }
-
 .bosca {
     width: 500px;
     max-width: 100%;
@@ -54,7 +53,6 @@ nav ul li a{
     border-radius: 5px;
     margin-top: 50px;
 }
-
 #cuardach {
     position: relative;
     width: 98%;
@@ -71,14 +69,12 @@ nav ul li a{
     background-repeat: no-repeat;
     transition: transform .2s;  
 }
-
 #cuardach:focus {
     background-color: white;
     border-color: #333333;
     box-shadow: 0px 0px 25px -2px #333;
     transform: scale(2.0);
 }
-
 #gramFilter{
     display: flex;
     flex-wrap: wrap;
@@ -95,16 +91,13 @@ nav ul li a{
     border-radius: 3px;
     font-size: 15px;
 }
-
 .active {
   background-color: forestgreen;
 }
-
 h1,h3,li {
     cursor: pointer;
     color: black;
 }
-
 .button {
   background-color: forestgreen;
   border: none;
@@ -117,13 +110,11 @@ h1,h3,li {
   margin: 4px 2px;
   cursor: pointer;
 }
-
 li {
 	display: flex;
 	width: fit-content;
     margin: 5px;
 }
-
 span {
 	display: block;
     width: calc(50vw - 60px);
@@ -132,21 +123,19 @@ span {
 	box-sizing: content-box;
 	word-wrap: break-word;
 }
-
 li>span:first-child{
 	width:450px;
 }
-
 li:hover{
 	box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
 }
+
 @media only screen and (min-width: 1000px) {
   span{
 		width:450px;
         max-width: initial;
 	}
 }
-
 .item{
 	border: 1px solid rgb(0, 0, 0);
 	margin: 5px;
@@ -175,7 +164,6 @@ ul{
 	flex-wrap: wrap;
     justify-content: center;
 }
-
 @media only screen and (max-width: 1000px) {
 	.item_hover{
 		text-align: left;
@@ -189,7 +177,6 @@ ul{
 		position: relative;
 	}
 }
-
 .show{
 	position: absolute;
 	top: 0;
@@ -204,7 +191,6 @@ ul{
 .show:focus{
 	outline: none
 }
-
 #filter{
 	display:flex;
 	flex-wrap: wrap;
@@ -220,14 +206,11 @@ ul{
 	font-size: 25px;
     font-weight: bold;
 }
-
 .alphabetcontainer{
   justify-content: center;
-  background-color: lightyellow;
   text-align: center;
   height: 100%;
 }
-
 @media only screen and (max-width: 1000px){
     .responsive {
         width: 100%;
@@ -235,7 +218,6 @@ ul{
         height: auto;
     }
 }
-
 hr {
     border: 0;
     height: 1px;
@@ -246,7 +228,6 @@ hr {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-
 .backtotop {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -268,11 +249,9 @@ hr {
     width: 30px;
     border-radius: 4px;
 }
-
 #myBtn:hover {
     background-color: forestgreen;
 }
-
 * {
     box-sizing: border-box;
 }

@@ -604,7 +604,6 @@ function cardClick(){
 	})
 }
 
-
 function wordGenerator(array, previous='',all=false){
 	let container = document.querySelector('#wordContainer')
 	container.innerHTML = previous;
@@ -662,7 +661,7 @@ function wordGenerator(array, previous='',all=false){
 			let li = document.querySelectorAll('#wordContainer li')
 			makeLiClickable(li)
 			let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-			makeElemetsClickable(elements)
+			makeElementsClickable(elements)
 			restoreBtns(wordArray)
 		}
 	}else{
@@ -670,47 +669,9 @@ function wordGenerator(array, previous='',all=false){
 		showAll.style.display = 'none'
 	}
 }
-wordGenerator(wordArray)
-function restoreBtns(arr){
-	document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
-		btn.onclick = function(){
-			let id = this.id.split('_')[1]
-			let word = document.querySelector('#word'+id)
-			word.innerHTML = id
-			word.style.color= 'black';
-			let definition = document.querySelector('#definition'+id)
-			let lih=''
-			let liArray = arr.find(item=>item.word == id).definition.split(';')
-			liArray.forEach(i=>{
-				lih+=`<p>- ${i}</p>`
-			})
-			//take this variant instead
-				definition.innerHTML = lih;
-			//
-			definition.style.color= 'black';
-			let li=''
-			arr.find(item=>item.word == id).examples.forEach(example=>{
-				if(example.split(':').length<2){
-					let [sample,explanation] = example.split('?')
-					sample+='? '
-					li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-				}else{
-					let [sample,explanation] = example.split(':')
-					sample+=': '
-					li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-				}
-				
-			})
-			document.querySelector('#ul'+id).innerHTML = li
-			let lis = document.querySelectorAll('li')
-			makeLiClickable(lis)
-		}
-	})
-}
-restoreBtns(wordArray)
 
 let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-function makeElemetsClickable(elem){
+function makeElementsClickable(elem){
 	elem.forEach(i=>
 		i.addEventListener('click',function(){
 			let value = this.innerText
@@ -753,7 +714,47 @@ function makeElemetsClickable(elem){
 		})
 	)
 }
-makeElemetsClickable(elements)
+makeElementsClickable(elements)
+
+wordGenerator(wordArray)
+
+function restoreBtns(arr){
+	document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
+		btn.onclick = function(){
+			let id = this.id.split('_')[1]
+			let word = document.querySelector('#word'+id)
+			word.innerHTML = id
+			word.style.color= 'black';
+			let definition = document.querySelector('#definition'+id)
+			let lih=''
+			let liArray = arr.find(item=>item.word == id).definition.split(';')
+			liArray.forEach(i=>{
+				lih+=`<p>- ${i}</p>`
+			})
+			//take this variant instead
+				definition.innerHTML = lih;
+			//
+			definition.style.color= 'black';
+			let li=''
+			arr.find(item=>item.word == id).examples.forEach(example=>{
+				if(example.split(':').length<2){
+					let [sample,explanation] = example.split('?')
+					sample+='? '
+					li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
+				}else{
+					let [sample,explanation] = example.split(':')
+					sample+=': '
+					li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
+				}
+				
+			})
+			document.querySelector('#ul'+id).innerHTML = li
+			let lis = document.querySelectorAll('li')
+			makeLiClickable(lis)
+		}
+	})
+}
+restoreBtns(wordArray)
 
 let li = document.querySelectorAll('#wordContainer li')
 function makeLiClickable(li){
@@ -847,7 +848,7 @@ abc.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElemetsClickable(elements)
+		makeElementsClickable(elements)
 		restoreBtns(filtered)
 	}
 	filter.appendChild(button)
@@ -860,7 +861,7 @@ document.querySelector('#cuardach').oninput = function(){
 	let li = document.querySelectorAll('#wordContainer li')
 	makeLiClickable(li)
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElemetsClickable(elements)
+	makeElementsClickable(elements)
 	restoreBtns(filtered)
 }
 
@@ -869,7 +870,7 @@ document.querySelector('#reset').onclick = function(){
 	let li = document.querySelectorAll('#wordContainer li')
 	makeLiClickable(li)
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElemetsClickable(elements)
+	makeElementsClickable(elements)
 	restoreBtns(wordArray)
 }
 
@@ -892,7 +893,7 @@ gram.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElemetsClickable(elements)
+		makeElementsClickable(elements)
 		restoreBtns(filtered)
 	}
 	gramFilter.appendChild(button)
