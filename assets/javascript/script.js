@@ -901,12 +901,12 @@ coverage.classList.add('closedbtn')
 coverage.onclick = function(){
 	if(gramFilter.style.display == 'block'){
 		gramFilter.style.display = 'none'
-		coverage.innerText = 'Scag na focail'
+		coverage.innerText = 'SCAG NA FOCAIL'
 		coverage.classList.toggle('closedbtn')
 		coverage.classList.toggle('openedbtn')
 	}else{
 		gramFilter.style.display = 'block'
-		coverage.innerText = 'Folaigh na cnaipí seo'
+		coverage.innerText = 'FOLAIGH NA CNAIPÍ SEO'
 		coverage.classList.toggle('openedbtn')
 		coverage.classList.toggle('closedbtn')
 	}
