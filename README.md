@@ -111,6 +111,8 @@ It is available to use for free. It is an API that require words to be sent to i
 
 https://hashtagcolor.com/ff7f50
 
+https://unicode-table.com/en/2B8C/
+
 
 ## Sample Code
 Here is an example of the code used in the website:
