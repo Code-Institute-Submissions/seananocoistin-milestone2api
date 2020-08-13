@@ -1,133 +1,138 @@
 <!DOCTYPE html>
 <html lang="ga-IE">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/css/stylesheet.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+        <title>Croidhe Cainnte Chiarraighe - an Caighdeánaitheoir</title>
+    </head>
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/assets/css/stylesheet.css">
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-<title>Croidhe Cainnte Chiarraighe - an Caighdeánaitheoir</title>
-</head>
+    <body style="background-color: lightyellow;">
+        <!-- Back to the top button function -->
+        <button onclick="topFunction()" id="myBtn" title="Téigh chuig an mbarr">&#9650</button>
 
-<body style="background-color:lightyellow">
-
-<!-- Back to the top button function -->
-<button onclick="topFunction()" id="myBtn" title="Téigh chuig an mbarr">&#9650</button>
-
-<!-- Navbar and header -->
-<div id="abc">
-    <nav>
-        <ul>
-            <li><a href="/index.html">Clár Cinn</a></li>
-            <li><a href="/maidirleis.html">Maidir leis an bhfoclóir</a></li>
-            <li><a href="/treoracha.html">Treoracha úsáide</a></li>
-            <li><a href="/caighdeanaitheoir.html">An Caighdeánaitheoir</a></li>
-        </ul>
-    </nav>
-    <div class="title">CROIDHE CAINNTE CHIARRAIGHE</div>
-</div>
-
-<!-- A container for the text and searchbox -->
-<div class="ccontainer" style="padding-top:10px">
-<h1>An Caighdeánaitheoir</h1>
-<p>Ar an leathanach seo, tá <a href="https://github.com/kscanne/caighdean" target="blank"><strong>an Caighdeánaitheoir</strong></a>, ríomhchlár chun téacs le litriú seanda nó litriú neamhchaighdeánach a thiontú go litriú caighdeánach. Is é an Caighdeánaitheoir a thiontaíonn na míreanna ar fad atá i gCroidhe Cainnte Chiarraighe ar an suíomh gréasáin seo go litriú caighdeánach. <a href="https://cadhan.com/" target="blank"><strong>Kevin Scannell</strong></a> do chum é. Tig leat é a fhéachaint tú féin.</p>
-<br>
-<p>Cuir isteach téacs le sean-litriú anseo sa bhosca thíos agus nuair a bheidh sé sin déanta agat, brúigh an cnaipe "Tiontaigh an téacs".</p>
-<br>
-<p>Má tá sliocht sa tseanlitriú de dhíth ort, bain feidhm as an sliocht thíos.</p>
-    <br>
-    <!-- The textarea for entering words to be sent to the API -->
-    <div class="textbox">
-        <form id="IGform">
-            <textarea id="select-this" rows="10" style="width:99%;font-size:130%" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+        <!-- Navbar and header -->
+        <div id="abc">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Clár Cinn</a></li>
+                    <li><a href="/maidirleis.html">Maidir leis an bhfoclóir</a></li>
+                    <li><a href="/treoracha.html">Treoracha úsáide</a></li>
+                    <li><a href="/caighdeanaitheoir.html">An Caighdeánaitheoir</a></li>
+                </ul>
+            </nav>
+            <div class="title">CROIDHE CAINNTE CHIARRAIGHE</div>
         </div>
-        <br>
-            <input type="submit" class="button" value="Tiontaigh an téacs" style="padding:16px;">
-            <button id="reset" class="button">Glan</button>
-        </form>
-        <hr>
-        <p><strong>An toradh</strong></p>
-        <!-- The results of the conversion are displayed here -->
-        <br/>
-        <div id="output"></div>
 
-    <!-- An extract in old spelling that can be used as a sample text in the textarea above -->
-    <div class="sliocht" id="sliocht" style="margin-bottom:10px">
-        <p id="p1">D'amharc Séamus Frobisher ar an bhaicle bheag agus tháinig léaródh tobann tuigse chuige le linn an amhairc sin. Chonnaic sé an dá chailín seo a bhí i mbláth a n-óige agus a ndeagh-chóirighthe agus iad crom anuas os cionn an phioctúra sin na saighead nimhe ar nós mac léighinn a bhéadh ag éisteacht le léigheacht. Agus an fear a bhí ag tabhairt na léigheachta uaidh, go binn-bhriathrach, bhí sé go díbhirceach ar thóir dhún-mharbhthóra, agus baramhail aige, b'fhéidir, san am chéadna, gur chailín de'n bheirt seo a bheadh shíos leis an tóir.</p>
-        <br>
-        <p><em>Sliocht as leathanach 148 de <strong>"Teach na Saighde"</strong> le A. E. W. Mason, arna aistriú go Gaeilge ag Pádraic Mac Giolla Bhríghde, 1936.</em></p>
-        <br>
-        <!-- A button to insert the extract into the textarea above -->
-        <button onclick="copyToClipboard('p1')" class="button">Cuir an sliocht isteach sa bhosca téacs</button>
-    </div>
-</div>
+        <!-- A container for the text and searchbox -->
+        <div class="ccontainer" style="padding-top: 10px;">
+            <h1>An Caighdeánaitheoir</h1>
+            <p>
+                Ar an leathanach seo, tá <a href="https://github.com/kscanne/caighdean" target="blank"><strong>an Caighdeánaitheoir</strong></a>, ríomhchlár chun téacs le litriú seanda nó litriú neamhchaighdeánach a thiontú go litriú
+                caighdeánach. Is é an Caighdeánaitheoir a thiontaíonn na míreanna ar fad atá i gCroidhe Cainnte Chiarraighe ar an suíomh gréasáin seo go litriú caighdeánach.
+                <a href="https://cadhan.com/" target="blank"><strong>Kevin Scannell</strong></a> do chum é. Tig leat é a fhéachaint tú féin.
+            </p>
+            <br />
+            <p>Cuir isteach téacs le sean-litriú anseo sa bhosca thíos agus nuair a bheidh sé sin déanta agat, brúigh an cnaipe "Tiontaigh an téacs".</p>
+            <br />
+            <p>Má tá sliocht sa tseanlitriú de dhíth ort, bain feidhm as an sliocht thíos.</p>
+            <br />
+            <!-- The textarea for entering words to be sent to the API -->
+            <div class="textbox">
+                <form id="IGform">
+                    <textarea id="select-this" rows="10" style="width: 99%; font-size: 130%;" id="sourcetext" name="teacs" wrap="virtual"></textarea>
+                    <br />
+                    <input type="submit" class="button" value="Tiontaigh an téacs" style="padding: 16px;" />
+                    <button id="reset" class="button">Glan</button>
+                </form>
+                <hr />
+                <p><strong>An toradh</strong></p>
+                <!-- The results of the conversion are displayed here -->
+                <br />
+                <div id="output"></div>
 
-<!-- Javascript -->
-<script>
-  window.addEventListener("load", function () {
-    var form = document.getElementById("IGform");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var XHR = new XMLHttpRequest();
+                <!-- An extract in old spelling that can be used as a sample text in the textarea above -->
+                <div class="sliocht" id="sliocht" style="margin-bottom: 10px;">
+                    <p id="p1">
+                        D'amharc Séamus Frobisher ar an bhaicle bheag agus tháinig léaródh tobann tuigse chuige le linn an amhairc sin. Chonnaic sé an dá chailín seo a bhí i mbláth a n-óige agus a ndeagh-chóirighthe agus iad crom anuas os
+                        cionn an phioctúra sin na saighead nimhe ar nós mac léighinn a bhéadh ag éisteacht le léigheacht. Agus an fear a bhí ag tabhairt na léigheachta uaidh, go binn-bhriathrach, bhí sé go díbhirceach ar thóir
+                        dhún-mharbhthóra, agus baramhail aige, b'fhéidir, san am chéadna, gur chailín de'n bheirt seo a bheadh shíos leis an tóir.
+                    </p>
+                    <br />
+                    <p>
+                        <em>Sliocht as leathanach 148 de <strong>"Teach na Saighde"</strong> le A. E. W. Mason, arna aistriú go Gaeilge ag Pádraic Mac Giolla Bhríghde, 1936.</em>
+                    </p>
+                    <br />
+                    <!-- A button to insert the extract into the textarea above -->
+                    <button onclick="copyToClipboard('p1')" class="button">Cuir an sliocht isteach sa bhosca téacs</button>
+                </div>
+            </div>
 
-      XHR.onreadystatechange = function(event) {
-        if (XHR.readyState == XMLHttpRequest.DONE) {
-          if (XHR.status == 200) {
-            processPairs(JSON.parse(event.target.responseText));
-          }
-          else {
-            var div=document.getElementById("output");
-            div.innerHTML='<em>Ní féidir leis a bheith bán. Clóscríobh rud éigin sa bhosca thuas.</em>';
-          }
-        }
-      };
+            <!-- Javascript -->
+            <script>
+                window.addEventListener("load", function () {
+                    var form = document.getElementById("IGform");
+                    form.addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        var XHR = new XMLHttpRequest();
 
-      XHR.open("POST", "https://cadhan.com/api/intergaelic/3.0");
-      XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      XHR.setRequestHeader('Accept','application/json');
-      var payload = 'foinse=ga&teacs=';
-      payload += encodeURIComponent(document.getElementById('select-this').value);
-      XHR.send(payload);
-      var div=document.getElementById("output");
-      div.innerHTML='<em>Tá an téacs á thiontú...</em>'
-    });
-  });
+                        XHR.onreadystatechange = function (event) {
+                            if (XHR.readyState == XMLHttpRequest.DONE) {
+                                if (XHR.status == 200) {
+                                    processPairs(JSON.parse(event.target.responseText));
+                                } else {
+                                    var div = document.getElementById("output");
+                                    div.innerHTML = "<em>Ní féidir leis a bheith bán. Clóscríobh rud éigin sa bhosca thuas.</em>";
+                                }
+                            }
+                        };
 
-  function processPairs(arr) {
-    var div=document.getElementById("output");
-    var suppress = true;
-    div.innerHTML='';
-    for(var i=0; i<arr.length; i++) {
-      t=arr[i][1];
-      if (t=="\\n") {
-        div.innerHTML+='<br/>';
-        suppress = true;
-      }
-      else {
-        if (suppress==false && !t.match(/^[.,\/;”:!?%})]$/)) {
-          div.innerHTML+=" ";
-        }
-        suppress = (t.match(/^[“\/$(\[#{]$/)!==null);
-        div.innerHTML+=t;
-      }
-    }
-  }
+                        XHR.open("POST", "https://cadhan.com/api/intergaelic/3.0");
+                        XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        XHR.setRequestHeader("Accept", "application/json");
+                        var payload = "foinse=ga&teacs=";
+                        payload += encodeURIComponent(document.getElementById("select-this").value);
+                        XHR.send(payload);
+                        var div = document.getElementById("output");
+                        div.innerHTML = "<em>Tá an téacs á thiontú...</em>";
+                    });
+                });
 
-function copyToClipboard(elementId) {
-  var text = document.getElementById(elementId).innerHTML;
-  let textarea = document.getElementById("select-this");
-  textarea.innerHTML = text;
-  textarea.focus();
-}
-document.querySelector('#reset').onclick=function(event){
-    event.preventDefault()
-    document.getElementById("select-this").value=''
-    document.getElementById("output").innerHTML=''
-}
-</script>
+                function processPairs(arr) {
+                    var div = document.getElementById("output");
+                    var suppress = true;
+                    div.innerHTML = "";
+                    for (var i = 0; i < arr.length; i++) {
+                        t = arr[i][1];
+                        if (t == "\\n") {
+                            div.innerHTML += "<br/>";
+                            suppress = true;
+                        } else {
+                            if (suppress == false && !t.match(/^[.,\/;”:!?%})]$/)) {
+                                div.innerHTML += " ";
+                            }
+                            suppress = t.match(/^[“\/$(\[#{]$/) !== null;
+                            div.innerHTML += t;
+                        }
+                    }
+                }
 
-<!-- Javascript -->
-<script src="/assets/javascript/javascript.js"></script>
+                function copyToClipboard(elementId) {
+                    var text = document.getElementById(elementId).innerHTML;
+                    let textarea = document.getElementById("select-this");
+                    textarea.innerHTML = text;
+                    textarea.focus();
+                }
+                document.querySelector("#reset").onclick = function (event) {
+                    event.preventDefault();
+                    document.getElementById("select-this").value = "";
+                    document.getElementById("output").innerHTML = "";
+                };
+            </script>
 
-</body>
+            <!-- Javascript -->
+            <script src="/assets/javascript/javascript.js"></script>
+        </div>
+    </body>
 </html>

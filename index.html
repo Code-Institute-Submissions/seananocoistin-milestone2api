@@ -1,60 +1,58 @@
 <!DOCTYPE html>
 <html lang="ga-IE">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/css/stylesheet.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+        <script src="/assets/javascript/javascript.js"></script>
+        <title>Croidhe Cainnte Chiarraighe - caighdeánaithe | Baile</title>
+    </head>
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/assets/css/stylesheet.css">
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-<script src="/assets/javascript/javascript.js"></script>
-<title>Croidhe Cainnte Chiarraighe - caighdeánaithe | Baile</title>
-</head>
+    <body style="background-color: lightyellow;">
+        <!-- Back to the top button function -->
+        <button onclick="topFunction()" id="myBtn" title="Téigh chuig an mbarr">&#9650</button>
 
-<body style="background-color:lightyellow">
-
-<!-- Back to the top button function -->
-<button onclick="topFunction()" id="myBtn" title="Téigh chuig an mbarr">&#9650</button>
-
-<!-- Navbar and header -->
-<div id="abc">
-    <nav>
-        <ul>
-            <li><a href="/index.html">Clár Cinn</a></li>
-            <li><a href="/maidirleis.html">Maidir leis an bhfoclóir</a></li>
-            <li><a href="/treoracha.html">Treoracha úsáide</a></li>
-            <li><a href="/caighdeanaitheoir.html">An Caighdeánaitheoir</a></li>
-        </ul>
-    </nav>
-    <!-- Word search bar -->
-    <div class="title">CROIDHE CAINNTE CHIARRAIGHE</div>
-        <div class="bosca">
-            <input type="text" id="cuardach" placeholder="Cuardaigh focal..." title="Clóscríobh focal sa bhosca">
-    </div>
-</div>       
-
-<!-- The area where the words from the script.js file will appear -->
-<div class="alphabetcontainer">
-    <!-- Buttons to filter words according to the alphabet -->
-    <h5 style="padding-top:15px;">Scag na focail de réir na haibítre.</h5>
-        <div id="filter" style="margin:5px"></div>
-    <h5>Brúigh an cnaipe thíos chun aicmí focail a roghnú.</h5>
-        <div style="margin:5px;">
-        <!-- A button filter the words according to word type -->
-            <button id="coverage">SCAG NA FOCAIL</button>
+        <!-- Navbar and header -->
+        <div id="abc">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Clár Cinn</a></li>
+                    <li><a href="/maidirleis.html">Maidir leis an bhfoclóir</a></li>
+                    <li><a href="/treoracha.html">Treoracha úsáide</a></li>
+                    <li><a href="/caighdeanaitheoir.html">An Caighdeánaitheoir</a></li>
+                </ul>
+            </nav>
+            <!-- Word search bar -->
+            <div class="title">CROIDHE CAINNTE CHIARRAIGHE</div>
+            <div class="bosca">
+                <input type="text" id="cuardach" placeholder="Cuardaigh focal..." title="Clóscríobh focal sa bhosca" />
+            </div>
         </div>
-    <div id="gramFilter" style="margin:5px;"></div>
-    <h5>Brúigh an cnaipe seo chun gach scagaire a chur ar ceal.</h5>
-        <!-- A button to cancel all filters and return the page to its initial setting -->
-        <div><button id="reset">&#11148; CUIR NA SCAGAIRÍ AR CEAL</button></div>
-        <br>
-    <!-- The words contained in script.js that users can search and look at -->
-    <div id="wordContainer"></div>
-    <!-- A button to show more words -->
-	<div><button style="display:none" id="showmore">TAISPEÁIN TUILLEADH &#9660;</button><button style="display:none" id="showAll">Taispeáin gach focal</button></div>
-    <script src="assets/javascript/script.js"></script>
-</div>
 
-<!-- Javascript -->
-<script src="/assets/javascript/javascript.js"></script>
-</body>
+        <!-- The area where the words from the script.js file will appear -->
+        <div class="alphabetcontainer">
+            <!-- Buttons to filter words according to the alphabet -->
+            <h5 style="padding-top: 15px;">Scag na focail de réir na haibítre.</h5>
+            <div id="filter" style="margin: 5px;"></div>
+            <h5>Brúigh an cnaipe thíos chun aicmí focail a roghnú.</h5>
+            <div style="margin: 5px;">
+                <!-- A button filter the words according to word type -->
+                <button id="coverage">SCAG NA FOCAIL</button>
+            </div>
+            <div id="gramFilter" style="margin: 5px;"></div>
+            <h5>Brúigh an cnaipe seo chun gach scagaire a chur ar ceal.</h5>
+            <!-- A button to cancel all filters and return the page to its initial setting -->
+            <div><button id="reset">&#11148; CUIR NA SCAGAIRÍ AR CEAL</button></div>
+            <br />
+            <!-- The words contained in script.js that users can search and look at -->
+            <div id="wordContainer"></div>
+            <!-- A button to show more words -->
+            <div><button style="display: none;" id="showmore">TAISPEÁIN TUILLEADH &#9660;</button><button style="display: none;" id="showAll">Taispeáin gach focal</button></div>
+            <script src="assets/javascript/script.js"></script>
+        </div>
+
+        <!-- Javascript -->
+        <script src="/assets/javascript/javascript.js"></script>
+    </body>
 </html>
