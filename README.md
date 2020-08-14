@@ -13,7 +13,6 @@ The dictionary was compiled in the late 1930s and early 1940s but was unfortunat
 
 Croidhe Cainnte Chiarraighe is an enormous text with over 60,000 entries and 2.2 million words. It is [available for free as a PDF file](https://www.forasnagaeilge.ie/about/an-gum/croidhe-cainnte-ciarraighe/?lang=en), albeit a PDF file with more than 4,000 pages. While the PDF file can be consulted either by browsing or by using the Control + F function to open up a search field to find words, it would be much better if the dictionary was converted into HTML format and laid out in a much more user-friendly way. Part of making that user friendly would be to have the option to see it in its original state as well as in standardised spelling. In that way, the text would be relevant to Irish speakers of this generation.
 
-
 ## User Experience (UX)
 Users of the website are able to search for words, filter words, view words, convert the spelling of the words, restore the original spelling, and use the API interface with their own texts and words in order to see how it works themselves. In case they do not have a word or a extract available to use, an extract from an Irish translation of a novel that it is written in the older spelling is provided. With the click of a button, the extract is inserted into the textbox for the user. They only need to click the convert button ("Tiontaigh an téacs") in order for the conversion to occur. They will see the text in standardised spelling in the space below.
 
@@ -123,6 +122,8 @@ https://unicode-table.com/en/2B8C/ - used to find the go back arrow.
 
 [Balsamiq](https://www.balsamiq.com/) - used to make the wireframe for the pages.
 
+[Diffchecker](https://www.diffchecker.com/) - this tool was useful to compare different versions of files
+
 [Github](https.github.com) - used to store and share the project.
 
 [Gitpod](https://www.gitpod.io/) - used to design and upload the wepages to Github.com.
@@ -182,3 +183,10 @@ Here is an example of the code used in the website;
 The lovely image of the hills and ocean are of Ceann Sibéal in Corca Dhuibhne. This was the area from which the compiler of the dictionary hailed. It is a Gaeltacht area. Therefore, it was fitting to use the image as a decoration for this website. Of interest is the small white feature near the top of the hill furthest to the left. It was a temporary set that was used to film a scene for Rogue One, the Star Wars film. I took that photograph in May 2016 while visiting the area.
 
 ## Testing
+The W3C Markup Validator, W3C CSS Validator Service, and JSLint were used to validate every page of the project to ensure there were no syntax errors in the project.
+
+[W3C Markup Validation Service](https://validator.w3.org/)
+
+[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+
+[JSLint](https://www.jslint.com/)
