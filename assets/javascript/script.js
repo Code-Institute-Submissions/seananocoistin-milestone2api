@@ -658,14 +658,12 @@ function cardClick(){
 	})
 }
 
+
 function wordGenerator(array, previous='',all=false){
 	let container = document.querySelector('#wordContainer')
 	container.innerHTML = previous;
 	let rest = [...array]
 	let first10 = rest.splice(0,10)
-	// if(all){
-	// 	first5 = array
-	// }
 	first10.forEach(item=>{
 		let htmlString = "";
 		let mainKey = item.word;
@@ -707,20 +705,18 @@ function wordGenerator(array, previous='',all=false){
 		}
 	})
 	let showmore = document.querySelector('#showmore')
-	let showAll = document.querySelector('#showAll')
 	if(array.length){
-        showmore.style.display = 'inline';
+		showmore.style.display = 'inline'
 		showmore.onclick = function(){
 			wordGenerator(rest,container.innerHTML)
 			let li = document.querySelectorAll('#wordContainer li')
 			makeLiClickable(li)
 			let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-			makeElementsClickable(elements)
+			makeElemetsClickable(elements)
 			restoreBtns(wordArray)
 		}
 	}else{
 		showmore.style.display = 'none'
-		showAll.style.display = 'none'
 	}
 }
 wordGenerator(wordArray)
@@ -738,6 +734,7 @@ function restoreBtns(arr){
 				lih+=`<p>- ${i}</p>`
 			})
 				definition.innerHTML = lih;
+			//
 			definition.style.color= 'black';
 			let li=''
 			arr.find(item=>item.word == id).examples.forEach(example=>{
@@ -761,7 +758,7 @@ function restoreBtns(arr){
 restoreBtns(wordArray)
 
 let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-function makeElementsClickable(elem){
+function makeElemetsClickable(elem){
 	elem.forEach(i=>
 		i.addEventListener('click',function(){
 			let value = this.innerText
@@ -804,7 +801,7 @@ function makeElementsClickable(elem){
 		})
 	)
 }
-makeElementsClickable(elements)
+makeElemetsClickable(elements)
 
 let li = document.querySelectorAll('#wordContainer li')
 function makeLiClickable(li){
@@ -822,13 +819,12 @@ function makeLiClickable(li){
           let brackets = ['('];
 					let innerText = res.reduce((text,i)=>{
 						if(signs.includes(i[1])){// if the signs are present, the rule for a space applies to them
-							console.log(text.length,i[1],text[text.length-4])
 							if(text[text.length-4] == '.'){
-								console.log('I work')
 								let newText = text.split('')
 								let lastLetter = newText.pop()
 								newText.pop()
 								newText.pop()
+								newText.splice(newText.length-1,0,' ')
 								text = newText.join('')
 								text+=lastLetter
 								// text += `${i[1]}`
@@ -849,12 +845,15 @@ function makeLiClickable(li){
 						}else if(brackets.includes(i[1])){
 							text += ` ${i[1]}`
 						}else{
-							if([...quotes,...brackets].includes(text[text.length-1])){ // if last character is a quote, no space is added before the character
+							if([...quotes,...brackets].includes(text[text.length-1]) && i[1] != '–'){ // if last character is a quote, no space is added before the character
 								text += i[1]
+							}else if(i[1] == '–'){
+								text += ' '+i[1]+' ' // a space is added
 							}else{
 								text += ' '+i[1] // a space is added
 							}
 						}
+
 						return text
 					},'')
 					if(innerText.split(':').length<2){
@@ -897,7 +896,7 @@ abc.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElementsClickable(elements)
+		makeElemetsClickable(elements)
 		restoreBtns(filtered)
 	}
 	filter.appendChild(button)
@@ -910,7 +909,7 @@ document.querySelector('#cuardach').oninput = function(){
 	let li = document.querySelectorAll('#wordContainer li')
 	makeLiClickable(li)
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElementsClickable(elements)
+	makeElemetsClickable(elements)
 	restoreBtns(filtered)
 }
 
@@ -919,7 +918,7 @@ document.querySelector('#reset').onclick = function(){
 	let li = document.querySelectorAll('#wordContainer li')
 	makeLiClickable(li)
 	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElementsClickable(elements)
+	makeElemetsClickable(elements)
 	restoreBtns(wordArray)
 }
 
@@ -942,7 +941,7 @@ gram.forEach(i=>{
 		let li = document.querySelectorAll('#wordContainer li')
 		makeLiClickable(li)
 		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElementsClickable(elements)
+		makeElemetsClickable(elements)
 		restoreBtns(filtered)
 	}
 	gramFilter.appendChild(button)
