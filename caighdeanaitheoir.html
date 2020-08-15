@@ -39,10 +39,9 @@
             <p>Má tá sliocht sa tseanlitriú de dhíth ort, bain feidhm as an sliocht thíos.</p>
             <br />
             <!-- The textarea for entering words to be sent to the API -->
-            <div class="textbox">
                 <form id="IGform">
-                    <textarea id="select-this" rows="10" style="width: 99%; font-size: 130%;" id="sourcetext" name="teacs" wrap="virtual"></textarea>
-                    <br />
+                    <div class="textbox">
+                        <textarea id="select-this" spellcheck="false" rows="10" style="width: 99%; font-size: 130%;" id="sourcetext" name="teacs"></textarea></div>
                     <input type="submit" class="button" value="Tiontaigh an téacs" style="padding: 16px;" />
                     <button id="reset" class="button">Glan</button>
                 </form>
@@ -51,14 +50,10 @@
                 <!-- The results of the conversion are displayed here -->
                 <br />
                 <div id="output"></div>
-
+            
                 <!-- An extract in old spelling that can be used as a sample text in the textarea above -->
                 <div class="sliocht" id="sliocht" style="margin-bottom: 10px;">
-                    <p id="p1">
-                        D'amharc Séamus Frobisher ar an bhaicle bheag agus tháinig léaródh tobann tuigse chuige le linn an amhairc sin. Chonnaic sé an dá chailín seo a bhí i mbláth a n-óige agus a ndeagh-chóirighthe agus iad crom anuas os
-                        cionn an phioctúra sin na saighead nimhe ar nós mac léighinn a bhéadh ag éisteacht le léigheacht. Agus an fear a bhí ag tabhairt na léigheachta uaidh, go binn-bhriathrach, bhí sé go díbhirceach ar thóir
-                        dhún-mharbhthóra, agus baramhail aige, b'fhéidir, san am chéadna, gur chailín de'n bheirt seo a bheadh shíos leis an tóir.
-                    </p>
+                    <p id="p1">D'amharc Séamus Frobisher ar an bhaicle bheag agus tháinig léaródh tobann tuigse chuige le linn an amhairc sin. Chonnaic sé an dá chailín seo a bhí i mbláth a n-óige agus a ndeagh-chóirighthe agus iad crom anuas os cionn an phioctúra sin na saighead nimhe ar nós mac léighinn a bhéadh ag éisteacht le léigheacht. Agus an fear a bhí ag tabhairt na léigheachta uaidh, go binn-bhriathrach, bhí sé go díbhirceach ar thóir dhún-mharbhthóra, agus baramhail aige, b'fhéidir, san am chéadna, gur chailín de'n bheirt seo a bheadh shíos leis an tóir.</p>
                     <br />
                     <p>
                         <em>Sliocht as leathanach 148 de <strong>"Teach na Saighde"</strong> le A. E. W. Mason, arna aistriú go Gaeilge ag Pádraic Mac Giolla Bhríghde, 1936.</em>
@@ -66,7 +61,6 @@
                     <br />
                     <!-- A button to insert the extract into the textarea above -->
                     <button onclick="copyToClipboard('p1')" class="button">Cuir an sliocht isteach sa bhosca téacs</button>
-                </div>
             </div>
 
             <!-- Javascript -->

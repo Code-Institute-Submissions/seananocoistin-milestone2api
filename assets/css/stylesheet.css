@@ -315,21 +315,21 @@ hr {
 .ccontainer{
     justify-content: center;
     text-align: center;
-    width: 60%;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     line-height: 1.5;
     background-color: white;
     padding: 20px;
 }
 .textbox {
-    justify-content: center;
     width: 75%;
     min-width: 300px;
-    margin: auto;
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
     background-color:lightsteelblue;
+    margin: auto;
 }
 
 .title{
