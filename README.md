@@ -190,3 +190,9 @@ The W3C Markup Validator, W3C CSS Validator Service, and JSLint were used to val
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
 [JSLint](https://www.jslint.com/)
+
+While working at the caighdeanaitheoir.html file, the width had to be corrected as the textarea box and the text extract at the bottom were too wide so the width in the CSS had to be changed.
+
+It was discovered that the compiler of the dictionary had used colons as a way to seperate different meanings of a word. There could be two or three meanings separated by colons in sample sentences. The problem was that the JavaScript code used a colon as a way to split samples sentences with the sample sentence to the left of the colon and the meaning to the right of the colon. If there was more than one meaning, the colon after the first meaning meant that the other meaning(s) after it were obliterated and left unseen on the screen. In order to solve this problem, I changed the colons to semi-colons which meant that all meanings can be displayed.
+Here is an example of that problem. In the first instance, the meansings "rathamhail" and "tairbheach" are present but only rathamhail will appear on the screen, due to the presence of the colon after rathamhail. By changing the colon to a semi-colon, the two different meanings now appear. This minor change does not affect the dictionary in any way, it actually ensures that the meanings listed for a sample sentence all appear.
+"“An raibh do thurus éirighthighe?” – “go hiongtach, tá dachad púnt dá bharr agam”: rathamhail: tairbheach", had to be changed to "“An raibh do thurus éirighthighe?” – “go hiongtach, tá dachad púnt dá bharr agam”: rathamhail; tairbheach",
