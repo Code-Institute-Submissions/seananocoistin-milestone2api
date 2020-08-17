@@ -211,3 +211,8 @@ I tested the website on the computer screen and on a mobile telephone. I used Ch
 
 The creator of the API, [Kevin Scannell](http://www.cadhan.com/), sent me messages that the API server was under pressure from the amount of requests that were being sent from this website. It is nothing that I have control over but it seems to be an issue.
 
+## Deployment
+
+I am deploying the website on two sites. For the purposes of the Code Institute, it is deployed on Github. !This is the site that is to be assessed for the coding course.!
+
+For the general public and future development, I created the website www.focla.ie. Focla will be the same as the files as are deployed in the Github site but extra words will be added to it over time. It is not to be used for Code Institute assessment. It is to make the project available to the public.
