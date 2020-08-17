@@ -282,7 +282,7 @@ let wordArray = [
         "Iadhta le feóil: an-bheathuighthe"]
     },
     {
-        word: "inneall: (ineall, inneal)",
+        word: "inneall (ineall, inneal)",
         grammar: "firinscneach - an chéad díchlaonadh",
         definition: "gaiste, gléas ceárdaidheachta, iomchar, imtheacht, meón",
         examples: ["Inneall bainte féir: sás iarainn chuige sin",
@@ -646,164 +646,156 @@ let wordArray = [
 ];
 
 function cardClick(){
-	let cards = document.querySelectorAll('#item')
-	cards.forEach(card=>{
-		card.onclick=function(event){
-			
-			event.stopPropagation()
-			console.log('ok')
-			this.classList.toggle('item')
-			this.classList.toggle('item_hover')
-		}
-	})
+    let cards = document.querySelectorAll("#item")
+    cards.forEach(card=>{
+        card.onclick=function(event){
+            event.stopPropagation()
+            this.classList.toggle("item")
+            this.classList.toggle("item_hover")
+        }
+    })
 }
 
-
-function wordGenerator(array, previous='',all=false){
-	let container = document.querySelector('#wordContainer')
-	container.innerHTML = previous;
-	let rest = [...array]
-	let first10 = rest.splice(0,10)
-	first10.forEach(item=>{
-		let htmlString = "";
-		let mainKey = item.word;
-		htmlString += `<h1 id='word${mainKey}'>` + item.word + "</h1>";
-		htmlString += `<button class='show'>+</button>`;
-		htmlString += "<p>" + item.grammar + "</p>";
-		let lih=''
-		let liArray = item.definition.split(';')
-		liArray.forEach(i=>{
-			lih+=`<p>- ${i}</p>`
-		})
-		htmlString += `<h3 id='definition${mainKey}'>` + lih + "</h3>";
-		let li=''
-		item.examples.forEach(example=>{
-			if(example.split(':').length<2){
-				let [sample,explanation] = example.split('?')
-				sample+='? '
-				li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-			}else{
-				let [sample,explanation] = example.split(':')
-				sample+=': '
-				li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-			}
-		})
-		htmlString += `<ul id='ul${mainKey}'>${li}</ul>`;
-		htmlString+= `<button class="button" id='btn_${mainKey}'>Fill ar an litriú bunaidh</button>`
-		htmlString = '<div class="item">'+htmlString+'</div>'
-		container.innerHTML += htmlString;
-	})
-	document.querySelectorAll('.show').forEach(btn=>{
-		btn.onclick=function(){
-			if(this.innerText=='+'){
-				this.innerText='x'
-			}else{
-				this.innerText='+'
-			}
-			this.parentNode.classList.toggle('item')
-			this.parentNode.classList.toggle('item_hover')
-		}
-	})
-	let showmore = document.querySelector('#showmore')
-	if(array.length){
-		showmore.style.display = 'inline'
-		showmore.onclick = function(){
-			wordGenerator(rest,container.innerHTML)
-			let li = document.querySelectorAll('#wordContainer li')
-			makeLiClickable(li)
-			let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-			makeElemetsClickable(elements)
-			restoreBtns(wordArray)
-		}
-	}else{
-		showmore.style.display = 'none'
-	}
+function wordGenerator(array, previous="",all=false){
+    let container = document.querySelector("#wordContainer")
+    container.innerHTML = previous;
+    let rest = [...array]
+    let first10 = rest.splice(0,10)
+    first10.forEach(item=>{
+        let htmlString = "";
+        let mainKey = item.word;
+        htmlString += `<h1 id="word${mainKey}">` + item.word + "</h1>";
+        htmlString += `<button class="show">+</button>`;
+        htmlString += "<p>" + item.grammar + "</p>";
+        let lih=""
+        let liArray = item.definition.split(";")
+        liArray.forEach(i=>{
+            lih+=`<p>- ${i}</p>`
+        })
+        htmlString += `<h3 id="definition${mainKey}">` + lih + "</h3>";
+        let li=" "
+        item.examples.forEach(example=>{
+            if(example.split(":").length<2){
+                let [sample,explanation] = example.split("?")
+                sample+="? "
+                li+=`<li><span>`+sample+"</span><strong><span>"+explanation+"</span></strong></li>"
+            }else{
+                let [sample,explanation] = example.split(":")
+                sample+=": "
+                li+=`<li><span>`+sample+"</span><strong><span>"+explanation+"</span></strong></li>"
+            }
+        })
+        htmlString += `<ul id="ul${mainKey}">${li}</ul>`;
+        htmlString+= `<button class="button" id="btn_${mainKey}">Fill ar an litriú bunaidh</button>`
+        htmlString = "<div class='item'>"+htmlString+"</div>"
+        container.innerHTML += htmlString;
+    })
+    document.querySelectorAll(".show").forEach(btn=>{
+        btn.onclick=function(){
+            if(this.innerText=="+"){
+                this.innerText="x"
+            }else{
+                this.innerText="+"
+            }
+            this.parentNode.classList.toggle("item")
+            this.parentNode.classList.toggle("item_hover")
+        }
+    })
+    let showmore = document.querySelector("#showmore")
+    if(array.length){
+        showmore.style.display = "inline"
+        showmore.onclick = function(){
+            wordGenerator(rest,container.innerHTML)
+            let li = document.querySelectorAll("#wordContainer li")
+            makeLiClickable(li)
+            let elements = document.querySelectorAll("#wordContainer h3,#wordContainer h1")
+            makeElemetsClickable(elements)
+            restoreBtns(wordArray)
+        }
+    }else{
+        showmore.style.display = "none"
+    }
 }
 wordGenerator(wordArray)
 function restoreBtns(arr){
-	document.querySelectorAll('button[id^="btn_"]').forEach(btn=>{
-		btn.onclick = function(){
-			let id = this.id.split('_')[1]
-			let word = document.querySelector('#word'+id)
-			word.innerHTML = id
-			word.style.color= 'black';
-			let definition = document.querySelector('#definition'+id)
-			let lih=''
-			let liArray = arr.find(item=>item.word == id).definition.split(';')
-			liArray.forEach(i=>{
-				lih+=`<p>- ${i}</p>`
+    document.querySelectorAll("button[id^='btn_']").forEach(btn=>{
+        btn.onclick = function(){
+            let id = this.id.split("_")[1]
+            let word = document.querySelector("#word"+id)
+            word.innerHTML = id
+            word.style.color= "black";
+            let definition = document.querySelector("#definition"+id)
+            let lih=""
+            let liArray = arr.find(item=>item.word == id).definition.split(";")
+            liArray.forEach(i=>{
+                lih+=`<p>- ${i}</p>`
+            })
+                definition.innerHTML = lih;
+            definition.style.color= "black";
+            let li=""
+            arr.find(item=>item.word == id).examples.forEach(example=>{
+                if(example.split(":").length<2){
+                    let [sample,explanation] = example.split("?")
+                    sample+="? "
+                    li+=`<li><span>`+sample+"</span><strong><span>"+explanation+"</span></strong></li>"
+                }else{
+                    let [sample,explanation] = example.split(":")
+                    sample+=": "
+                    li+=`<li><span>`+sample+"</span><strong><span>"+explanation+"</span></strong></li>"
+            }
 			})
-				definition.innerHTML = lih;
-			//
-			definition.style.color= 'black';
-			let li=''
-			arr.find(item=>item.word == id).examples.forEach(example=>{
-				if(example.split(':').length<2){
-					let [sample,explanation] = example.split('?')
-					sample+='? '
-					li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-				}else{
-					let [sample,explanation] = example.split(':')
-					sample+=': '
-					li+=`<li><span>`+sample+'</span><strong><span>'+explanation+'</span></strong></li>'
-				}
-				
-			})
-			document.querySelector('#ul'+id).innerHTML = li
-			let lis = document.querySelectorAll('li')
-			makeLiClickable(lis)
-		}
-	})
+            document.querySelector("#ul"+id).innerHTML = li
+            let lis = document.querySelectorAll("li")
+            makeLiClickable(lis)
+        }
+    })
 }
 restoreBtns(wordArray)
 
-let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
+let elements = document.querySelectorAll("#wordContainer h3,#wordContainer h1")
 function makeElemetsClickable(elem){
-	elem.forEach(i=>
-		i.addEventListener('click',function(){
-			let value = this.innerText
-			let cur = this
-			console.log(value)
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-
-					let res = JSON.parse(this.responseText);
-
-					let signs = [':',',','.','!','?']
-					let innerText = res.reduce((text,i)=>{
-						if(signs.includes(i[1])){
-							text += i[1]+' '
-						}else{
-							text += ' '+i[1]
-						}
-						return text
-					},'').replace(/\\n/g,'')
-					if (cur.nodeName === 'H3'){
-						let newInnerText = ''
-						innerText.split('- ').forEach(item=>{
-							if(item.length>2){
-								newInnerText+=`<p>- ${item}</p>`
-							}
-						})
-						cur.innerHTML = newInnerText
-					}else{
-						cur.innerHTML = innerText
-					}
-
-					cur.style.color = 'green'
-				}
-			};
-			xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
-			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhttp.setRequestHeader("Accept","application/json");
-			xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
-		})
-	)
+    elem.forEach(i=>
+        i.addEventListener("click",function(){
+            let value = this.innerText
+            let cur = this
+            console.log(value)
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let res = JSON.parse(this.responseText);
+                    let signs = [":",",",".","!","?"]
+                    let innerText = res.reduce((text,i)=>{
+                        if(signs.includes(i[1])){
+                            text += i[1]+" "
+                        }else{
+                            text += " "+i[1]
+                    }
+                        return text
+                    },"").replace(/\\n/g,"")
+                    if (cur.nodeName === "H3"){
+                    let newInnerText = ""
+                        innerText.split("- ").forEach(item=>{
+                            if(item.length>2){
+                                newInnerText+=`<p>- ${item}</p>`
+                        }
+                    })
+                        cur.innerHTML = newInnerText
+                    }else{
+                        cur.innerHTML = innerText
+                    }
+                    cur.style.color = "green"
+                }
+            };
+            xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.setRequestHeader("Accept","application/json");
+            xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
+        })
+    )
 }
 makeElemetsClickable(elements)
 
-let li = document.querySelectorAll('#wordContainer li')
+let li = document.querySelectorAll("#wordContainer li")
 function makeLiClickable(li){
 	li.forEach(i=>
 			i.onclick = function(){
@@ -812,32 +804,31 @@ function makeLiClickable(li){
 				var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-
 					let res = JSON.parse(this.responseText);
-					let signs = [':',',','.','!','?',')']; // characters that add a space after them
-					let quotes = ['"','“','”']; // characters that delete a space after them
-          let brackets = ['('];
+					let signs = [":",",",".","!","?",")"]; // characters that add a space after them
+					let quotes = ['"'," ","“","”"];
+          let brackets = ["("];
 					let innerText = res.reduce((text,i)=>{
 						if(signs.includes(i[1])){// if the signs are present, the rule for a space applies to them
-							if(text[text.length-4] == '.'){
-								let newText = text.split('')
+							if(text[text.length-4] == "."){
+								let newText = text.split("")
 								let lastLetter = newText.pop()
 								newText.pop()
 								newText.pop()
-								newText.splice(newText.length-1,0,' ')
-								text = newText.join('')
+								newText.splice(newText.length-1,0," ")
+								text = newText.join("")
 								text+=lastLetter
 								// text += `${i[1]}`
 							}
-							text += i[1]+' '
+							text += i[1]+" "
 							
 						}else if(quotes.includes(i[1])){
 							if(quotes.includes(text[text.length-1])){ // if quotes are present, the following rules apply to them
 								text += ` ${i[1]}`// if yes, space is added
 							}else if(signs.includes(text[text.length-2])){
-								let newText = text.split('')
+								let newText = text.split("")
 								newText.pop()
-								text = newText.join('')
+								text = newText.join("")
 								text += `${i[1]}`
 							}else{
 								text += `${i[1]}` //if not, no space added
@@ -845,122 +836,122 @@ function makeLiClickable(li){
 						}else if(brackets.includes(i[1])){
 							text += ` ${i[1]}`
 						}else{
-							if([...quotes,...brackets].includes(text[text.length-1]) && i[1] != '–'){ // if last character is a quote, no space is added before the character
+							if([...quotes,...brackets].includes(text[text.length-1]) && i[1] != "–"){ // if last character is a quote, no space is added before the character
 								text += i[1]
-							}else if(i[1] == '–'){
-								text += ' '+i[1]+' ' // a space is added
+							}else if(i[1] == "–"){
+								text += " "+i[1]+" " // a space is added
 							}else{
-								text += ' '+i[1] // a space is added
+								text += " "+i[1] // a space is added
 							}
 						}
 
 						return text
-					},'')
-					if(innerText.split(':').length<2){
-						let [sample,explanation] = innerText.split('?')
-						sample+='? ';
-						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+					},"")
+					if(innerText.split(":").length<2){
+						let [sample,explanation] = innerText.split("?")
+						sample+="? ";
+						cur.innerHTML="<span>"+sample+"</span><strong><span>"+explanation.replace("\\n","")+"</span>"
 					}else{
-						let [sample,explanation] = innerText.split(':')
-						sample+=': '
-						cur.innerHTML='<span>'+sample+'</span><strong><span>'+explanation.replace('\\n','')+'</span>'
+						let [sample,explanation] = innerText.split(":")
+						sample+=": "
+						cur.innerHTML="<span>"+sample+"</span><strong><span>"+explanation.replace("\\n","")+"</span>"
 					}
 
-					cur.style.color = 'green'
+					cur.style.color = "green"
 				}
 			};
 		xhttp.open("POST", "https://cadhan.com/api/intergaelic/3.0", true);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhttp.setRequestHeader("Accept","application/json");
-		xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
-		}
-	)
+        xhttp.send("teacs="+encodeURIComponent(value)+"&foinse=ga");
+        }
+    )
 }
 makeLiClickable(li)
 
 
 let abc = Array.from(
-	new Set(
-		wordArray.map(i=>
-			i.word[0].toUpperCase()
-		)
-	)
+    new Set(
+        wordArray.map(i=>
+            i.word[0].toUpperCase()
+        )
+    )
 )
-let filter = document.querySelector('#filter')
+let filter = document.querySelector("#filter")
 abc.forEach(i=>{
-	let button = document.createElement('button')
-	button.innerText = i;
-	button.onclick = function(){
-		let filtered = wordArray.filter(item=>item.word[0].toUpperCase()===i)
-		wordGenerator(filtered)
-		let li = document.querySelectorAll('#wordContainer li')
-		makeLiClickable(li)
-		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElemetsClickable(elements)
-		restoreBtns(filtered)
-	}
-	filter.appendChild(button)
+    let button = document.createElement("button")
+    button.innerText = i;
+    button.onclick = function(){
+        let filtered = wordArray.filter(item=>item.word[0].toUpperCase()===i)
+        wordGenerator(filtered)
+        let li = document.querySelectorAll("#wordContainer li")
+        makeLiClickable(li)
+        let elements = document.querySelectorAll("#wordContainer h3,#wordContainer h1")
+        makeElemetsClickable(elements)
+        restoreBtns(filtered)
+    }
+    filter.appendChild(button)
 })
 
-document.querySelector('#cuardach').oninput = function(){
-	let value = this.value
-	let filtered = wordArray.filter(item=>item.word.toUpperCase().includes(value.toUpperCase()))
-	wordGenerator(filtered)
-	let li = document.querySelectorAll('#wordContainer li')
-	makeLiClickable(li)
-	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElemetsClickable(elements)
-	restoreBtns(filtered)
+document.querySelector("#cuardach").oninput = function(){
+    let value = this.value
+    let filtered = wordArray.filter(item=>item.word.toUpperCase().includes(value.toUpperCase()))
+    wordGenerator(filtered)
+    let li = document.querySelectorAll("#wordContainer li")
+    makeLiClickable(li)
+    let elements = document.querySelectorAll("#wordContainer h3,#wordContainer h1")
+    makeElemetsClickable(elements)
+    restoreBtns(filtered)
 }
 
-document.querySelector('#reset').onclick = function(){
-	wordGenerator(wordArray)
-	let li = document.querySelectorAll('#wordContainer li')
-	makeLiClickable(li)
-	let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-	makeElemetsClickable(elements)
-	restoreBtns(wordArray)
+document.querySelector("#reset").onclick = function(){
+    wordGenerator(wordArray)
+    let li = document.querySelectorAll("#wordContainer li")
+    makeLiClickable(li)
+    let elements = document.querySelectorAll("#wordContainer h3,#wordContainer h1")
+    makeElemetsClickable(elements)
+    restoreBtns(wordArray)
 }
 
 
 let gram = Array.from(
-	new Set(
-		wordArray.map(i=>
-			i.grammar.split(' ')[0].replace(',','')
-		)
-	)
+    new Set(
+        wordArray.map(i=>
+            i.grammar.split(" ")[0].replace(",","")
+        )
+    )
 )
-let gramFilter = document.querySelector('#gramFilter')
-gramFilter.style.display = 'none'
+let gramFilter = document.querySelector("#gramFilter")
+gramFilter.style.display = "none"
 gram.forEach(i=>{
-	let button = document.createElement('button')
-	button.innerText = i;
-	button.onclick = function(){
-		let filtered = wordArray.filter(item=>item.grammar.includes(i))
-		wordGenerator(filtered)
-		let li = document.querySelectorAll('#wordContainer li')
-		makeLiClickable(li)
-		let elements = document.querySelectorAll('#wordContainer h3,#wordContainer h1')
-		makeElemetsClickable(elements)
-		restoreBtns(filtered)
-	}
-	gramFilter.appendChild(button)
+    let button = document.createElement("button")
+    button.innerText = i;
+    button.onclick = function(){
+        let filtered = wordArray.filter(item=>item.grammar.includes(i))
+        wordGenerator(filtered)
+        let li = document.querySelectorAll("#wordContainer li")
+        makeLiClickable(li)
+        let elements = document.querySelectorAll("#wordContainer h3,#wordContainer h1")
+        makeElemetsClickable(elements)
+        restoreBtns(filtered)
+    }
+    gramFilter.appendChild(button)
 })
 
 
-let coverage = document.querySelector('#coverage')
-coverage.classList.add('closedbtn')
+let coverage = document.querySelector("#coverage")
+coverage.classList.add("closedbtn")
 
 coverage.onclick = function(){
-	if(gramFilter.style.display == 'block'){
-		gramFilter.style.display = 'none'
-		coverage.innerText = 'SCAG NA FOCAIL'
-		coverage.classList.toggle('closedbtn')
-		coverage.classList.toggle('openedbtn')
-	}else{
-		gramFilter.style.display = 'block'
-		coverage.innerText = 'FOLAIGH NA CNAIPÍ SEO'
-		coverage.classList.toggle('openedbtn')
-		coverage.classList.toggle('closedbtn')
-	}
+    if(gramFilter.style.display == "block"){
+        gramFilter.style.display = "none"
+        coverage.innerText = "SCAG NA FOCAIL"
+        coverage.classList.toggle("closedbtn")
+        coverage.classList.toggle("openedbtn")
+    }else{
+        gramFilter.style.display = "block"
+        coverage.innerText = "FOLAIGH NA CNAIPÍ SEO"
+        coverage.classList.toggle("openedbtn")
+        coverage.classList.toggle("closedbtn")
+    }
 }
