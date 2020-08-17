@@ -62,6 +62,8 @@ The users are provided with a relatively short information page about the dictio
 ### User actions
 The user is able to use the website in various ways.
 
+(See user stories in the testingimages folder to see the way users can use the website.)
+
 ### FILTERING
 Firstly, the user can select a word the screen upon initial viewing of the website.\
 They can search for a word using the search bar at the top of the index.html file. This search bar works as a filter to find words that contain the letters that the user enters. With each new letter, the choice of words becomes more limited and the desired word or words will be presented.\
