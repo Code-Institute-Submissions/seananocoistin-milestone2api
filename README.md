@@ -201,7 +201,7 @@ Here is an example of that problem. In the first instance, the meansings "ratham
 
 To see this issue illustrated, see the screen shots attached in the testingimages folder. They show the code before and after it was fixed in order to show how if affected the hyphens in the middle of words.
 
-## Width of elements
+### Width of elements
 I tested the website on the computer screen and on a mobile telephone. I used Chrome and DuckDuckGo web browsers to test the website. The width of some elements was incorrect, so I changed the CSS stylesheet. The screenshots from the mobile telephone are found in the testingimages folders.
 
 ### Too much pressure on the API server
